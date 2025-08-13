@@ -1,0 +1,97 @@
+{
+  "dates": [
+    "2025-08-13"
+  ],
+  "series": {
+    "Go": [
+      1
+    ],
+    "C++": [
+      1
+    ],
+    "C#": [
+      1
+    ],
+    "Windows": [
+      1
+    ],
+    "PostgreSQL": [
+      2
+    ],
+    "GitHub": [
+      1
+    ],
+    "TypeScript": [
+      1
+    ],
+    "Cisco": [
+      1
+    ],
+    "Power BI": [
+      3
+    ],
+    "Git": [
+      1
+    ],
+    "Salesforce": [
+      1
+    ],
+    "DevOps": [
+      1
+    ],
+    "Fortinet": [
+      1
+    ],
+    "Kubernetes": [
+      2
+    ],
+    "SQL": [
+      6
+    ],
+    ".NET": [
+      2
+    ],
+    "Linux": [
+      1
+    ],
+    "React": [
+      4
+    ],
+    "AWS": [
+      4
+    ],
+    "Python": [
+      4
+    ],
+    "QA / Testing": [
+      1
+    ],
+    "Ubuntu": [
+      1
+    ],
+    "Bash/Shell": [
+      1
+    ],
+    "Azure": [
+      4
+    ],
+    "Docker": [
+      1
+    ],
+    "Node.js": [
+      1
+    ],
+    "Tailwind CSS": [
+      1
+    ],
+    "Active Directory": [
+      1
+    ],
+    "Microsoft 365": [
+      5
+    ],
+    "SQLite": [
+      1
+    ]
+  }
+}
