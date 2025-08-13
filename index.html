@@ -167,6 +167,52 @@
       });
     }
 
+    /*IS IT HERE?*/
+
+async function drawTimeline() {
+  const res = await fetch('history.json', { cache: 'no-store' });
+  if (!res.ok) return; // history may not exist yet on day 1
+  const data = await res.json();
+
+  const labels = data.dates; // ["2025-08-10", "2025-08-11", ...]
+  const series = data.series; // { "React":[5,4], "Python":[3,3], ... }
+
+  // Build datasets (Chart.js will auto-color if you omit colors)
+  const datasets = Object.entries(series).map(([name, points]) => ({
+    label: name,
+    data: points,
+    fill: false,
+    tension: 0.2
+  }));
+
+  const ctx = document.getElementById('timeline').getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: { labels, datasets },
+    options: {
+      responsive: true,
+      interaction: { mode: 'nearest', intersect: false },
+      plugins: {
+        title: { display: true, text: "Technology demand over time" },
+        legend: { display: true, position: 'bottom' }
+      },
+      scales: {
+        x: { title: { display: true, text: "Date" } },
+        y: { title: { display: true, text: "Mentions per day" }, beginAtZero: true, ticks: { precision: 0 } }
+      }
+    }
+  });
+}
+
+drawTimeline();
+
+
+
+
+
+
+    /*IS IT HERE?*/
+
     async function boot() {
       const topNInput = document.getElementById('topN');
       const reloadBtn = document.getElementById('reload');
