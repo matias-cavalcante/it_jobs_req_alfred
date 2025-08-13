@@ -8,13 +8,17 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
   <style>
     html, body { height: 100%; }
+    #timeline {
+      width: 100% !important;
+    }
   </style>
 </head>
 <body class="min-h-screen bg-gray-50 text-gray-900">
   <main class="max-w-6xl mx-auto p-6 space-y-6">
-    <header class="flex items-center justify-between gap-4">
+    <header class="flex flex-col md:flex-row md:items-center justify-between gap-2">
       <div>
         <h1 class="text-2xl md:text-3xl font-semibold tracking-tight">Tech Demand Dashboard</h1>
+        <p id="lastUpdate" class="text-sm text-gray-600 mt-1"></p>
       </div>
       <div class="flex items-center gap-3">
         <label class="text-sm text-gray-600" for="topN">Top N</label>
@@ -32,13 +36,11 @@
         <h2 class="text-lg font-medium mb-4">Top Technologies (Bar)</h2>
         <canvas id="barChart" height="320"></canvas>
       </div>
+    </section>
 
-      <div class="bg-white rounded-2xl shadow p-4 md:p-6">
-        <h2 class="text-lg font-medium mb-4">Trends over time</h2>
-        <canvas id="timeline" width="100%" height="400"></canvas>
-
-      </div>
-      
+    <section class="bg-white rounded-2xl shadow p-4 md:p-6">
+      <h2 class="text-lg font-medium mb-4">Trends over time</h2>
+      <canvas id="timeline" height="400"></canvas>
     </section>
 
     <section class="bg-white rounded-2xl shadow p-4 md:p-6">
@@ -59,28 +61,34 @@
   </main>
 
   <script>
-    async function loadCounts() {
-      // Try to fetch counts from tech_counts.json (same folder). If it fails, use sample.
+    let donutChart, barChart;
+    let historyData = null;
+
+    async function loadHistory() {
       try {
-        const res = await fetch('tech_counts.json', { cache: 'no-store' });
-        if (!res.ok) throw new Error('Missing counts file');
-        const data = await res.json();
-        if (!data || typeof data !== 'object') throw new Error('Bad JSON');
-        return data; // { label: count, ... }
+        const res = await fetch('history.json', { cache: 'no-store' });
+        if (!res.ok) throw new Error("Can't fetch history.json");
+        historyData = await res.json();
       } catch (e) {
-        // Fallback sample so the page renders
-        return {
-          "Git": 12, "Azure": 9, "Python": 8, "React": 6, "PostgreSQL": 6,
-          "Docker": 5, "Linux": 5, "TypeScript": 4, "Tailwind CSS": 4, "Kubernetes": 3,
-          "Next.js": 3, "Power BI": 3, ".NET": 2, "C#": 2, "JavaScript": 2, "Figma": 2,
-          "MySQL": 2, "Salesforce": 2, "Redis": 1, "MongoDB": 1, "GCP": 1
-        };
+        console.error(e);
+        historyData = null;
       }
+    }
+
+    function getLatestDay() {
+      if (!historyData || !historyData.dates || historyData.dates.length === 0) return null;
+      const len = historyData.dates.length;
+      return {
+        date: historyData.dates[len - 1],
+        counts: Object.fromEntries(
+          Object.entries(historyData.series).map(([tech, values]) => [tech, values[len - 1]])
+        )
+      };
     }
 
     function toSortedArrays(obj, topN) {
       const entries = Object.entries(obj)
-        .filter(([k, v]) => Number.isFinite(v) && v > 0)
+        .filter(([_, v]) => Number.isFinite(v) && v > 0)
         .sort((a, b) => b[1] - a[1])
         .slice(0, topN);
       return {
@@ -90,7 +98,6 @@
     }
 
     function palette(n) {
-      // Pleasant evenly-spaced HSL colors
       const arr = [];
       for (let i = 0; i < n; i++) {
         const hue = Math.round((360 / Math.max(1, n)) * i);
@@ -99,12 +106,8 @@
       return arr;
     }
 
-    let donutChart, barChart;
-
     function renderCharts(labels, values) {
       const colors = palette(values.length);
-
-      // Destroy existing charts on re-render
       if (donutChart) donutChart.destroy();
       if (barChart) barChart.destroy();
 
@@ -167,60 +170,61 @@
       });
     }
 
-    /*IS IT HERE?*/
-
-async function drawTimeline() {
-  const res = await fetch('history.json', { cache: 'no-store' });
-  if (!res.ok) return; // history may not exist yet on day 1
-  const data = await res.json();
-
-  const labels = data.dates; // ["2025-08-10", "2025-08-11", ...]
-  const series = data.series; // { "React":[5,4], "Python":[3,3], ... }
-
-  // Build datasets (Chart.js will auto-color if you omit colors)
-  const datasets = Object.entries(series).map(([name, points]) => ({
-    label: name,
-    data: points,
-    fill: false,
-    tension: 0.2
-  }));
-
-  const ctx = document.getElementById('timeline').getContext('2d');
-  new Chart(ctx, {
-    type: 'line',
-    data: { labels, datasets },
-    options: {
-      responsive: true,
-      interaction: { mode: 'nearest', intersect: false },
-      plugins: {
-        title: { display: true, text: "Technology demand over time" },
-        legend: { display: true, position: 'bottom' }
-      },
-      scales: {
-        x: { title: { display: true, text: "Date" } },
-        y: { title: { display: true, text: "Mentions per day" }, beginAtZero: true, ticks: { precision: 0 } }
-      }
+    function renderLastUpdated(dateStr) {
+      const out = document.getElementById('lastUpdate');
+      if (!out) return;
+      const d = new Date(dateStr);
+      const formatted = d.toLocaleDateString(undefined, { year: '2-digit', month: '2-digit', day: '2-digit' }) +
+                        ', ' +
+                        d.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' });
+      out.textContent = `Last update: ${formatted}`;
     }
-  });
-}
 
-drawTimeline();
+    function drawTimeline() {
+      if (!historyData) return;
 
+      const labels = historyData.dates;
+      const series = historyData.series;
 
+      const datasets = Object.entries(series).map(([name, points]) => ({
+        label: name,
+        data: points,
+        fill: false,
+        tension: 0.2
+      }));
 
-
-
-
-    /*IS IT HERE?*/
+      const ctx = document.getElementById('timeline').getContext('2d');
+      new Chart(ctx, {
+        type: 'line',
+        data: { labels, datasets },
+        options: {
+          responsive: true,
+          interaction: { mode: 'nearest', intersect: false },
+          plugins: {
+            title: { display: true, text: "Technology demand over time" },
+            legend: { display: true, position: 'bottom' }
+          },
+          scales: {
+            x: { title: { display: true, text: "Date" } },
+            y: { title: { display: true, text: "Mentions per day" }, beginAtZero: true, ticks: { precision: 0 } }
+          }
+        }
+      });
+    }
 
     async function boot() {
       const topNInput = document.getElementById('topN');
       const reloadBtn = document.getElementById('reload');
 
-      const data = await loadCounts();
+      await loadHistory();
+      const latest = getLatestDay();
+      if (!latest) return;
+
+      renderLastUpdated(latest.date);
+
       const render = () => {
         const n = Math.max(3, Math.min(30, parseInt(topNInput.value || '15', 10)));
-        const { labels, values } = toSortedArrays(data, n);
+        const { labels, values } = toSortedArrays(latest.counts, n);
         renderCharts(labels, values);
         renderTable(labels, values);
       };
@@ -229,6 +233,7 @@ drawTimeline();
       topNInput.addEventListener('change', render);
 
       render();
+      drawTimeline();
     }
 
     boot();
