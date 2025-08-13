@@ -8,6 +8,8 @@ import requests
 from collections import Counter
 import json, os
 
+from datetime import date
+
 
 LIST_URL   = "https://userapi.alfred.is/api/v1/front-web/jobs"
 DETAIL_URL = "https://userapi.alfred.is/api/v1/front-web/jobs"
@@ -293,13 +295,36 @@ def main():
     for label, count in tech_counter.most_common():
         print(f"{label:<{width}}  {count}")
 
-    # --- save counts to JSON for the dashboard ---
-    counts_dict = dict(tech_counter.most_common())  # keep descending order
-    out_path = "tech_counts.json"
-    with open(out_path, "w", encoding="utf-8") as f:
-        json.dump(counts_dict, f, ensure_ascii=False, indent=2)
-    print(f"\nSaved JSON to: {os.path.abspath(out_path)}")
+    #Update for history.json takes place here
 
+    today_str = str(date.today())  # e.g., "2025-08-13"
+    history_path = "history.json"
+
+    # Load existing history if present
+    if os.path.exists(history_path):
+        with open(history_path, "r", encoding="utf-8") as f:
+            history = json.load(f)
+    else:
+        history = {"dates": [], "series": {}}
+
+    # If today's date already exists, skip writing (or overwrite if you prefer)
+    if today_str in history["dates"]:
+        print("Today’s data already recorded. Skipping update.")
+    else:
+        history["dates"].append(today_str)
+    for label in tech_counter:
+            if label not in history["series"]:
+                history["series"][label] = []
+            history["series"][label].append(tech_counter[label])
+    # Fill other techs with 0 for today if they had no hits today
+    for label in history["series"]:
+        if len(history["series"][label]) < len(history["dates"]):
+            history["series"][label].append(0)
+
+    # Save updated history
+    with open(history_path, "w", encoding="utf-8") as f:
+        json.dump(history, f, ensure_ascii=False, indent=2)
+    print(f"\nSaved updated history to: {os.path.abspath(history_path)}")
 
 if __name__ == "__main__":
     main()
