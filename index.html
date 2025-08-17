@@ -9,7 +9,8 @@
   <link rel="stylesheet" href="style.css" />
 
 </head>
-<body class="min-h-screen bg-gray-50 text-gray-900">
+<body class="min-h-screen bg-gray-900 text-gray-100">
+
   <main class="max-w-6xl mx-auto p-6 space-y-6">
     <header class="flex flex-col md:flex-row md:items-center justify-between gap-2">
       <div>
@@ -20,23 +21,26 @@
       </div>
       <div class="flex items-center gap-3">
         <label class="text-sm text-gray-600" for="topN">Top N</label>
-        <input id="topN" type="number" min="3" max="30" step="1" value="15" class="w-20 rounded-md border-gray-300 px-2 py-1 text-sm" />
+        <input id="topN" type="number" min="3" max="30" step="1" value="15" class="w-20 rounded-md border-gray-200 px-2 py-1 text-sm" />
         <button id="reload" class="rounded-lg bg-black text-white text-sm px-3 py-1.5 shadow hover:opacity-90">Reload</button>
       </div>
     </header>
 
     <section class="grid md:grid-cols-2 gap-6">
-      <div class="bg-white rounded-2xl shadow p-4 md:p-6">
+      <div class="bg-gray-800 bg-opacity-80 backdrop-blur-md rounded-2xl shadow p-4 md:p-6">
+
         <h2 class="text-lg font-medium mb-4">Share of Technologies (Donut)</h2>
         <canvas id="donutChart" height="320"></canvas>
       </div>
-      <div class="bg-white rounded-2xl shadow p-4 md:p-6">
+      <div class="bg-gray-800 bg-opacity-80 backdrop-blur-md rounded-2xl shadow p-4 md:p-6">
+
         <h2 class="text-lg font-medium mb-4">Top Technologies (Bar)</h2>
         <canvas id="barChart" height="320"></canvas>
       </div>
     </section>
 
-    <section class="bg-white rounded-2xl shadow p-4 md:p-6">
+
+    <section class="bg-gray-800 bg-opacity-80 backdrop-blur-md rounded-2xl shadow p-4 md:p-6">
       <h2 class="text-lg font-medium mb-4">Trends over time</h2>
       <canvas id="timeline" height="400"></canvas>
     </section>
