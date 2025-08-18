@@ -6,3 +6,12 @@
   #timeline {
     width: 100% !important;
   }
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #0f0f0f, #1a1a1a, #000000);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  color: white;
+}
