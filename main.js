@@ -13,7 +13,7 @@ async function loadHistory() {
 }
 
 function getLatestDay() {
-  if (!historyData || !historyData.dates || historyData.dates.length === 0) return null;
+  if (!historyData?.dates?.length) return null;
   const len = historyData.dates.length;
   return {
     counts: Object.fromEntries(
@@ -23,32 +23,43 @@ function getLatestDay() {
 }
 
 function toSortedArrays(obj, topN) {
-  const entries = Object.entries(obj)
-    .filter(([_, v]) => Number.isFinite(v) && v > 0)
+  return Object.entries(obj)
+    .filter(([, v]) => Number.isFinite(v) && v > 0)
     .sort((a, b) => b[1] - a[1])
-    .slice(0, topN);
-  return {
-    labels: entries.map(e => e[0]),
-    values: entries.map(e => e[1])
-  };
+    .slice(0, topN)
+    .reduce((acc, [k, v]) => {
+      acc.labels.push(k);
+      acc.values.push(v);
+      return acc;
+    }, { labels: [], values: [] });
 }
 
 function palette(n) {
-  const arr = [];
-  for (let i = 0; i < n; i++) {
-    const hue = Math.round((360 / Math.max(1, n)) * i);
-    arr.push(`hsl(${hue} 70% 55%)`);
-  }
-  return arr;
+  return Array.from({ length: n }, (_, i) => `hsl(${Math.round(360 / Math.max(1, n) * i)} 70% 55%)`);
 }
+
+// Global chart defaults
+Chart.defaults.color = '#fff';
+Chart.defaults.plugins.legend.labels.color = '#fff';
+Chart.defaults.plugins.tooltip.bodyColor = '#fff';
+Chart.defaults.plugins.title.color = '#fff';
+Chart.defaults.scales = {
+  x: {
+    ticks: { color: '#fff' },
+    title: { color: '#fff' }
+  },
+  y: {
+    ticks: { color: '#fff' },
+    title: { color: '#fff' }
+  }
+};
 
 function renderCharts(labels, values) {
   const colors = palette(values.length);
-  if (donutChart) donutChart.destroy();
-  if (barChart) barChart.destroy();
+  donutChart?.destroy();
+  barChart?.destroy();
 
-  const donutCtx = document.getElementById('donutChart');
-  donutChart = new Chart(donutCtx, {
+  donutChart = new Chart(document.getElementById('donutChart'), {
     type: 'doughnut',
     data: {
       labels,
@@ -67,8 +78,7 @@ function renderCharts(labels, values) {
     }
   });
 
-  const barCtx = document.getElementById('barChart');
-  barChart = new Chart(barCtx, {
+  barChart = new Chart(document.getElementById('barChart'), {
     type: 'bar',
     data: {
       labels,
@@ -76,9 +86,6 @@ function renderCharts(labels, values) {
     },
     options: {
       indexAxis: 'y',
-      scales: {
-        x: { beginAtZero: true, ticks: { precision: 0 } }
-      },
       plugins: {
         legend: { display: false },
         tooltip: {
@@ -94,18 +101,16 @@ function renderCharts(labels, values) {
 function drawTimeline() {
   if (!historyData) return;
 
-  const labels = historyData.dates;
-  const series = historyData.series;
+  const { dates: labels, series } = historyData;
 
-  const datasets = Object.entries(series).map(([name, points]) => ({
-    label: name,
-    data: points,
+  const datasets = Object.entries(series).map(([label, data]) => ({
+    label,
+    data,
     fill: false,
     tension: 0.2
   }));
 
-  const ctx = document.getElementById('timeline').getContext('2d');
-  new Chart(ctx, {
+  new Chart(document.getElementById('timeline').getContext('2d'), {
     type: 'line',
     data: { labels, datasets },
     options: {
@@ -126,16 +131,13 @@ function drawTimeline() {
 function showApproxLastUpdated() {
   const now = new Date();
   const update = new Date();
-  update.setUTCHours(8, 10, 0, 0); // 08:10 UTC today
+  update.setUTCHours(8, 10, 0, 0); // expected update time (08:10 UTC)
 
-  if (now < update) {
-    update.setUTCDate(update.getUTCDate() - 1);
-  }
+  if (now < update) update.setUTCDate(update.getUTCDate() - 1);
 
-  const diffMs = now - update;
-  const diffHrs = Math.floor(diffMs / 3600000);
-
-  document.getElementById("lastUpdated").textContent = `Updated about ${diffHrs} hour${diffHrs !== 1 ? 's' : ''} ago`;
+  const diffHours = Math.floor((now - update) / 3600000);
+  document.getElementById("lastUpdated").textContent =
+    `Updated about ${diffHours} hour${diffHours !== 1 ? 's' : ''} ago`;
 }
 
 async function boot() {
@@ -162,3 +164,4 @@ async function boot() {
 }
 
 boot();
+
