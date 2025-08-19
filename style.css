@@ -8,10 +8,9 @@
   }
 
 body {
-  min-height: 100vh;
-  background: linear-gradient(to bottom right, #0f0f0f, #1a1a1a, #000000);
+  background: linear-gradient(to right, #121111 0%, #140130 60%, #0f0f0f 90%);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  color: white;
 }
+
