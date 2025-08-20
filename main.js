@@ -67,18 +67,29 @@ donutChart = new Chart(document.getElementById('donutChart'), {
   },
   options: {
     responsive: true,
-    maintainAspectRatio: false,   // <── stop vertical growth
+    maintainAspectRatio: false,
     cutout: '60%',
     plugins: {
-      legend: { position: 'right' },
+      legend: {
+        position: 'right',
+        labels: {
+          padding: 20,   // space between legend items
+        }
+      },
       tooltip: {
         callbacks: {
           label: (ctx) => `${ctx.label}: ${ctx.parsed}`
         }
       }
+    },
+    layout: {
+      padding: {
+        right: 40   // extra space between donut and legend
+      }
     }
   }
 });
+
 }
 
 function drawTimeline() {
