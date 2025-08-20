@@ -136,7 +136,7 @@ function showApproxLastUpdated() {
 
 async function boot() {
   const topNInput = document.getElementById('topN');
-  const reloadBtn = document.getElementById('reload');
+  const topNValue = document.getElementById('topNValue');
 
   await loadHistory();
   const latest = getLatestDay();
@@ -145,17 +145,18 @@ async function boot() {
   showApproxLastUpdated();
 
   const render = () => {
-    const n = Math.max(3, Math.min(30, parseInt(topNInput.value || '15', 10)));
+    const n = Math.max(3, Math.min(30, parseInt(topNInput.value || '5', 10)));
+    topNValue.textContent = n; // update text next to slider
     const { labels, values } = toSortedArrays(latest.counts, n);
     renderCharts(labels, values);
   };
 
-  reloadBtn.addEventListener('click', render);
-  topNInput.addEventListener('change', render);
+  topNInput.addEventListener('input', render); // slider updates live
 
-  render();
-  drawTimeline();
+  render();        // initial render
+  drawTimeline();  // render line chart
 }
+
 
 boot();
 
