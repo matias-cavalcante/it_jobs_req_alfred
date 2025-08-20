@@ -59,43 +59,26 @@ function renderCharts(labels, values) {
   donutChart?.destroy();
   barChart?.destroy();
 
-  donutChart = new Chart(document.getElementById('donutChart'), {
-    type: 'doughnut',
-    data: {
-      labels,
-      datasets: [{ data: values, backgroundColor: colors, borderWidth: 0 }]
-    },
-    options: {
-      cutout: '60%',
-      plugins: {
-        legend: { position: 'right' },
-        tooltip: {
-          callbacks: {
-            label: (ctx) => `${ctx.label}: ${ctx.parsed}`
-          }
+donutChart = new Chart(document.getElementById('donutChart'), {
+  type: 'doughnut',
+  data: {
+    labels,
+    datasets: [{ data: values, backgroundColor: colors, borderWidth: 0 }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,   // <── stop vertical growth
+    cutout: '60%',
+    plugins: {
+      legend: { position: 'right' },
+      tooltip: {
+        callbacks: {
+          label: (ctx) => `${ctx.label}: ${ctx.parsed}`
         }
       }
     }
-  });
-
-  barChart = new Chart(document.getElementById('barChart'), {
-    type: 'bar',
-    data: {
-      labels,
-      datasets: [{ label: 'Count', data: values }]
-    },
-    options: {
-      indexAxis: 'y',
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          callbacks: {
-            label: (ctx) => `${ctx.parsed.x}`
-          }
-        }
-      }
-    }
-  });
+  }
+});
 }
 
 function drawTimeline() {
