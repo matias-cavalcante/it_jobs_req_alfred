@@ -73,7 +73,11 @@ donutChart = new Chart(document.getElementById('donutChart'), {
       legend: {
         position: 'right',
         labels: {
-          padding: 20,   // space between legend items
+          padding: 15,   // space between legend items
+           usePointStyle: true,   // instead of rectangles
+        pointStyle: 'circle',  // make them dots
+        boxWidth: 8,           // smaller, cleaner
+        boxHeight: 8
         }
       },
       tooltip: {
