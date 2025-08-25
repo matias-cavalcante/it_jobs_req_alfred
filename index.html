@@ -26,32 +26,32 @@
 
         <!-- DONUT CARD -->
         <section class="grid grid-cols-1">
-            <div class="bg-gray-800 bg-opacity-80 backdrop-blur-md rounded-2xl shadow p-4 md:p-6 text-white">
-                <h2 class="text-lg font-medium mb-4">Share of Technologies</h2>
+    <div class="bg-gray-800 bg-opacity-80 backdrop-blur-md rounded-2xl shadow p-4 md:p-6 text-white">
+        <h2 class="text-lg font-medium mb-4">Share of Technologies</h2>
 
-                <!-- Donut + legend/slider layout -->
-                <div class="mx-auto w-full max-w-[1100px] grid grid-cols-1 md:grid-cols-2 items-center gap-8">
+        <!-- Donut + legend/slider layout -->
+        <div class="mx-auto w-full max-w-[1100px] grid grid-cols-1 md:grid-cols-2 items-center gap-6">
 
-                    <!-- Donut (fixed size) -->
-                    <div class="w-full max-w-[500px] mx-auto">
-                        <canvas id="donutChart" class="w-full h-full"></canvas>
-                    </div>
+            <!-- Donut (smaller fixed size: 380px instead of responsive max-w) -->
+            <div class="w-[380px] h-[380px] mx-auto">
+                <canvas id="donutChart" class="w-full h-full"></canvas>
+            </div>
 
-                    <!-- Right column: legend + slider -->
-                    <div class="flex flex-col items-start w-full">
-                        <!-- Legend container: JS will inject legend items -->
-                        <div id="donutLegend" class="flex flex-wrap gap-4"></div>
+            <!-- Right column: legend + slider -->
+            <div class="flex flex-col items-start w-full">
+                <!-- Legend container: JS will inject legend items -->
+                <div id="donutLegend" class="flex flex-wrap gap-4"></div>
 
-                        <!-- Slider beneath legend -->
-                        <div class="mt-6 flex items-center gap-3 w-full">
-                            <label for="topN" class="text-sm text-gray-400">Top</label>
-                            <input id="topN" type="range" min="3" max="30" step="1" value="15" class="flex-1 accent-blue-500" />
-                            <span id="topNValue" class="text-sm font-medium">15</span>
-                        </div>
-                    </div>
+                <!-- Slider beneath legend (reduced margin: mt-6 → mt-4) -->
+                <div class="mt-4 flex items-center gap-3 w-full">
+                    <label for="topN" class="text-sm text-gray-400">Top</label>
+                    <input id="topN" type="range" min="3" max="30" step="1" value="15" class="flex-1 accent-blue-500" />
+                    <span id="topNValue" class="text-sm font-medium">15</span>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
         <!-- TIMELINE CARD -->
         <section class="bg-gray-800 bg-opacity-80 backdrop-blur-md rounded-2xl shadow p-4 md:p-6">
