@@ -45,11 +45,12 @@ function updateLegend(labels, colors) {
     
     labels.forEach((label, index) => {
         const legendItem = document.createElement('div');
-        legendItem.className = 'flex items-center gap-2';
+        legendItem.className = 'flex items-center gap-1';
         
         legendItem.innerHTML = `
-            <span class="w-4 h-4 rounded-full" style="background-color: ${colors[index]}"></span>
-            <span>${label}</span>
+            <span class="w-3 h-3 rounded-full" style="background-color: ${colors[index]}"></span>
+            <span class="text-sm">${label}</span>
+             
         `;
         
         legendContainer.appendChild(legendItem);
