@@ -48,7 +48,7 @@ function updateLegend(labels, colors) {
         legendItem.className = 'flex items-center gap-1';
         
         legendItem.innerHTML = `
-            <span class="w-3 h-3 rounded-full" style="background-color: ${colors[index]}"></span>
+            <span class="w-2 h-2 rounded-full" style="background-color: ${colors[index]}"></span>
             <span class="text-sm">${label}</span>
              
         `;
