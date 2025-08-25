@@ -110,12 +110,11 @@ function drawTimeline() {
             responsive: true,
             interaction: { mode: 'nearest', intersect: false },
             plugins: {
-                title: { display: true, text: "Technology demand over time" },
                 legend: { display: true, position: 'bottom' }
             },
             scales: {
                 x: { title: { display: true, text: "Date" } },
-                y: { title: { display: true, text: "Mentions per day" }, beginAtZero: true, ticks: { precision: 0 } }
+                y: { title: { display: true, text: "Mentions per day" }, beginAtZero: true,  suggestedMax:12,  ticks: { precision: 0 } }
             }
         }
     });
