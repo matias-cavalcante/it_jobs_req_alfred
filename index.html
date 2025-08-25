@@ -15,14 +15,16 @@
 
         <!-- HEADER -->
         <header class="flex flex-col md:flex-row md:items-center justify-between gap-2">
-            <div>
-                <h1 class="text-2xl md:text-3xl font-semibold tracking-tight">
-                    TECH WANTED IN THE ICELANDIC IT MARKET
-                </h1>
-                <h3>Data based on jobs posted on Alfred</h3>
-                <p id="lastUpdated" class="text-sm text-gray-500 mt-1"></p>
-            </div>
-        </header>
+    <div class="w-full"> <!-- Added w-full here -->
+        <h1 class="text-2xl md:text-3xl font-semibold tracking-tight">
+            TECH WANTED IN THE ICELANDIC IT MARKET
+        </h1>
+        <div class="flex justify-between items-center w-full mt-1">
+            <h3 class="text-sm md:text-base">Data based on jobs posted on Alfred</h3>
+            <p id="lastUpdated" class="text-sm text-gray-500"></p>
+        </div>
+    </div>
+</header>
 
         <!-- DONUT CARD -->
         <section class="grid grid-cols-1">
