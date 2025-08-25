@@ -1,58 +1,66 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>IT requirements on Alfred, Icelandic jobs site</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>IT requirements on Alfred, Icelandic jobs site</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body class="text-white">
-  <main class="max-w-6xl mx-auto p-6 space-y-6">
+    <main class="max-w-6xl mx-auto p-6 space-y-6">
 
-    <!-- HEADER -->
-    <header class="flex flex-col md:flex-row md:items-center justify-between gap-2">
-      <div>
-        <h1 class="text-2xl md:text-3xl font-semibold tracking-tight">
-          TECH WANTED IN THE ICELANDIC IT MARKET
-        </h1>
-        <h3>Data based on jobs posted on Alfred</h3>
-        <p id="lastUpdated" class="text-sm text-gray-500 mt-1"></p>
-      </div>
-    </header>
+        <!-- HEADER -->
+        <header class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+            <div>
+                <h1 class="text-2xl md:text-3xl font-semibold tracking-tight">
+                    TECH WANTED IN THE ICELANDIC IT MARKET
+                </h1>
+                <h3>Data based on jobs posted on Alfred</h3>
+                <p id="lastUpdated" class="text-sm text-gray-500 mt-1"></p>
+            </div>
+        </header>
 
-    <!-- DONUT CARD -->
-    <section class="grid grid-cols-1">
-      <div class="bg-gray-800 bg-opacity-80 backdrop-blur-md rounded-2xl shadow p-4 md:p-6 text-white">
-  <h2 class="text-lg font-medium mb-4">Share of Technologies</h2>
+        <!-- DONUT CARD -->
+        <section class="grid grid-cols-1">
+            <div class="bg-gray-800 bg-opacity-80 backdrop-blur-md rounded-2xl shadow p-4 md:p-6 text-white">
+                <h2 class="text-lg font-medium mb-4">Share of Technologies</h2>
 
-  <!-- donut + legend -->
-  <div class="flex justify-center" style="height:300px; width:100%;">
-    <canvas id="donutChart"></canvas>
-  </div>
+                <!-- Donut + legend/slider layout -->
+                <div class="mx-auto w-full max-w-[1100px] grid grid-cols-1 md:grid-cols-2 items-center gap-8">
 
-  <!-- slider control (aligned right, under legend) -->
-  <div class="flex justify-end mt-4">
-    <div class="flex items-center gap-2">
-      <label for="topN" class="text-sm text-gray-400">Top</label>
-      <input id="topN" type="range" min="3" max="30" step="1" value="5" 
-             class="w-40 accent-blue-500" />
-      <span id="topNValue" class="text-sm font-medium text-gray-300">5</span>
-    </div>
-  </div>
-</div>
+                    <!-- Donut (fixed size) -->
+                    <div class="w-full max-w-[500px] mx-auto">
+                        <canvas id="donutChart" class="w-full h-full"></canvas>
+                    </div>
 
-    </section>
+                    <!-- Right column: legend + slider -->
+                    <div class="flex flex-col items-start w-full">
+                        <!-- Legend container: JS will inject legend items -->
+                        <div id="donutLegend" class="flex flex-wrap gap-4"></div>
 
-    <!-- TIMELINE CARD -->
-    <section class="bg-gray-800 bg-opacity-80 backdrop-blur-md rounded-2xl shadow p-4 md:p-6">
-      <h2 class="text-lg font-medium mb-4">Trends over time</h2>
-      <canvas id="timeline" height="400"></canvas>
-    </section>
-  </main>
+                        <!-- Slider beneath legend -->
+                        <div class="mt-6 flex items-center gap-3 w-full">
+                            <label for="topN" class="text-sm text-gray-400">Top</label>
+                            <input id="topN" type="range" min="3" max="30" step="1" value="15" class="flex-1 accent-blue-500" />
+                            <span id="topNValue" class="text-sm font-medium">15</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <script src="main.js"></script>
+        <!-- TIMELINE CARD -->
+        <section class="bg-gray-800 bg-opacity-80 backdrop-blur-md rounded-2xl shadow p-4 md:p-6">
+            <h2 class="text-lg font-medium mb-4">Trends over time</h2>
+            <canvas id="timeline" height="400"></canvas>
+        </section>
+    </main>
+
+    <script src="main.js"></script>
 </body>
+
 </html>
