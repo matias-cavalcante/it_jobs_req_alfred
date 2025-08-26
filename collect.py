@@ -24,30 +24,30 @@ DETAIL_SLEEP = 0.06
 #    Keep it small and explicit.
 # ------------------------------
 TECH_TERMS = {
-    # Web / JS
+     # Web / JS
     "React":        ["react", "reactjs", "react.js"],
     "Next.js":      ["nextjs", "next.js"],
     "Vue.js":       ["vue", "vuejs", "vue.js"],
     "Angular":      ["angular"],
-    "JavaScript":   ["javascript", "js"],     # keep 'js' but boundary-protected
+    "JavaScript":   ["javascript", "js"],     
     "TypeScript":   ["typescript", "type script"],
 
-    # Back-end / languages
+    # Back-end / Languages
     "Node.js":      ["node", "nodejs", "node.js"],
     "Python":       ["python"],
     "Django":       ["django"],
     "Flask":        ["flask"],
     "FastAPI":      ["fastapi"],
-    ".NET":         [".net", "dotnet"],       # split from C#
-    "C#":           ["c#"],                   # separate label now
+    ".NET":         [".net", "dotnet"],       
+    "C#":           ["c#"],                   
     "Java":         ["java"],
     "PHP":          ["php"],
+    "Laravel":      ["laravel"],
     "Ruby":         ["ruby"],
-    # Unify under one label: match 'Golang' (case-insensitive) or exact 'Go' (case-sensitive)
     "Go":           ["golang", "Go"],
     "C++":          ["c++", "cpp"],
 
-    # Databases
+    # Databases / Data Storage
     "PostgreSQL":   ["postgres", "postgresql"],
     "MySQL":        ["mysql"],
     "SQL":          ["sql"],
@@ -55,43 +55,44 @@ TECH_TERMS = {
     "Redis":        ["redis"],
     "SQLite":       ["sqlite"],
 
-    # DevOps / Cloud / OS
-    "Docker":       ["docker"],
-    "Kubernetes":   ["kubernetes", "k8s"],
-    "AWS":          ["aws"],
-    "Azure":        ["azure"],
-    "GCP":          ["gcp"],
-    "Linux":        ["linux"],
-    "Windows":      ["windows"],
-    "macOS":        ["macos", "mac os"],
-    "Bash/Shell":   ["bash", "shell"],
-    "CI/CD":        ["ci/cd", "cicd", "continuous integration", "continuous deployment"],
-    "DevOps":       ["devops", "dev-ops"],
-    "QA / Testing": ["qa", "testing", "test automation"],
-    "Ubuntu":       ["ubuntu"],
+    # Data & Analytics / Enterprise Tools
+    "Power BI":          ["power bi", "powerbi"],
+    "Salesforce":        ["salesforce"],
+    "Microsoft 365":     ["microsoft 365", "office 365", "microsoft365"],
+    "Active Directory":  ["active directory", "ad"],
 
-    # Web basics / tools
+    # DevOps / Cloud / OS
+    "Docker":        ["docker"],
+    "Kubernetes":    ["kubernetes", "k8s"],
+    "AWS":           ["aws"],
+    "Azure":         ["azure"],
+    "GCP":           ["gcp"],
+    "Linux":         ["linux"],
+    "Windows":       ["windows"],
+    "macOS":         ["macos", "mac os"],
+    "Bash/Shell":    ["bash", "shell"],
+    "CI/CD":         ["ci/cd", "cicd", "continuous integration", "continuous deployment"],
+    "DevOps":        ["devops", "dev-ops"],
+    "QA / Testing":  ["qa", "testing", "test automation"],
+    "Ubuntu":        ["ubuntu"],
+
+    # Web Basics / Tools
     "HTML":         ["html"],
     "CSS":          ["css"],
     "Sass/SCSS":    ["sass", "scss"],
     "Git":          ["git"],
     "Tailwind CSS": ["tailwind", "tailwindcss"],
     "GitHub":       ["github"],
+    "Bootstrap":    ["bootstrap"],
 
     # Design
     "Figma":              ["figma"],
     "Adobe Photoshop":    ["photoshop"],
     "Adobe Illustrator":  ["illustrator"],
 
-    # Networking
+    # Networking / Security
     "Cisco":        ["cisco"],
-
-    # Other common terms
-    "Salesforce":        ["salesforce"],
-    "Microsoft 365":     ["microsoft 365", "office 365", "microsoft365"],
-    "Power BI":          ["power bi", "powerbi"],
-    "Fortinet":          ["fortinet"],
-    "Active Directory":  ["active directory", "ad"],
+    "Fortinet":     ["fortinet"],
 }
 
 # Suppress child techs when a parent is also found — per job only

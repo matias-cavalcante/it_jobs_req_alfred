@@ -104,6 +104,10 @@ function drawTimeline() {
          borderWidth: 1,
          pointRadius: 3,
          pointBorderWidth: 0, // ← Remove point borders
+         pointHoverRadius: 6, 
+         pointHoverBackgroundColor: '#fff', // White on hover
+        pointHoverBorderWidth: 2,
+        pointHoverBorderColor: 'context' // Uses line color
     }));
 
     new Chart(document.getElementById('timeline').getContext('2d'), {
@@ -131,7 +135,7 @@ function drawTimeline() {
                 y: { title: { display: true, text: "Mentions per day" }, beginAtZero: true,  suggestedMax:12,  ticks: { precision: 0 },
             grid: {
                         color: 'rgba(255, 255, 255, 0.1)' // Lighter grid lines for x-axis
-                    } }
+                    } }, 
             }
         }
     });
