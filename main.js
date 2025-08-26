@@ -101,7 +101,8 @@ function drawTimeline() {
         data,
         fill: false,
         tension: 0.3,
-         borderWidth: 1
+         borderWidth: 1,
+         pointRadius: 3
     }));
 
     new Chart(document.getElementById('timeline').getContext('2d'), {
