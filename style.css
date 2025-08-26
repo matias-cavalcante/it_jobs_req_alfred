@@ -8,9 +8,6 @@
   }
 
 body {
-  background: linear-gradient(to right, #222020 0%, #0f0207 60%, #0f0f0f 90%);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
+background-color: #000000;
 }
 
