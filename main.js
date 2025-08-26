@@ -102,7 +102,8 @@ function drawTimeline() {
         fill: false,
         tension: 0.3,
          borderWidth: 1,
-         pointRadius: 3
+         pointRadius: 3,
+         pointBorderWidth: 0, // ← Remove point borders
     }));
 
     new Chart(document.getElementById('timeline').getContext('2d'), {
@@ -112,10 +113,18 @@ function drawTimeline() {
             responsive: true,
             interaction: { mode: 'nearest', intersect: false },
             plugins: {
-                legend: { display: true, position: 'bottom' }
+                legend: { display: true, position: 'bottom',
+                    labels: {
+                        usePointStyle: true, // ← This changes rectangles to circles
+                        pointStyle: 'circle', // ← Explicitly set to circle
+                         boxWidth: 6.5,    // ← Smaller circle size
+                        boxHeight: 6.5,   // ← Smaller circle size
+                        padding: 15 // ← Optional: add some spacing
+                    }
+                }
             },
             scales: {
-                x: { title: { display: true, text: "Date" },
+                x: { title: { display: true, text: "Total days counted" },
             grid: {
                         color: 'rgba(255, 255, 255, 0.1)' // Lighter grid lines for x-axis
                     }},
