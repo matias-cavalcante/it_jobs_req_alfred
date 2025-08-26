@@ -114,8 +114,14 @@ function drawTimeline() {
                 legend: { display: true, position: 'bottom' }
             },
             scales: {
-                x: { title: { display: true, text: "Date" } },
-                y: { title: { display: true, text: "Mentions per day" }, beginAtZero: true,  suggestedMax:12,  ticks: { precision: 0 } }
+                x: { title: { display: true, text: "Date" },
+            grid: {
+                        color: 'rgba(255, 255, 255, 0.1)' // Lighter grid lines for x-axis
+                    }},
+                y: { title: { display: true, text: "Mentions per day" }, beginAtZero: true,  suggestedMax:12,  ticks: { precision: 0 },
+            grid: {
+                        color: 'rgba(255, 255, 255, 0.1)' // Lighter grid lines for x-axis
+                    } }
             }
         }
     });
