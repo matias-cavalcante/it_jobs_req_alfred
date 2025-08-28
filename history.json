@@ -14,10 +14,12 @@
     "2025-08-24",
     "2025-08-25",
     "2025-08-26",
-    "2025-08-27"
+    "2025-08-27",
+    "2025-08-28"
   ],
   "series": {
     "Go": [
+      1,
       1,
       1,
       1,
@@ -53,6 +55,7 @@
       1,
       1,
       1,
+      1,
       1
     ],
     "C#": [
@@ -68,6 +71,7 @@
       1,
       2,
       2,
+      3,
       3,
       3,
       3,
@@ -89,10 +93,12 @@
       0,
       0,
       0,
+      0,
       0
     ],
     "PostgreSQL": [
       2,
+      1,
       1,
       1,
       1,
@@ -127,6 +133,7 @@
       3,
       3,
       2,
+      2,
       2
     ],
     "TypeScript": [
@@ -140,6 +147,7 @@
       0,
       1,
       1,
+      2,
       2,
       2,
       2,
@@ -161,6 +169,7 @@
       0,
       0,
       0,
+      0,
       0
     ],
     "Power BI": [
@@ -176,6 +185,7 @@
       1,
       1,
       1,
+      0,
       0,
       0,
       0
@@ -197,6 +207,7 @@
       2,
       2,
       1,
+      1,
       1
     ],
     "Salesforce": [
@@ -214,6 +225,7 @@
       1,
       1,
       1,
+      0,
       0
     ],
     "DevOps": [
@@ -233,6 +245,7 @@
       7,
       6,
       5,
+      6,
       6
     ],
     "Fortinet": [
@@ -247,6 +260,7 @@
       1,
       1,
       1,
+      0,
       0,
       0,
       0,
@@ -269,6 +283,7 @@
       5,
       5,
       4,
+      4,
       4
     ],
     "SQL": [
@@ -288,6 +303,7 @@
       3,
       3,
       4,
+      4,
       4
     ],
     ".NET": [
@@ -303,6 +319,7 @@
       3,
       3,
       4,
+      5,
       5,
       5,
       5,
@@ -324,6 +341,7 @@
       1,
       1,
       0,
+      0,
       0
     ],
     "React": [
@@ -343,6 +361,7 @@
       3,
       3,
       3,
+      3,
       3
     ],
     "AWS": [
@@ -355,6 +374,7 @@
       4,
       3,
       2,
+      3,
       3,
       3,
       3,
@@ -381,6 +401,7 @@
       4,
       4,
       4,
+      4,
       4
     ],
     "QA / Testing": [
@@ -400,6 +421,7 @@
       3,
       2,
       1,
+      1,
       1
     ],
     "Ubuntu": [
@@ -417,6 +439,7 @@
       1,
       1,
       0,
+      0,
       0
     ],
     "Bash/Shell": [
@@ -433,6 +456,7 @@
       1,
       1,
       1,
+      0,
       0,
       0
     ],
@@ -453,6 +477,7 @@
       8,
       8,
       7,
+      7,
       7
     ],
     "Docker": [
@@ -468,6 +493,7 @@
       2,
       2,
       2,
+      3,
       3,
       3,
       3,
@@ -489,9 +515,11 @@
       0,
       0,
       0,
+      0,
       0
     ],
     "Tailwind CSS": [
+      1,
       1,
       1,
       1,
@@ -523,6 +551,7 @@
       0,
       0,
       0,
+      0,
       0
     ],
     "Microsoft 365": [
@@ -542,9 +571,11 @@
       1,
       1,
       1,
+      1,
       1
     ],
     "SQLite": [
+      1,
       1,
       1,
       1,
@@ -578,6 +609,7 @@
       1,
       1,
       1,
+      1,
       1
     ],
     "Java": [
@@ -595,6 +627,7 @@
       1,
       1,
       0,
+      0,
       0
     ],
     "Next.js": [
@@ -607,17 +640,81 @@
       1,
       0,
       1,
+      0,
+      1,
       0
     ]
   },
-   "categories": {
-    "Web (Javascript)": ["React", "Next.js", "Vue.js", "Angular", "JavaScript", "TypeScript"],
-    "Backend languages": ["Node.js", "Python", "Django", "Flask", "FastAPI", ".NET", "C#", "Java", "PHP", "Laravel", "Ruby", "Go", "C++"],
-    "Databases": ["PostgreSQL", "MySQL", "SQL", "MongoDB", "Redis", "SQLite"],
-    "Data & Analytics": ["Power BI", "Salesforce", "Microsoft 365", "Active Directory"],
-    "DevOps, Cloud & Os": ["Docker", "Kubernetes", "AWS", "Azure", "GCP", "Linux", "Windows", "macOS", "Bash/Shell", "CI/CD", "DevOps", "QA / Testing", "Ubuntu"],
-    "Web (Basic Tools)": ["HTML", "CSS", "Sass/SCSS", "Git", "Tailwind CSS", "GitHub", "Bootstrap"],
-    "Design": ["Figma", "Adobe Photoshop", "Adobe Illustrator"],
-    "Networking & Security": ["Cisco", "Fortinet"]
+  "categories": {
+    "Web (Javascript)": [
+      "React",
+      "Next.js",
+      "Vue.js",
+      "Angular",
+      "JavaScript",
+      "TypeScript"
+    ],
+    "Backend languages": [
+      "Node.js",
+      "Python",
+      "Django",
+      "Flask",
+      "FastAPI",
+      ".NET",
+      "C#",
+      "Java",
+      "PHP",
+      "Laravel",
+      "Ruby",
+      "Go",
+      "C++"
+    ],
+    "Databases": [
+      "PostgreSQL",
+      "MySQL",
+      "SQL",
+      "MongoDB",
+      "Redis",
+      "SQLite"
+    ],
+    "Data & Analytics": [
+      "Power BI",
+      "Salesforce",
+      "Microsoft 365",
+      "Active Directory"
+    ],
+    "DevOps, Cloud & Os": [
+      "Docker",
+      "Kubernetes",
+      "AWS",
+      "Azure",
+      "GCP",
+      "Linux",
+      "Windows",
+      "macOS",
+      "Bash/Shell",
+      "CI/CD",
+      "DevOps",
+      "QA / Testing",
+      "Ubuntu"
+    ],
+    "Web (Basic Tools)": [
+      "HTML",
+      "CSS",
+      "Sass/SCSS",
+      "Git",
+      "Tailwind CSS",
+      "GitHub",
+      "Bootstrap"
+    ],
+    "Design": [
+      "Figma",
+      "Adobe Photoshop",
+      "Adobe Illustrator"
+    ],
+    "Networking & Security": [
+      "Cisco",
+      "Fortinet"
+    ]
   }
 }
