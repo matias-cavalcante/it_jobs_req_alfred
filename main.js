@@ -57,6 +57,9 @@ function updateLegend(labels, colors) {
     });
 }
 
+
+
+
 function renderCharts(labels, values) {
     const colors = palette(values.length);
     
@@ -108,25 +111,19 @@ function drawTimeline() {
         return dailyTotal;
     });
     
-    return {
-         label: categoryName,
+   return {
+    label: categoryName,
     data: categoryData,
     fill: false,
-    tension: 0.1,
-    borderWidth: 3,  // Slightly thicker for better visibility
-    pointRadius: 4,
-    pointHoverRadius: 8,
-    pointBackgroundColor: '#fff',
-    pointBorderColor: 'context',
-    pointBorderWidth: 2,
-    borderColor: `hsl(${Math.random() * 360}, 80%, 60%)`,  // More saturation
-    backgroundColor: `hsla(${Math.random() * 360}, 80%, 60%, 0.1)`,  // Subtle fill
-    // Add shadow effect for depth
-    shadowOffsetX: 0,
-    shadowOffsetY: 2,
-    shadowBlur: 6,
-    shadowColor: 'rgba(0, 0, 0, 0.3)'
-    };
+    tension: 0.2,
+    borderWidth: 1.5,  // Slightly thicker for better visibility
+    pointRadius: 0,    // No points - cleaner look
+    borderColor: `hsl(${Math.random() * 360}, 75%, 60%)`,  // Softer, more elegant colors
+    // Minimal smoothness
+    borderCapStyle: 'round',
+    borderJoinStyle: 'round',
+    cubicInterpolationMode: 'default'
+};
 });
 
     new Chart(document.getElementById('timeline').getContext('2d'), {
