@@ -609,5 +609,15 @@
       1,
       0
     ]
+  },
+   "categories": {
+    "Web_JS": ["React", "Next.js", "Vue.js", "Angular", "JavaScript", "TypeScript"],
+    "Backend_Languages": ["Node.js", "Python", "Django", "Flask", "FastAPI", ".NET", "C#", "Java", "PHP", "Laravel", "Ruby", "Go", "C++"],
+    "Databases_Storage": ["PostgreSQL", "MySQL", "SQL", "MongoDB", "Redis", "SQLite"],
+    "Data_Analytics_Enterprise": ["Power BI", "Salesforce", "Microsoft 365", "Active Directory"],
+    "DevOps_Cloud_OS": ["Docker", "Kubernetes", "AWS", "Azure", "GCP", "Linux", "Windows", "macOS", "Bash/Shell", "CI/CD", "DevOps", "QA / Testing", "Ubuntu"],
+    "Web_Basics_Tools": ["HTML", "CSS", "Sass/SCSS", "Git", "Tailwind CSS", "GitHub", "Bootstrap"],
+    "Design": ["Figma", "Adobe Photoshop", "Adobe Illustrator"],
+    "Networking_Security": ["Cisco", "Fortinet"]
   }
 }
