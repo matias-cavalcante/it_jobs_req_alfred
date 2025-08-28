@@ -96,19 +96,29 @@ function drawTimeline() {
 
     const { dates: labels, series } = historyData;
 
-    const datasets = Object.entries(series).map(([label, data]) => ({
-        label,
-        data,
+    const datasets = Object.entries(historyData.categories).map(([categoryName, techs]) => {
+    // Calculate category data for EACH day
+    const categoryData = historyData.dates.map((_, dayIndex) => {
+        let dailyTotal = 0;
+        techs.forEach(tech => {
+            if (historyData.series[tech] && historyData.series[tech][dayIndex]) {
+                dailyTotal += historyData.series[tech][dayIndex];
+            }
+        });
+        return dailyTotal;
+    });
+    
+    return {
+        label: categoryName,
+        data: categoryData, // ← REAL category data now
         fill: false,
         tension: 0.3,
-         borderWidth: 1,
-         pointRadius: 3,
-         pointBorderWidth: 0, // ← Remove point borders
-         pointHoverRadius: 6, 
-         pointHoverBackgroundColor: '#fff', // White on hover
-        pointHoverBorderWidth: 2,
-        pointHoverBorderColor: 'context' // Uses line color
-    }));
+        borderWidth: 2,
+        pointRadius: 3,
+        pointBorderWidth: 0,
+        borderColor: `hsl(${Math.random() * 360}, 70%, 55%)`
+    };
+});
 
     new Chart(document.getElementById('timeline').getContext('2d'), {
         type: 'line',
