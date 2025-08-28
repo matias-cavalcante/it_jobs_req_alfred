@@ -35,7 +35,30 @@ function toSortedArrays(obj, topN) {
 }
 
 function palette(n) {
-    return Array.from({ length: n }, (_, i) => `hsl(${Math.round(360 / Math.max(1, n) * i)} 70% 55%)`);
+    // Pre-defined highly distinct colors
+    const distinctColors = [
+        '#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA5A5', '#779ECB',
+        '#AEC6CF', '#836953', '#CFCFC4', '#77DD77', '#FFB347',
+        '#B19CD9', '#FF6961', '#CB99C9', '#FDFD96', '#87CEEB',
+        '#F49AC2', '#FFD700', '#C23B22', '#6A5ACD', '#50C878'
+    ];
+    
+    // If we need more colors than pre-defined, use golden ratio method
+    if (n <= distinctColors.length) {
+        return distinctColors.slice(0, n);
+    }
+    
+    // Fallback to algorithmic approach for many colors
+    const goldenRatioConjugate = 0.618033988749895;
+    const colors = distinctColors.slice(); // Start with pre-defined
+    let hue = Math.random();
+    
+    for (let i = distinctColors.length; i < n; i++) {
+        hue = (hue + goldenRatioConjugate) % 1;
+        colors.push(`hsl(${Math.round(hue * 360)}, 75%, 60%)`);
+    }
+    
+    return colors;
 }
 
 // Update legend function
