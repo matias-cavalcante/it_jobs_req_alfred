@@ -109,14 +109,23 @@ function drawTimeline() {
     });
     
     return {
-        label: categoryName,
-        data: categoryData, // ← REAL category data now
-        fill: false,
-        tension: 0.3,
-        borderWidth: 2,
-        pointRadius: 3,
-        pointBorderWidth: 0,
-        borderColor: `hsl(${Math.random() * 360}, 70%, 55%)`
+         label: categoryName,
+    data: categoryData,
+    fill: false,
+    tension: 0.1,
+    borderWidth: 3,  // Slightly thicker for better visibility
+    pointRadius: 4,
+    pointHoverRadius: 8,
+    pointBackgroundColor: '#fff',
+    pointBorderColor: 'context',
+    pointBorderWidth: 2,
+    borderColor: `hsl(${Math.random() * 360}, 80%, 60%)`,  // More saturation
+    backgroundColor: `hsla(${Math.random() * 360}, 80%, 60%, 0.1)`,  // Subtle fill
+    // Add shadow effect for depth
+    shadowOffsetX: 0,
+    shadowOffsetY: 2,
+    shadowBlur: 6,
+    shadowColor: 'rgba(0, 0, 0, 0.3)'
     };
 });
 
