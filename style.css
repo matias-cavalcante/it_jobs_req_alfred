@@ -15,7 +15,7 @@ background-color: #000000;
 .bg-gray-700 button:first-child {
     background: rgba(255, 255, 255, 0.2) !important;
     color: #fff !important;
-    font-weight: 600;
+    font-weight: 400;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 

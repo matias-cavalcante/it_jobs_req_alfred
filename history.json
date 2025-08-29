@@ -701,7 +701,7 @@
     ]
   },
   "categories": {
-    "Web (Javascript)": [
+    "Web/JS": [
       "React",
       "Next.js",
       "Vue.js",
@@ -709,7 +709,7 @@
       "JavaScript",
       "TypeScript"
     ],
-    "Backend languages": [
+    "Backend": [
       "Node.js",
       "Python",
       "Django",
@@ -732,13 +732,13 @@
       "Redis",
       "SQLite"
     ],
-    "Data & Analytics": [
+    "BI Tools": [
       "Power BI",
       "Salesforce",
       "Microsoft 365",
       "Active Directory"
     ],
-    "DevOps, Cloud & Os": [
+    "DevOps/Cloud": [
       "Docker",
       "Kubernetes",
       "AWS",
@@ -753,7 +753,7 @@
       "QA / Testing",
       "Ubuntu"
     ],
-    "Web (Basic Tools)": [
+    "Front Tools": [
       "HTML",
       "CSS",
       "Sass/SCSS",
@@ -767,7 +767,7 @@
       "Adobe Photoshop",
       "Adobe Illustrator"
     ],
-    "Networking & Security": [
+    "Net/Sec": [
       "Cisco",
       "Fortinet"
     ]
