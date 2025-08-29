@@ -11,11 +11,16 @@ body {
 background-color: #000000;
 }
 
+/* Active tab styling */
+.bg-gray-700 button:first-child {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: #fff !important;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
 
-/* Optional: Enhance the glow on hover for interactivity */
-#timeline {
-    filter: 
-        drop-shadow(0 0 2px rgba(255, 255, 255, 0.3))
-        drop-shadow(0 0 4px rgba(255, 255, 255, 0.2))
-        drop-shadow(0 0 6px rgba(255, 255, 255, 0.2));
+/* Hover effects for inactive tabs */
+.bg-gray-700 button:not(:first-child):hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
 }

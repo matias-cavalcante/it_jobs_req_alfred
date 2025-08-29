@@ -149,7 +149,7 @@ function drawTimeline() {
 };
 });
 
-    new Chart(document.getElementById('timeline').getContext('2d'), {
+  new Chart(document.getElementById('timeline').getContext('2d'), {
         type: 'line',
         data: { labels, datasets },
         options: {
@@ -160,10 +160,11 @@ function drawTimeline() {
                     labels: {
                         usePointStyle: true, // ← This changes rectangles to circles
                         pointStyle: 'circle', // ← Explicitly set to circle
-                         boxWidth: 6.5,    // ← Smaller circle size
+                        boxWidth: 6.5,    // ← Smaller circle size
                         boxHeight: 6.5,   // ← Smaller circle size
-                        padding: 15 // ← Optional: add some spacing
-                    }
+                        padding: 15,  // ← Slightly smaller font size   
+                    },                   
+
                 }
             },
             scales: {
@@ -179,6 +180,7 @@ function drawTimeline() {
         }
     });
 }
+
 
 function showApproxLastUpdated() {
     const now = new Date();
