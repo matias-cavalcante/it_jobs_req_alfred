@@ -330,14 +330,38 @@ async function boot() {
         document.getElementById('tab-all')?.addEventListener('click', showAllCategories);
         
         // Individual category tabs - use your actual JSON category keys
-        document.getElementById('tab-backend')?.addEventListener('click', () => {
-            activateTab('tab-backend');
-            showCategory('Backend');
-        });
-        
         document.getElementById('tab-web/js')?.addEventListener('click', () => {
             activateTab('tab-web/js');
             showCategory('Web/JS');
+        });
+
+         document.getElementById('tab-backend')?.addEventListener('click', () => {
+            activateTab('tab-backend');
+            showCategory('Backend');
+        });
+         document.getElementById('tab-databases')?.addEventListener('click', () => {
+            activateTab('tab-databases');
+            showCategory('Databases');
+        });
+         document.getElementById('tab-devops/cloud')?.addEventListener('click', () => {
+            activateTab('tab-devops/cloud');
+            showCategory('DevOps/Cloud');
+        });
+          document.getElementById('tab-bitools')?.addEventListener('click', () => {
+            activateTab('tab-bitools');
+            showCategory('BI Tools');
+        });
+        document.getElementById('tab-design')?.addEventListener('click', () => {
+            activateTab('tab-design');
+            showCategory('Desing'); //Fails cause number of results is 0?
+        });
+        document.getElementById('tab-netsec')?.addEventListener('click', () => {
+            activateTab('tab-netsec');
+            showCategory('Net/Sec'); //Fails cause number of results is 0?
+        });
+        document.getElementById('tab-front')?.addEventListener('click', () => {
+            activateTab('tab-front');
+            showCategory('Front Tools'); //Fails cause number of results is 0?
         });
         
         // Add more category handlers as needed...
