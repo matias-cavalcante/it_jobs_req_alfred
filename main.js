@@ -1,5 +1,7 @@
-let donutChart, barChart;
+let donutChart, timelineChart;
 let historyData = null;
+let currentView = 'overview';
+let currentCategory = null;
 
 async function loadHistory() {
     try {
@@ -35,7 +37,6 @@ function toSortedArrays(obj, topN) {
 }
 
 function palette(n) {
-    // Pre-defined highly distinct colors
     const distinctColors = [
         '#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA5A5', '#779ECB',
         '#AEC6CF', '#836953', '#CFCFC4', '#77DD77', '#FFB347',
@@ -43,14 +44,12 @@ function palette(n) {
         '#F49AC2', '#FFD700', '#C23B22', '#6A5ACD', '#50C878'
     ];
     
-    // If we need more colors than pre-defined, use golden ratio method
     if (n <= distinctColors.length) {
         return distinctColors.slice(0, n);
     }
     
-    // Fallback to algorithmic approach for many colors
     const goldenRatioConjugate = 0.618033988749895;
-    const colors = distinctColors.slice(); // Start with pre-defined
+    const colors = distinctColors.slice();
     let hue = Math.random();
     
     for (let i = distinctColors.length; i < n; i++) {
@@ -61,32 +60,23 @@ function palette(n) {
     return colors;
 }
 
-// Update legend function
 function updateLegend(labels, colors) {
     const legendContainer = document.getElementById('donutLegend');
-    legendContainer.innerHTML = ''; // Clear previous legend
+    legendContainer.innerHTML = '';
     
     labels.forEach((label, index) => {
         const legendItem = document.createElement('div');
         legendItem.className = 'flex items-center gap-1';
-        
         legendItem.innerHTML = `
             <span class="w-2 h-2 rounded-full" style="background-color: ${colors[index]}"></span>
             <span class="text-sm">${label}</span>
-             
         `;
-        
         legendContainer.appendChild(legendItem);
     });
 }
 
-
-
-
 function renderCharts(labels, values) {
     const colors = palette(values.length);
-    
-    // Update the legend
     updateLegend(labels, colors);
     
     donutChart?.destroy();
@@ -106,7 +96,7 @@ function renderCharts(labels, values) {
             maintainAspectRatio: false,
             cutout: '60%',
             plugins: {
-                legend: { display: false }, // Built-in legend disabled
+                legend: { display: false },
                 tooltip: {
                     callbacks: {
                         label: (ctx) => `${ctx.label}: ${ctx.parsed}`
@@ -117,75 +107,178 @@ function renderCharts(labels, values) {
     });
 }
 
-function drawTimeline() {
-    if (!historyData) return;
-
-    const { dates: labels, series } = historyData;
-
-    const datasets = Object.entries(historyData.categories).map(([categoryName, techs]) => {
-    // Calculate category data for EACH day
-    const categoryData = historyData.dates.map((_, dayIndex) => {
-        let dailyTotal = 0;
-        techs.forEach(tech => {
-            if (historyData.series[tech] && historyData.series[tech][dayIndex]) {
-                dailyTotal += historyData.series[tech][dayIndex];
-            }
-        });
-        return dailyTotal;
+// Tab activation function
+function activateTab(tabId) {
+    // Remove active style from all tabs
+    document.querySelectorAll('[id^="tab-"]').forEach(tab => {
+        tab.classList.remove('bg-white', 'bg-opacity-15', 'text-white', 'shadow-sm');
+        tab.classList.add('text-gray-300');
     });
     
-   return {
-    label: categoryName,
-    data: categoryData,
-    fill: false,
-    tension: 0.2,
-    borderWidth: 1.5,  // Slightly thicker for better visibility
-    pointRadius: 0,    // No points - cleaner look
-    borderColor: `hsl(${Math.random() * 360}, 75%, 60%)`,  // Softer, more elegant colors
-    // Minimal smoothness
-    borderCapStyle: 'round',
-    borderJoinStyle: 'round',
-    cubicInterpolationMode: 'default'
-};
-});
+    // Add active style to clicked tab
+    const activeTab = document.getElementById(tabId);
+    if (activeTab) {
+        activeTab.classList.add('bg-white', 'bg-opacity-15', 'text-white', 'shadow-sm');
+        activeTab.classList.remove('text-gray-300');
+    }
+}
 
-  new Chart(document.getElementById('timeline').getContext('2d'), {
+// Show technologies within a category
+function showCategory(categoryKey) {
+    currentView = 'detail';
+    currentCategory = categoryKey;
+    
+    if (!historyData?.categories[categoryKey]) {
+        console.error('Category not found:', categoryKey);
+        return;
+    }
+
+    const technologies = historyData.categories[categoryKey];
+    const datasets = technologies.map(tech => {
+        return {
+            label: tech,
+            data: historyData.series[tech] || [],
+            fill: false,
+            tension: 0.2,
+            borderWidth: 2,
+            pointRadius: 3,
+            borderColor: `hsl(${Math.random() * 360}, 75%, 60%)`,
+            borderCapStyle: 'round',
+            borderJoinStyle: 'round'
+        };
+    });
+
+
+    // Destroy and recreate chart
+    if (timelineChart) {
+        timelineChart.destroy();
+    }
+
+    timelineChart = new Chart(document.getElementById('timeline').getContext('2d'), {
         type: 'line',
-        data: { labels, datasets },
+        data: {
+            labels: historyData.dates,
+            datasets: datasets
+        },
         options: {
             responsive: true,
+            maintainAspectRatio: true,
+            aspectRatio:2.5,
             interaction: { mode: 'nearest', intersect: false },
             plugins: {
-                legend: { display: true, position: 'bottom',
+                legend: { 
+                    display: true, 
+                    position: 'bottom',
                     labels: {
-                        usePointStyle: true, // ← This changes rectangles to circles
-                        pointStyle: 'circle', // ← Explicitly set to circle
-                        boxWidth: 6.5,    // ← Smaller circle size
-                        boxHeight: 6.5,   // ← Smaller circle size
-                        padding: 15,  // ← Slightly smaller font size   
-                    },                   
-
+                        usePointStyle: true,
+                        pointStyle: 'circle',
+                        boxWidth: 8,
+                        boxHeight: 8,
+                        padding: 15,
+                        font: { size: 12 }
+                    }
                 }
             },
             scales: {
-                x: { title: { display: true, text: "Total days counted" },
-            grid: {
-                        color: 'rgba(255, 255, 255, 0.1)' // Lighter grid lines for x-axis
-                    }},
-                y: { title: { display: true, text: "Mentions per day" }, beginAtZero: true,  suggestedMax:12,  ticks: { precision: 0 },
-            grid: {
-                        color: 'rgba(255, 255, 255, 0.1)' // Lighter grid lines for x-axis
-                    } }, 
+                x: { 
+                    title: { display: true, text: "Total days counted" },
+                    grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                },
+                y: { 
+                    title: { display: true, text: "Mentions per day" }, 
+                    beginAtZero: true,
+                    suggestedMax: 12,
+                    ticks: { precision: 0 },
+                    grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                }
             }
         }
     });
 }
 
+// Show all categories overview
+function showAllCategories() {
+    currentView = 'overview';
+    currentCategory = null;
+    activateTab('tab-all');
+    drawTimeline();
+}
+
+function drawTimeline() {
+    if (!historyData) return;
+
+    const { dates: labels } = historyData;
+    const datasets = Object.entries(historyData.categories).map(([categoryName, techs]) => {
+        const categoryData = historyData.dates.map((_, dayIndex) => {
+            let dailyTotal = 0;
+            techs.forEach(tech => {
+                if (historyData.series[tech] && historyData.series[tech][dayIndex]) {
+                    dailyTotal += historyData.series[tech][dayIndex];
+                }
+            });
+            return dailyTotal;
+        });
+        
+        return {
+            label: categoryName,
+            data: categoryData,
+            fill: false,
+            tension: 0.2,
+            borderWidth: 1.5,
+            pointRadius: 0,
+            borderColor: `hsl(${Math.random() * 360}, 75%, 60%)`,
+            borderCapStyle: 'round',
+            borderJoinStyle: 'round'
+        };
+    });
+
+    if (timelineChart) {
+        timelineChart.destroy();
+    }
+
+    timelineChart = new Chart(document.getElementById('timeline').getContext('2d'), {
+        type: 'line',
+        data: { labels, datasets },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            aspectRatio:2.5,
+            interaction: { mode: 'nearest', intersect: false },
+            plugins: {
+                legend: { 
+                    display: true, 
+                    position: 'bottom',
+                    labels: {
+                        usePointStyle: true,
+                        pointStyle: 'circle',
+                        boxWidth: 8,
+                        boxHeight: 8,
+                        padding: 15,
+                        font: { size: 12 }
+                    }
+                }
+            },
+            scales: {
+                x: { 
+                    title: { display: true, text: "Total days counted" },
+                    grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                },
+                y: { 
+                    title: { display: true, text: "Mentions per day" }, 
+                    beginAtZero: true,
+                    suggestedMax: 12,
+                    ticks: { precision: 0 },
+                    grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                }
+            }
+        }
+    });
+}
 
 function showApproxLastUpdated() {
     const now = new Date();
     const update = new Date();
-    update.setUTCHours(8, 10, 0, 0); // expected update time (08:10 UTC)
+    update.setUTCHours(8, 10, 0, 0);
 
     if (now < update) update.setUTCDate(update.getUTCDate() - 1);
 
@@ -222,15 +315,34 @@ async function boot() {
 
     const render = () => {
         const n = Math.max(3, Math.min(30, parseInt(topNInput.value || '5', 10)));
-        topNValue.textContent = n; // update text next to slider
+        topNValue.textContent = n;
         const { labels, values } = toSortedArrays(latest.counts, n);
         renderCharts(labels, values);
     };
 
-    topNInput.addEventListener('input', render); // slider updates live
+    topNInput.addEventListener('input', render);
+    render();
+    drawTimeline();
 
-    render(); // initial render
-    drawTimeline(); // render line chart
+    // Add tab click handlers after everything is loaded
+    setTimeout(() => {
+        // All categories tab
+        document.getElementById('tab-all')?.addEventListener('click', showAllCategories);
+        
+        // Individual category tabs - use your actual JSON category keys
+        document.getElementById('tab-backend')?.addEventListener('click', () => {
+            activateTab('tab-backend');
+            showCategory('Backend');
+        });
+        
+        document.getElementById('tab-web/js')?.addEventListener('click', () => {
+            activateTab('tab-web/js');
+            showCategory('Web/JS');
+        });
+        
+        // Add more category handlers as needed...
+        
+    }, 1000);
 }
 
 boot();
