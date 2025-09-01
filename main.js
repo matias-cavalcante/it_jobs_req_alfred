@@ -139,9 +139,10 @@ function showCategory(categoryKey) {
             label: tech,
             data: historyData.series[tech] || [],
             fill: false,
+            fill: false,
             tension: 0.2,
-            borderWidth: 2,
-            pointRadius: 3,
+            borderWidth: 1.5,
+            pointRadius: 0,
             borderColor: `hsl(${Math.random() * 360}, 75%, 60%)`,
             borderCapStyle: 'round',
             borderJoinStyle: 'round'

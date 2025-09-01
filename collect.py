@@ -15,9 +15,8 @@ LIST_URL   = "https://userapi.alfred.is/api/v1/front-web/jobs"
 DETAIL_URL = "https://userapi.alfred.is/api/v1/front-web/jobs"
 HEADERS    = {"User-Agent": "alfred-parser/1.0 (polite)"}
 
-PAGE_SLEEP   = 0.13
-DETAIL_SLEEP = 0.06
-
+PAGE_SLEEP   = 0.11
+DETAIL_SLEEP = 0.05
 # ------------------------------
 # 1) Controlled tech vocabulary
 #    (label -> list of variants)
@@ -313,6 +312,7 @@ def main():
         print("Today’s data already recorded. Skipping update.")
     else:
         history["dates"].append(today_str)
+        
     for label in tech_counter:
             if label not in history["series"]:
                 history["series"][label] = []
