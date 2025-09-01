@@ -35,9 +35,6 @@ jobs:
       - name: Run collector (produces tech_counts.json)
         run: python collect.py
 
-      - name: Update history (writes/updates history.json)
-        run: python update_history.py
-
       - name: Commit and push updated JSON files
         run: |
           git config user.name "github-actions[bot]"
