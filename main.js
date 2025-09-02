@@ -354,7 +354,7 @@ async function boot() {
         });
         document.getElementById('tab-design')?.addEventListener('click', () => {
             activateTab('tab-design');
-            showCategory('Desing'); //Fails cause number of results is 0?
+            showCategory('Design'); //Fails
         });
         document.getElementById('tab-netsec')?.addEventListener('click', () => {
             activateTab('tab-netsec');
