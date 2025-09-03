@@ -7,11 +7,57 @@ async function loadHistory() {
     try {
         const res = await fetch('history.json', { cache: 'no-store' });
         if (!res.ok) throw new Error("Can't fetch history.json");
-        historyData = await res.json();
+        const rawData = await res.json(); // Load the raw new format
+        
+        // PROCESS THE DATA into the old format
+        historyData = processHistoryData(rawData);
+        
+        console.log("Data loaded and processed:", historyData); // For debugging
     } catch (e) {
         console.error(e);
         historyData = null;
     }
+}
+
+// Add this function to process the new JSON format into the old one
+function processHistoryData(rawData) {
+    // 1. Extract all unique dates and sort them
+    const dateKeys = Object.keys(rawData).filter(key => key !== 'categories');
+    const allDates = dateKeys.sort();
+
+    // 2. Get the master list of all technologies we care about FROM THE CATEGORIES
+    const allTechnologies = new Set();
+    if (rawData.categories) {
+        for (const categoryTechs of Object.values(rawData.categories)) {
+            categoryTechs.forEach(tech => allTechnologies.add(tech));
+        }
+    }
+
+    // 3. Initialize the series object with arrays of zeros for every tech
+    const series = {};
+    allTechnologies.forEach(tech => {
+        series[tech] = new Array(allDates.length).fill(0);
+    });
+
+    // 4. Fill in the actual counts from the raw data
+    allDates.forEach((date, dateIndex) => {
+        const daysJobs = rawData[date] || [];
+        
+        daysJobs.forEach(job => {
+            Object.entries(job.technologies).forEach(([tech, count]) => {
+                if (allTechnologies.has(tech)) {
+                    series[tech][dateIndex] += count;
+                }
+            });
+        });
+    });
+
+    // 5. Return the structure that the rest of the code expects
+    return {
+        dates: allDates,
+        series: series,
+        categories: rawData.categories
+    };
 }
 
 function getLatestDay() {
@@ -109,13 +155,11 @@ function renderCharts(labels, values) {
 
 // Tab activation function
 function activateTab(tabId) {
-    // Remove active style from all tabs
     document.querySelectorAll('[id^="tab-"]').forEach(tab => {
         tab.classList.remove('bg-white', 'bg-opacity-15', 'text-white', 'shadow-sm');
         tab.classList.add('text-gray-300');
     });
     
-    // Add active style to clicked tab
     const activeTab = document.getElementById(tabId);
     if (activeTab) {
         activeTab.classList.add('bg-white', 'bg-opacity-15', 'text-white', 'shadow-sm');
@@ -135,10 +179,11 @@ function showCategory(categoryKey) {
 
     const technologies = historyData.categories[categoryKey];
     const datasets = technologies.map(tech => {
+        // Use 0 if data is missing for a technology (shouldn't happen now, but safe)
+        const techData = historyData.series[tech] || new Array(historyData.dates.length).fill(0);
         return {
             label: tech,
-            data: historyData.series[tech] || [],
-            fill: false,
+            data: techData,
             fill: false,
             tension: 0.2,
             borderWidth: 1.5,
@@ -149,8 +194,6 @@ function showCategory(categoryKey) {
         };
     });
 
-
-    // Destroy and recreate chart
     if (timelineChart) {
         timelineChart.destroy();
     }
@@ -164,7 +207,7 @@ function showCategory(categoryKey) {
         options: {
             responsive: true,
             maintainAspectRatio: true,
-            aspectRatio:2.5,
+            aspectRatio: 2.5,
             interaction: { mode: 'nearest', intersect: false },
             plugins: {
                 legend: { 
@@ -213,9 +256,8 @@ function drawTimeline() {
         const categoryData = historyData.dates.map((_, dayIndex) => {
             let dailyTotal = 0;
             techs.forEach(tech => {
-                if (historyData.series[tech] && historyData.series[tech][dayIndex]) {
-                    dailyTotal += historyData.series[tech][dayIndex];
-                }
+                // Now we can safely assume every tech has data for every day
+                dailyTotal += historyData.series[tech][dayIndex];
             });
             return dailyTotal;
         });
@@ -243,7 +285,7 @@ function drawTimeline() {
         options: {
             responsive: true,
             maintainAspectRatio: true,
-            aspectRatio:2.5,
+            aspectRatio: 2.5,
             interaction: { mode: 'nearest', intersect: false },
             plugins: {
                 legend: { 
@@ -327,46 +369,39 @@ async function boot() {
 
     // Add tab click handlers after everything is loaded
     setTimeout(() => {
-        // All categories tab
         document.getElementById('tab-all')?.addEventListener('click', showAllCategories);
-        
-        // Individual category tabs - use your actual JSON category keys
         document.getElementById('tab-web/js')?.addEventListener('click', () => {
             activateTab('tab-web/js');
             showCategory('Web/JS');
         });
-
-         document.getElementById('tab-backend')?.addEventListener('click', () => {
+        document.getElementById('tab-backend')?.addEventListener('click', () => {
             activateTab('tab-backend');
             showCategory('Backend');
         });
-         document.getElementById('tab-databases')?.addEventListener('click', () => {
+        document.getElementById('tab-databases')?.addEventListener('click', () => {
             activateTab('tab-databases');
             showCategory('Databases');
         });
-         document.getElementById('tab-devops/cloud')?.addEventListener('click', () => {
+        document.getElementById('tab-devops/cloud')?.addEventListener('click', () => {
             activateTab('tab-devops/cloud');
             showCategory('DevOps/Cloud');
         });
-          document.getElementById('tab-bitools')?.addEventListener('click', () => {
+        document.getElementById('tab-bitools')?.addEventListener('click', () => {
             activateTab('tab-bitools');
             showCategory('BI Tools');
         });
         document.getElementById('tab-design')?.addEventListener('click', () => {
             activateTab('tab-design');
-            showCategory('Design'); //Fails
+            showCategory('Design');
         });
         document.getElementById('tab-netsec')?.addEventListener('click', () => {
             activateTab('tab-netsec');
-            showCategory('Net/Sec'); //Fails cause number of results is 0?
+            showCategory('Net/Sec');
         });
         document.getElementById('tab-front')?.addEventListener('click', () => {
             activateTab('tab-front');
-            showCategory('Front Tools'); //Fails cause number of results is 0?
+            showCategory('Front Tools');
         });
-        
-        // Add more category handlers as needed...
-        
     }, 1000);
 }
 
