@@ -360,25 +360,77 @@ Chart.defaults.scales = {
     }
 };
 
-async function boot() {
-    const topNInput = document.getElementById('topN');
-    const topNValue = document.getElementById('topNValue');
 
+
+function updateDonutForCategory(categoryKey) {
+    if (!historyData) return;
+    
+    let categoryData = {};
+    const lastDayIndex = historyData.dates.length - 1;
+    
+    if (categoryKey === 'all') {
+        // Show all categories - use existing logic
+        for (const [categoryName, techs] of Object.entries(historyData.categories)) {
+            let dailyTotal = 0;
+            techs.forEach(tech => {
+                dailyTotal += historyData.series[tech][lastDayIndex];
+            });
+            if (dailyTotal > 0) {
+                categoryData[categoryName] = dailyTotal;
+            }
+        }
+    } else {
+        // Show specific category - show technologies within this category
+        const techs = historyData.categories[categoryKey];
+        techs.forEach(tech => {
+            const count = historyData.series[tech][lastDayIndex];
+            if (count > 0) {
+                categoryData[tech] = count;
+            }
+        });
+    }
+    
+    const { labels, values } = toSortedArrays(categoryData, 30);
+    renderCharts(labels, values);
+}
+
+function initDonutTabs() {
+    const tabsContainer = document.getElementById('donutTabs');
+    if (!tabsContainer || !historyData?.categories) return;
+    
+    // Create tab for each category
+    Object.keys(historyData.categories).forEach(category => {
+        const button = document.createElement('button');
+        button.className = 'donut-tab';
+        button.textContent = category;
+        button.dataset.category = category;
+        button.addEventListener('click', function() {
+            // Update active state
+            document.querySelectorAll('.donut-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            this.classList.add('active');
+            
+            // Update chart and legend
+            updateDonutForCategory(category);
+        });
+        tabsContainer.appendChild(button);
+    });
+}
+
+async function boot() {
     await loadHistory();
     const latest = getLatestDay();
     if (!latest) return;
 
     showApproxLastUpdated();
+    initDonutTabs()
 
-    const render = () => {
-        const n = Math.max(3, Math.min(30, parseInt(topNInput.value || '5', 10)));
-        topNValue.textContent = n;
-        const { labels, values } = toSortedArrays(latest.counts, n);
-        renderCharts(labels, values);
-    };
 
-    topNInput.addEventListener('input', render);
-    render();
+    const { labels, values } = toSortedArrays(latest.counts, 20); // Show ample items
+    renderCharts(labels, values);
+
+
     drawTimeline();
 
     // Add tab click handlers after everything is loaded
