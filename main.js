@@ -84,10 +84,10 @@ function toSortedArrays(obj, topN) {
 
 function palette(n) {
     const distinctColors = [
-        '#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA5A5', '#779ECB',
-        '#AEC6CF', '#836953', '#CFCFC4', '#77DD77', '#FFB347',
-        '#B19CD9', '#FF6961', '#CB99C9', '#FDFD96', '#87CEEB',
-        '#F49AC2', '#FFD700', '#C23B22', '#6A5ACD', '#50C878'
+        '#E74C3C', '#2980B9', '#27AE60', '#F39C12', '#8E44AD',
+        '#16A085', '#D35400', '#C0392B', '#2C3E50', '#9B59B6',
+        '#34495E', '#E67E22', '#1ABC9C', '#7D3C98', '#F1C40F',
+        '#2ECC71', '#E84393', '#3498DB', '#D68910', '#A569BD'
     ];
     
     if (n <= distinctColors.length) {
@@ -100,12 +100,12 @@ function palette(n) {
     
     for (let i = distinctColors.length; i < n; i++) {
         hue = (hue + goldenRatioConjugate) % 1;
-        colors.push(`hsl(${Math.round(hue * 360)}, 75%, 60%)`);
+        // More intense: increased saturation to 85%, reduced lightness to 50%
+        colors.push(`hsl(${Math.round(hue * 360)}, 85%, 50%)`);
     }
     
     return colors;
 }
-
 function updateLegend(labels, colors) {
     const legendContainer = document.getElementById('donutLegend');
     legendContainer.innerHTML = '';
@@ -297,7 +297,7 @@ function drawTimeline() {
                         boxWidth: 8,
                         boxHeight: 8,
                         padding: 15,
-                        font: { size: 12 }
+                        font: { size: 12 },
                     }
                 }
             },
