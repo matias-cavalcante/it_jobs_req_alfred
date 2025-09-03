@@ -62,11 +62,25 @@ function processHistoryData(rawData) {
 
 function getLatestDay() {
     if (!historyData?.dates?.length) return null;
-    const len = historyData.dates.length;
+    const lastDayIndex = historyData.dates.length - 1;
+    
+    // REUSE THE LOGIC FROM drawTimeline() to get category totals for the last day
+    const categoryCounts = {};
+    
+    for (const [categoryName, techs] of Object.entries(historyData.categories)) {
+        // This is the exact same calculation done in drawTimeline()
+        let dailyTotal = 0;
+        techs.forEach(tech => {
+            dailyTotal += historyData.series[tech][lastDayIndex];
+        });
+        
+        if (dailyTotal > 0) {
+            categoryCounts[categoryName] = dailyTotal;
+        }
+    }
+    
     return {
-        counts: Object.fromEntries(
-            Object.entries(historyData.series).map(([tech, values]) => [tech, values[len - 1]])
-        )
+        counts: categoryCounts
     };
 }
 
