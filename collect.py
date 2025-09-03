@@ -297,7 +297,8 @@ def main():
 
     #Update for history.json takes place here
 
-    today_str = str(date.today())  # e.g., "2025-08-13"
+    
+    today_str = str(date.today())  # e.g., "2025-09-02"
     history_path = "history.json"
 
     # Load existing history if present
@@ -305,27 +306,55 @@ def main():
         with open(history_path, "r", encoding="utf-8") as f:
             history = json.load(f)
     else:
-        history = {"dates": [], "series": {}}
+        # Initialize with an empty object for dates
+        history = {}
 
-    # If today's date already exists, skip writing (or overwrite if you prefer)
-    if today_str in history["dates"]:
-        print("Today’s data already recorded. Skipping update.")
-    else:
-        history["dates"].append(today_str)
-        
-    for label in tech_counter:
-            if label not in history["series"]:
-                history["series"][label] = []
-            history["series"][label].append(tech_counter[label])
-    # Fill other techs with 0 for today if they had no hits today
-    for label in history["series"]:
-        if len(history["series"][label]) < len(history["dates"]):
-            history["series"][label].append(0)
+    # Check if we've already logged jobs for today
+    if today_str in history:
+        print("Today’s data already recorded in history. Skipping update.")
+        return
 
-    # Save updated history
+    # This list will hold all of today's job entries
+    todays_job_entries = []
+
+    # We need to process all slugs again to build the detailed log.
+    # We already fetched them, but we need the details again for the log.
+    for i, slug in enumerate(slugs, 1):
+        try:
+            job = fetch_job_detail(slug)
+        except Exception as e:
+            print(f"[warn] {slug}: {e}")
+            continue
+
+        if not is_it_job(job):
+            continue
+
+        text = build_text(job)
+        hits = find_tech(text)
+
+        if hits: # Only add jobs that have at least one tech hit
+            company = (job.get("brand") or {}).get("name") or "—"
+            title   = job.get("title") or "—"
+            
+            # Count occurrences of each tech in this specific job
+            job_tech_counter = Counter(hits)
+            
+            # Create the entry for this job
+            job_entry = {
+                "company": company,
+                "title": title,
+                "technologies": dict(job_tech_counter) # Convert Counter to a regular dict
+            }
+            todays_job_entries.append(job_entry)
+
+    # 4. SAVE TODAY'S DATA TO HISTORY
+    history[today_str] = todays_job_entries
+
+    # 5. SAVE THE UPDATED HISTORY
     with open(history_path, "w", encoding="utf-8") as f:
         json.dump(history, f, ensure_ascii=False, indent=2)
     print(f"\nSaved updated history to: {os.path.abspath(history_path)}")
+    print(f"Added {len(todays_job_entries)} jobs for {today_str}.")
 
 if __name__ == "__main__":
     main()
