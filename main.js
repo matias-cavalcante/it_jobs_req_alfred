@@ -136,6 +136,26 @@ function updateLegend(labels, colors) {
 }
 
 function renderCharts(labels, values) {
+
+    const containerElement = document.getElementById('donutContainer');
+    const chartElement = document.getElementById('donutChart');
+    
+    // Remove any message divs that were added (but keep the canvas)
+    const messageDivs = containerElement.querySelectorAll('div:not(#donutChart)');
+    messageDivs.forEach(div => div.remove());
+    
+    // Ensure the canvas is visible (BUT ONLY IF IT EXISTS)
+    if (chartElement) {
+        chartElement.style.display = 'block';
+    } else {
+        // If canvas was destroyed, recreate it
+        const newCanvas = document.createElement('canvas');
+        newCanvas.id = 'donutChart';
+        newCanvas.className = 'w-full h-full';
+        containerElement.appendChild(newCanvas);
+    }
+    
+
     const colors = palette(values.length);
     updateLegend(labels, colors);
     
@@ -380,14 +400,32 @@ function updateDonutForCategory(categoryKey) {
             }
         }
     } else {
+        
         // Show specific category - show technologies within this category
         const techs = historyData.categories[categoryKey];
+        let hasAnyData = false; // Track if we found ANY non-zero values
+        
         techs.forEach(tech => {
-            const count = historyData.series[tech][lastDayIndex];
+            const count = historyData.series[tech][lastDayIndex] || 0; // Ensure it's a number
             if (count > 0) {
                 categoryData[tech] = count;
+                hasAnyData = true; // We found at least one non-zero value
             }
         });
+        
+        // === SIMPLE CHECK: If no data found, show message and return early === //
+        if (!hasAnyData) {
+            const chartElement = document.getElementById('donutContainer');
+            chartElement.innerHTML = `
+                <div class="flex items-center justify-center h-full">
+                    <p class="text-gray-400 text-sm">No matches for ${categoryKey} today</p>
+                </div>
+            `;
+            donutChart?.destroy();
+            donutChart = null;
+            updateLegend([], []);
+            return; // Exit the function early
+        }
     }
     
     const { labels, values } = toSortedArrays(categoryData, 30);
@@ -428,6 +466,8 @@ async function boot() {
 
 
     const { labels, values } = toSortedArrays(latest.counts, 20); // Show ample items
+
+
     renderCharts(labels, values);
 
 
