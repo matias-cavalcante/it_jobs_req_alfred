@@ -212,8 +212,9 @@ function showCategory(categoryKey) {
     }
 
     const technologies = historyData.categories[categoryKey];
-    const datasets = technologies.map(tech => {
-        // Use 0 if data is missing for a technology (shouldn't happen now, but safe)
+    const colors = palette(technologies.length);
+    
+    const datasets = technologies.map((tech, index) => { // Added 'index' parameter here
         const techData = historyData.series[tech] || new Array(historyData.dates.length).fill(0);
         return {
             label: tech,
@@ -222,7 +223,8 @@ function showCategory(categoryKey) {
             tension: 0.2,
             borderWidth: 1.5,
             pointRadius: 0,
-            borderColor: `hsl(${Math.random() * 360}, 75%, 60%)`,
+            borderColor: colors[index], // Use the palette color
+            // REMOVED the duplicate borderColor line: borderColor: `hsl(${Math.random() * 360}, 75%, 60%)`,
             borderCapStyle: 'round',
             borderJoinStyle: 'round'
         };
@@ -286,11 +288,15 @@ function drawTimeline() {
     if (!historyData) return;
 
     const { dates: labels } = historyData;
-    const datasets = Object.entries(historyData.categories).map(([categoryName, techs]) => {
+    const categories = Object.entries(historyData.categories);
+    
+    // Generate colors for all categories using your palette function
+    const colors = palette(categories.length);
+    
+    const datasets = categories.map(([categoryName, techs], index) => {
         const categoryData = historyData.dates.map((_, dayIndex) => {
             let dailyTotal = 0;
             techs.forEach(tech => {
-                // Now we can safely assume every tech has data for every day
                 dailyTotal += historyData.series[tech][dayIndex];
             });
             return dailyTotal;
@@ -303,7 +309,7 @@ function drawTimeline() {
             tension: 0.2,
             borderWidth: 1.5,
             pointRadius: 0,
-            borderColor: `hsl(${Math.random() * 360}, 75%, 60%)`,
+            borderColor: colors[index], // Use color from palette instead of random
             borderCapStyle: 'round',
             borderJoinStyle: 'round'
         };
