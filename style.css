@@ -11,13 +11,7 @@ body {
 background-color: #000000;
 }
 
-/* Active tab styling */
-.bg-gray-700 button:first-child {
-    background: rgba(255, 255, 255, 0.2) !important;
-    color: #fff !important;
-    font-weight: 400;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-}
+
 
 /* Hover effects for inactive tabs */
 .bg-gray-700 button:not(:first-child):hover {

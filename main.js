@@ -504,10 +504,12 @@ async function boot() {
 
 
     drawTimeline();
+    activateTab('tab-all'); // Activate "All Categories" tab by default
 
     // Add tab click handlers after everything is loaded
     setTimeout(() => {
         document.getElementById('tab-all')?.addEventListener('click', showAllCategories);
+
         document.getElementById('tab-web/js')?.addEventListener('click', () => {
             activateTab('tab-web/js');
             showCategory('Web/JS');
