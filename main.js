@@ -432,9 +432,29 @@ function updateDonutForCategory(categoryKey) {
     renderCharts(labels, values);
 }
 
+
+function setActiveTab(activeButton) {
+    document.querySelectorAll('.donut-tab').forEach(tab => {
+        tab.classList.remove('active', 'bg-white', 'bg-opacity-15', 'text-white', 'shadow-sm');
+        tab.classList.add('text-gray-300');
+    });
+    activeButton.classList.add('active', 'bg-white', 'bg-opacity-15', 'text-white', 'shadow-sm');
+    activeButton.classList.remove('text-gray-300');
+}
+
 function initDonutTabs() {
     const tabsContainer = document.getElementById('donutTabs');
     if (!tabsContainer || !historyData?.categories) return;
+
+    const allButton = tabsContainer.querySelector('[data-category="all"]');
+    if (allButton) {
+        allButton.addEventListener('click', function() {
+            setActiveTab(this);
+            updateDonutForCategory('all');
+        });
+    }
+
+    
     
     // Create tab for each category
     Object.keys(historyData.categories).forEach(category => {
