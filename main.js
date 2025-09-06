@@ -458,32 +458,30 @@ function initDonutTabs() {
     const tabsContainer = document.getElementById('donutTabs');
     if (!tabsContainer || !historyData?.categories) return;
 
-    const allButton = tabsContainer.querySelector('[data-category="all"]');
-    if (allButton) {
-        allButton.addEventListener('click', function() {
+    document.querySelectorAll('.donut-tab').forEach(tab => {
+        tab.addEventListener('click', function() {
             setActiveTab(this);
-            updateDonutForCategory('all');
+            updateDonutForCategory(this.dataset.category);
         });
-    }
+    });
+
+
 
     
     
     // Create tab for each category
     Object.keys(historyData.categories).forEach(category => {
+         if (category === "all") return;
         const button = document.createElement('button');
         button.className = 'donut-tab';
         button.textContent = category;
         button.dataset.category = category;
-        button.addEventListener('click', function() {
-            // Update active state
-            document.querySelectorAll('.donut-tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            this.classList.add('active');
-            
-            // Update chart and legend
+         button.addEventListener('click', function() {
+            setActiveTab(this);
             updateDonutForCategory(category);
         });
+
+
         tabsContainer.appendChild(button);
     });
 }

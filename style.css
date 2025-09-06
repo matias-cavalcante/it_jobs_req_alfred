@@ -25,7 +25,6 @@ background-color: #000000;
     border-radius: 9999px;
     font-size: 0.875rem;
     transition: all 0.2s;
-    background-color: rgba(50, 158, 175, 0.1);
     color: rgb(156, 163, 175); /* gray-300 */
 }
 
