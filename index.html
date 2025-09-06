@@ -16,10 +16,10 @@
         <!-- HEADER -->
         <header class="flex flex-col md:flex-row md:items-center justify-between gap-2">
     <div class="w-full"> <!-- Added w-full here -->
-        <h1 class="text-2xl md:text-3xl font-semibold tracking-tight">
+        <h1 id = "main-title" class="text-2xl md:text-3xl font-semibold tracking-tight">
             TECH WANTED IN THE ICELANDIC IT MARKET
         </h1>
-        <div class="flex justify-between items-center w-full mt-1">
+        <div id = "subtext" class="flex justify-between items-center w-full mt-1">
             <h3 class="text-sm md:text-base font-light">Data based on jobs posted on Alfred</h3>
             <p id="lastUpdated" class="text-sm"></p>
         </div>
@@ -36,7 +36,7 @@
                 <div class="mx-auto w-full max-w-[1100px] grid grid-cols-1 md:grid-cols-2 items-center gap-6">
 
                     <!-- Donut (smaller fixed size: 380px instead of responsive max-w) -->
-                    <div id = "donutContainer" class="w-[380px] h-[380px] mx-auto">
+                    <div id = "donutContainer" class="max-w-[380px] max-h-[380px] mx-auto">
                         <canvas id="donutChart" class="w-full h-full"></canvas>
                     </div>
 
@@ -64,37 +64,37 @@
 
             <!-- Add this right below your timeline title -->
 
-            <!-- Replace your existing code with this -->
+            <!-- Replace your existing code with this OBSERVE!!!-->
 <div class="flex justify-center mb-6">
-    <div class="bg-gray-700 bg-opacity-30 backdrop-blur-sm rounded-full p-1 inline-flex space-x-4">
-        <button id="tab-all"class="px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white transition-all">
-            All Categories
-        </button>
-        <button  id = "tab-web/js" class="px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white transition-all">
-            Web/JS
-        </button>
-        <button id = "tab-backend" class="px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white transition-all">
-            Backend
-        </button>
-        <button id = "tab-databases" class="px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white transition-all">
-            Databases
-        </button>
-        <button id = "tab-devops/cloud" class="px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white transition-all">
-            DevOps/Cloud
-        </button>
-        <button id = "tab-bitools" class="px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white transition-all">
-            BI Tools
-        </button>
-        <button id = "tab-design" class="px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white transition-all">
-            Design
-        </button>
-        <button id = "tab-netsec" class="px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white transition-all">
-            Net/Sec
-        </button>
-        <button id = "tab-front" class="px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white transition-all">
-            Front Tools
-        </button>
-    </div>
+   <div class="bg-gray-700 bg-opacity-30 backdrop-blur-sm rounded-full p-1 flex flex-wrap justify-center gap-1 md:gap-2 max-w-full overflow-x-auto">
+    <button id="tab-all" class="tab-button">
+        All Categories
+    </button>
+    <button id="tab-web/js" class="tab-button">
+        Web/JS
+    </button>
+    <button id="tab-backend" class="tab-button">
+        Backend
+    </button>
+    <button id="tab-databases" class="tab-button">
+        Databases
+    </button>
+    <button id="tab-devops/cloud" class="tab-button">
+        DevOps/Cloud
+    </button>
+    <button id="tab-bitools" class="tab-button">
+        BI Tools
+    </button>
+    <button id="tab-design" class="tab-button">
+        Design
+    </button>
+    <button id="tab-netsec" class="tab-button">
+        Net/Sec
+    </button>
+    <button id="tab-front" class="tab-button">
+        Front Tools
+    </button>
+</div>
 </div>
 
             <canvas id="timeline" height="400"></canvas>

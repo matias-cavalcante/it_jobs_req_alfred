@@ -38,3 +38,48 @@ background-color: #000000;
     color: white;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
 }
+
+
+
+
+.tab-button {
+    flex-shrink: 1;
+    min-width: max-content;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgb(209 213 219);
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.tab-button:hover {
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .tab-button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.75rem;
+    }
+
+    #main-title{
+      text-align: center;
+      font-size: 1.8rem;
+    }
+
+    #subtext{
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    #subtext h3{
+      text-align: center;
+      font-size: 0.8rem;
+    }
+    #subtext p{
+      text-align:center ;
+      font-size: 0.8rem ! important;
+    } 
+}
