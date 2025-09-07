@@ -1,7 +1,105 @@
+// ===== GLOBAL STATE =====
+let activeObserver = null; // Track the active observer for cleanup
+
+
+
 let donutChart, timelineChart;
 let historyData = null;
 let currentView = 'overview';
 let currentCategory = null;
+
+// ===== CORE FUNCTION =====
+function manageTabInteractions() {
+    const tabContainer = document.getElementById('tab-container');
+    if (!tabContainer) return;
+    
+    const isMobile = window.matchMedia('(max-width: 767px)').matches;
+    const tabs = tabContainer.querySelectorAll('.tab-button');
+    
+    console.log(`🔄 Switching to ${isMobile ? 'MOBILE' : 'DESKTOP'} mode`);
+
+    // === CLEANUP PHASE ===
+    // 1. Always disconnect previous observer if it exists
+    if (activeObserver) {
+        activeObserver.disconnect();
+        activeObserver = null;
+        console.log('♻️ Disconnected previous observer');
+    }
+    
+    // 2. Remove ALL existing click listeners by cloning buttons
+    tabs.forEach(tab => {
+        tab.replaceWith(tab.cloneNode(true));
+    });
+    
+    // Get fresh references to the cloned buttons
+    const freshTabs = tabContainer.querySelectorAll('.tab-button');
+    
+    // === SETUP PHASE ===
+    if (isMobile) {
+        setupMobileCarousel(tabContainer, freshTabs);
+    } else {
+        setupDesktopClicks(freshTabs);
+    }
+}
+
+// ===== MOBILE SYSTEM =====
+function setupMobileCarousel(container, buttons) {
+    console.log('📱 Setting up mobile carousel observer');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+                const category = entry.target.dataset.category;
+                console.log('🎯 Center triggered:', category);
+                showCategory(category); // Your existing function
+            }
+        });
+    }, {
+        root: container,
+        threshold: 0.5 // 50% of button must be visible
+    });
+    
+    // Start observing all buttons
+    buttons.forEach(button => observer.observe(button));
+    
+    // Store for future cleanup
+    activeObserver = observer;
+}
+
+// ===== DESKTOP SYSTEM =====
+function setupDesktopClicks(buttons) {
+    console.log('💻 Setting up desktop click listeners');
+    
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const category = button.dataset.category;
+            console.log('🖱️ Click triggered:', category);
+            showCategory(category); // Your existing function
+        });
+    });
+}
+
+// ===== INITIALIZATION =====
+// Run on load and resize (with debounce)
+let resizeTimeout;
+function handleResize() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(manageTabInteractions, 250);
+}
+
+// Start the system when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', manageTabInteractions);
+} else {
+    manageTabInteractions();
+}
+
+window.addEventListener('resize', handleResize);
+
+
+
+
+
 
 async function loadHistory() {
     try {
@@ -242,7 +340,7 @@ function showCategory(categoryKey) {
         },
         options: {
             responsive: true,
-            maintainAspectRatio: true,
+            maintainAspectRatio: false,
             aspectRatio: 2.5,
             interaction: { mode: 'nearest', intersect: false },
             plugins: {
@@ -324,7 +422,7 @@ function drawTimeline() {
         data: { labels, datasets },
         options: {
             responsive: true,
-            maintainAspectRatio: true,
+            maintainAspectRatio: false,
             aspectRatio: 2.5,
             interaction: { mode: 'nearest', intersect: false },
             plugins: {
@@ -485,6 +583,7 @@ function initDonutTabs() {
         tabsContainer.appendChild(button);
     });
 }
+
 
 async function boot() {
     await loadHistory();
