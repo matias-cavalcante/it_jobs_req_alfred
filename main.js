@@ -42,6 +42,16 @@ function manageTabInteractions() {
     }
 }
 
+function highlightActiveTab(activeButton) {
+    // 1. Remove 'active' class from ALL tabs
+    document.querySelectorAll('.tab-button').forEach(button => {
+        button.classList.remove('active');
+    });
+    
+    // 2. Add 'active' class to the one that was just activated
+    activeButton.classList.add('active');
+}
+
 // ===== MOBILE SYSTEM =====
 function setupMobileCarousel(container, buttons) {
     console.log('📱 Setting up mobile carousel observer');
@@ -50,6 +60,7 @@ function setupMobileCarousel(container, buttons) {
         entries.forEach(entry => {
             if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
                 const category = entry.target.dataset.category;
+                   highlightActiveTab(entry.target); 
                 console.log('🎯 Center triggered:', category);
                 showCategory(category); // Your existing function
             }
@@ -73,6 +84,7 @@ function setupDesktopClicks(buttons) {
     buttons.forEach(button => {
         button.addEventListener('click', () => {
             const category = button.dataset.category;
+               highlightActiveTab(entry.target); 
             console.log('🖱️ Click triggered:', category);
             showCategory(category); // Your existing function
         });
