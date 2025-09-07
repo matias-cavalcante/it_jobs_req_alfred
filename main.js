@@ -111,9 +111,9 @@ function setupDesktopClicks(buttons) {
     buttons.forEach(button => {
         button.addEventListener('click', () => {
             const category = button.dataset.category;
-               highlightActiveTab(entry.target); 
+            highlightActiveTab(button); // ← FIX: Use 'button' instead of 'entry.target'
             console.log('🖱️ Click triggered:', category);
-            showCategory(category); // Your existing function
+            showCategory(category);
         });
     });
 }
@@ -585,10 +585,8 @@ function updateDonutForCategory(categoryKey) {
 function setActiveTab(activeButton) {
     document.querySelectorAll('.donut-tab').forEach(tab => {
         tab.classList.remove('active', 'bg-white', 'bg-opacity-15', 'text-white', 'shadow-sm');
-        tab.classList.add('text-gray-300');
     });
     activeButton.classList.add('active', 'bg-white', 'bg-opacity-15', 'text-white', 'shadow-sm');
-    activeButton.classList.remove('text-gray-300');
 }
 
 function initDonutTabs() {

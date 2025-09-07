@@ -9,7 +9,9 @@ body {
 background-color: #000000;
 }
 
-
+#donutTabs{
+    margin-top: 13%;
+}
 
 
 /* Hover effects for inactive tabs */
@@ -22,18 +24,19 @@ background-color: #000000;
 .donut-tab {
     padding: 0.25rem 0.75rem;
     border-radius: 9999px;
-    font-size: 0.875rem;
+    font-size: 1rem;
+    font-weight: 300;
     transition: all 0.2s;
-    color: rgb(156, 163, 175); /* gray-300 */
+    color: white
 }
 
 .donut-tab:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgb(115, 7, 61, 0.3);
     color: white;
 }
 
 .donut-tab.active {
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: rgb(115, 7, 61, 0.7);
     color: white;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
 }
