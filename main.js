@@ -54,27 +54,54 @@ function highlightActiveTab(activeButton) {
 
 // ===== MOBILE SYSTEM =====
 function setupMobileCarousel(container, buttons) {
-    console.log('📱 Setting up mobile carousel observer');
+    console.log('📱 Setting up mobile carousel');
     
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
-                const category = entry.target.dataset.category;
-                   highlightActiveTab(entry.target); 
-                console.log('🎯 Center triggered:', category);
-                showCategory(category); // Your existing function
-            }
-        });
-    }, {
-        root: container,
-        threshold: 0.5 // 50% of button must be visible
+    let isScrolling = false;
+    
+    container.addEventListener('scroll', () => {
+        isScrolling = true;
     });
     
-    // Start observing all buttons
-    buttons.forEach(button => observer.observe(button));
+    container.addEventListener('scrollend', () => {
+        isScrolling = false;
+        findAndActivateSnappedButton(container, buttons);
+    });
     
-    // Store for future cleanup
-    activeObserver = observer;
+    // Also check during scroll for smoother UX
+    container.addEventListener('scroll', () => {
+        if (isScrolling) {
+            // Throttle this check to avoid performance issues
+            clearTimeout(container.scrollTimeout);
+            container.scrollTimeout = setTimeout(() => {
+                findAndActivateSnappedButton(container, buttons);
+            }, 10);
+        }
+    });
+}
+
+function findAndActivateSnappedButton(container, buttons) {
+    const containerRect = container.getBoundingClientRect();
+    const containerCenter = containerRect.left + containerRect.width / 2;
+    
+    let snappedButton = null;
+    let minDistance = Infinity;
+    
+    buttons.forEach(button => {
+        const buttonRect = button.getBoundingClientRect();
+        const buttonCenter = buttonRect.left + buttonRect.width / 2;
+        const distance = Math.abs(buttonCenter - containerCenter);
+        
+        if (distance < minDistance) {
+            minDistance = distance;
+            snappedButton = button;
+        }
+    });
+    
+    if (snappedButton && minDistance < containerRect.width * 0.3) {
+        const category = snappedButton.dataset.category;
+        highlightActiveTab(snappedButton);
+        showCategory(category);
+    }
 }
 
 // ===== DESKTOP SYSTEM =====
