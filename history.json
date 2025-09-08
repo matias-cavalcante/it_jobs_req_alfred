@@ -908,5 +908,195 @@
         "AWS": 1
       }
     }
+  ],
+  "2025-09-08": [
+    {
+      "company": "AGR ",
+      "title": "Infrastructure & DevOps Engineer (Security-Oriented)",
+      "technologies": {
+        "Kubernetes": 1,
+        "DevOps": 1,
+        "GitHub": 1,
+        "Azure": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "AGR ",
+      "title": "Quality Assurance (Q.A) Manager",
+      "technologies": {
+        "Kubernetes": 1,
+        "QA / Testing": 1,
+        "DevOps": 1,
+        "GitHub": 1,
+        "Azure": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Bókun / Tripadvisor",
+      "title": "Back-end Software Engineer",
+      "technologies": {
+        "TypeScript": 1,
+        "Tailwind CSS": 1,
+        "Next.js": 1,
+        "React": 1,
+        "MySQL": 1,
+        "Redis": 1,
+        "Java": 1
+      }
+    },
+    {
+      "company": "Helix Health",
+      "title": "Sérfræðingur í kerfisrekstri ",
+      "technologies": {
+        "Kubernetes": 1,
+        "Windows": 1,
+        "GitHub": 1,
+        "Linux": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Bókun / Tripadvisor",
+      "title": "Front-end Software Engineer",
+      "technologies": {
+        "TypeScript": 1,
+        "Tailwind CSS": 1,
+        "Next.js": 1,
+        "React": 1,
+        "MySQL": 1,
+        "Redis": 1,
+        "Java": 1
+      }
+    },
+    {
+      "company": "CCP Games",
+      "title": "AI Engineer Intern",
+      "technologies": {
+        "React": 1
+      }
+    },
+    {
+      "company": "Icelandia",
+      "title": "Kerfisstjóri",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Azure": 1
+      }
+    },
+    {
+      "company": "CCP Games",
+      "title": "UI/UX Designer",
+      "technologies": {
+        "JavaScript": 1,
+        "QA / Testing": 1,
+        "Figma": 1,
+        "HTML": 1,
+        "CSS": 1
+      }
+    },
+    {
+      "company": "Borealis Data Center",
+      "title": "Director of IT",
+      "technologies": {
+        "Microsoft 365": 1,
+        "QA / Testing": 1
+      }
+    },
+    {
+      "company": "Landspítali",
+      "title": "Sérfræðingur í kerfisrekstri í Microsoft-umhverfi",
+      "technologies": {
+        "Active Directory": 1,
+        "Microsoft 365": 1,
+        "Power BI": 1,
+        "Azure": 1
+      }
+    },
+    {
+      "company": "Hafnarfjarðarbær",
+      "title": "Verkefnastjóri tæknilegra umbóta - Þróunar- og tölvudeild",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Azure": 1
+      }
+    },
+    {
+      "company": "Rapyd Europe hf.",
+      "title": "Software Specialist",
+      "technologies": {
+        "DevOps": 1
+      }
+    },
+    {
+      "company": "Sundra ehf.",
+      "title": "Join our Startup as Lead Developer",
+      "technologies": {
+        "Tailwind CSS": 1,
+        "TypeScript": 1,
+        "Laravel": 1,
+        "Python": 1,
+        "GitHub": 1,
+        "MySQL": 1,
+        "Figma": 1,
+        "Vue.js": 1,
+        "PHP": 1,
+        "AWS": 1,
+        "Git": 1
+      }
+    },
+    {
+      "company": "Aurbjörg",
+      "title": "Forritari hjá Aurbjörgu",
+      "technologies": {
+        "TypeScript": 1,
+        "Kubernetes": 1,
+        "Tailwind CSS": 1,
+        "Next.js": 1,
+        "Docker": 1,
+        "DevOps": 1,
+        "React": 1,
+        "Azure": 1,
+        ".NET": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "Motus",
+      "title": "DevOps sérfræðingur / Senior DevOps Engineer",
+      "technologies": {
+        "Kubernetes": 1,
+        "Python": 1,
+        "Docker": 1,
+        "DevOps": 1,
+        "GitHub": 1,
+        "React": 1,
+        "Azure": 1,
+        ".NET": 1,
+        "SQL": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "Meniga",
+      "title": "FullStack Developer (.NET)",
+      "technologies": {
+        "Kubernetes": 1,
+        "QA / Testing": 1,
+        "GitHub": 1,
+        "Azure": 1,
+        ".NET": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "CCP Games",
+      "title": "Distributed Systems Engineer",
+      "technologies": {
+        "Go": 1,
+        "AWS": 1
+      }
+    }
   ]
 }
