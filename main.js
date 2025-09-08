@@ -266,7 +266,7 @@ function updateLegend(labels, colors) {
         legendItem.className = 'flex items-center gap-1';
         legendItem.innerHTML = `
             <span class="w-2 h-2" style="background-color: ${colors[index]}"></span>
-            <span class="text-[0.83rem] tracking-wider">${label}</span>
+            <span class="text-gray-400 text-[0.83rem] tracking-wider">${label}</span>
         `;
         legendContainer.appendChild(legendItem);
     });
