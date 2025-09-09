@@ -358,12 +358,14 @@ function showCategory(categoryKey) {
             data: techData,
             fill: false,
             tension: 0.2,
-            borderWidth: 1.5,
-            pointRadius: 0,
+            borderWidth: 1,
+    
             borderColor: colors[index], // Use the palette color
             // REMOVED the duplicate borderColor line: borderColor: `hsl(${Math.random() * 360}, 75%, 60%)`,
             borderCapStyle: 'round',
-            borderJoinStyle: 'round'
+            borderJoinStyle: 'round',
+              pointRadius: 2.8,               // Adds the points
+        pointHoverRadius: 6,
         };
     });
 
@@ -407,7 +409,7 @@ function showCategory(categoryKey) {
                     beginAtZero: true,
                     suggestedMax: 12,
                     ticks: { precision: 0 },
-                    grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                    grid: { display: false, color: 'rgba(255, 255, 255, 0.1)' }
                 }
             }
         }
