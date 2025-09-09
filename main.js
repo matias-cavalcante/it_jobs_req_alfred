@@ -392,17 +392,18 @@ function showCategory(categoryKey) {
                         boxWidth: 8,
                         boxHeight: 8,
                         padding: 15,
-                        font: { size: 12 }
+                        font: { size: 12 },
+                        
                     }
                 }
             },
             scales: {
                 x: { 
-                    title: { display: true, text: "Total days counted" },
+                    title: { display: false, text: "Total days counted" },
                     grid: { color: 'rgba(255, 255, 255, 0.1)' }
                 },
                 y: { 
-                    title: { display: true, text: "Mentions per day" }, 
+                    title: { display: false}, 
                     beginAtZero: true,
                     suggestedMax: 12,
                     ticks: { precision: 0 },
@@ -444,11 +445,12 @@ function drawTimeline() {
             data: categoryData,
             fill: false,
             tension: 0.2,
-            borderWidth: 1.5,
-            pointRadius: 0,
+            borderWidth: 1,
             borderColor: colors[index], // Use color from palette instead of random
             borderCapStyle: 'round',
-            borderJoinStyle: 'round'
+            borderJoinStyle: 'round',
+             pointRadius: 2.8,               // Adds the points
+        pointHoverRadius: 6,
         };
     });
 
@@ -480,15 +482,19 @@ function drawTimeline() {
             },
             scales: {
                 x: { 
-                    title: { display: true, text: "Total days counted" },
-                    grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                    title: { display: true, text: "Total days counted", align: 'end' },
+                    grid: {lineWidth: 0.1, color: 'rgba(255, 255, 255, 1)'},
+                    beginAtZero:false,
+                    min:1
                 },
                 y: { 
-                    title: { display: true, text: "Mentions per day" }, 
-                    beginAtZero: true,
+                    title: { display: false, text: "Mentions per day" }, 
+                    beginAtZero: false,
+                    min:1,
                     suggestedMax: 12,
-                    ticks: { precision: 0 },
-                    grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                    ticks: { precision: 0 , font: { size: 11}},
+                    
+                    grid: {display:false, color: 'rgba(255, 255, 255, 0.1)' }
                 }
             }
         }
