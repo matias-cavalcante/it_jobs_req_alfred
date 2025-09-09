@@ -366,6 +366,10 @@ function showCategory(categoryKey) {
             borderJoinStyle: 'round',
               pointRadius: 2.8,               // Adds the points
         pointHoverRadius: 6,
+        pointBackgroundColor: colors[index], // Match point color to line color
+        pointHoverBackgroundColor: colors[index],
+        pointBorderColor: colors[index],
+        pointHoverBorderColor: colors[index],
         };
     });
 
@@ -389,10 +393,10 @@ function showCategory(categoryKey) {
                     display: true, 
                     position: 'bottom',
                     labels: {
-                        usePointStyle: true,
+                        usePointStyle: false,
                         pointStyle: 'circle',
-                        boxWidth: 8,
-                        boxHeight: 8,
+                        boxWidth: 20,
+                        boxHeight: 1,
                         padding: 15,
                         font: { size: 12 },
                         
@@ -453,6 +457,10 @@ function drawTimeline() {
             borderJoinStyle: 'round',
              pointRadius: 2.8,               // Adds the points
         pointHoverRadius: 6,
+             pointBackgroundColor: colors[index], // Match point color to line color
+        pointHoverBackgroundColor: colors[index],
+        pointBorderColor: colors[index],
+        pointHoverBorderColor: colors[index],
         };
     });
 
@@ -474,8 +482,8 @@ function drawTimeline() {
                     position: 'bottom',
                     labels: {
                         usePointStyle: false,
-                        pointStyle: 'rect',
-                        boxWidth: 23,
+                        pointStyle: 'circle',
+                        boxWidth: 20,
                         boxHeight: 1,
                         padding: 15,
                         font: { size: 12 },
