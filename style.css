@@ -73,16 +73,7 @@ background-color: #000000;
 
 /* Mobile Layout: Horizontal Scrolling Carousel */
 @media (max-width: 767px) { /* Adjust breakpoint as needed */
-    #tab-container {
-        display: flex;
-        flex-wrap: nowrap;        /* Prevent wrapping */
-        overflow-x: auto;         /* Enable horizontal scroll */
-        scroll-snap-type: x mandatory; /* Enable snap points */
-        -webkit-overflow-scrolling: touch; /* Smooth iOS scrolling */
-        scrollbar-width: none;    /* Hide scrollbar Firefox */
-        gap: 0.5rem;              /* Space between buttons */
-        padding-bottom: 0.5rem;   /* Space for scroll hint */
-    }
+
 
     
     #tab-container::-webkit-scrollbar {
