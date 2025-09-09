@@ -471,10 +471,10 @@ function drawTimeline() {
                     display: true, 
                     position: 'bottom',
                     labels: {
-                        usePointStyle: true,
-                        pointStyle: 'circle',
-                        boxWidth: 8,
-                        boxHeight: 8,
+                        usePointStyle: false,
+                        pointStyle: 'rect',
+                        boxWidth: 23,
+                        boxHeight: 1,
                         padding: 15,
                         font: { size: 12 },
                     }
