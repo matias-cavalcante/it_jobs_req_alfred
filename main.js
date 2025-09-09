@@ -201,13 +201,11 @@ function renderCharts(labels, values) {
 // Tab activation function
 function activateTab(tabId) {
     document.querySelectorAll('[id^="tab-"]').forEach(tab => {
-        tab.classList.remove('bg-white', 'bg-opacity-15', 'text-white', 'shadow-sm');
-        tab.classList.add('text-gray-300');
+        tab.classList.remove('bg-white',  'text-white');
     });
     
     const activeTab = document.getElementById(tabId);
     if (activeTab) {
-        activeTab.classList.add('bg-white', 'bg-opacity-15', 'text-white', 'shadow-sm');
         activeTab.classList.remove('text-gray-300');
     }
 }

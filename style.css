@@ -49,17 +49,26 @@ background-color: #000000;
     min-width: max-content;
     padding: 0.5rem 1rem;
     border-radius: 9999px;
-    font-size: 0.875rem;
-    font-weight: 500;
+    font-size: 1rem;
+    font-weight: 300;
     color: rgb(209 213 219);
     transition: all 0.2s ease;
     white-space: nowrap;
 
-     scroll-snap-align: start;
+    
     flex-shrink: 0; /* Prevents buttons from shrinking */
     /* Ensure you have these for sizing: */
     padding: 0.5rem 1rem; 
     white-space: nowrap;
+}
+
+.tab-button:hover{
+     background-color: rgb(115, 7, 61, 0.3);
+}
+
+.tab-button.active{
+      background-color: rgb(115, 7, 61, 0.7);
+    color: white;
 }
 
 
@@ -88,24 +97,17 @@ background-color: #000000;
     }
 
 
-    .tab-button.active {
-    background: rgba(255, 255, 255, 0.25) !important;
-    color: white !important;
-    font-weight: 600;
 }
 
 
     
-}
 
-.tab-button:hover {
-    color: white;
-}
+
 
 @media (max-width: 768px) {
     .tab-button {
         padding: 0.4rem 0.8rem;
-        font-size: 0.75rem;
+        font-size: 1rem;
     }
 
     #main-title{
