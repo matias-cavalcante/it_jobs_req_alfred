@@ -198,17 +198,7 @@ function renderCharts(labels, values) {
     });
 }
 
-// Tab activation function
-function activateTab(tabId) {
-    document.querySelectorAll('[id^="tab-"]').forEach(tab => {
-        tab.classList.remove('bg-white',  'text-white');
-    });
-    
-    const activeTab = document.getElementById(tabId);
-    if (activeTab) {
-        activeTab.classList.remove('text-gray-300');
-    }
-}
+
 
 // Show technologies within a category
 function showCategory(categoryKey) {
@@ -230,7 +220,7 @@ function showCategory(categoryKey) {
             data: techData,
             fill: false,
             tension: 0.2,
-            borderWidth: 1,
+            borderWidth: 0.9,
     
             borderColor: colors[index], // Use the palette color
             // REMOVED the duplicate borderColor line: borderColor: `hsl(${Math.random() * 360}, 75%, 60%)`,
@@ -292,6 +282,19 @@ function showCategory(categoryKey) {
     });
 }
 
+function activateTab(tabId) {
+    // 1. Remove the 'active' class from all buttons
+    document.querySelectorAll('.tab-button').forEach(tab => {
+        tab.classList.remove('active');
+    });
+    
+    // 2. Add the 'active' class to the clicked button
+    const activeTab = document.getElementById(tabId);
+    if (activeTab) {
+        activeTab.classList.add('active');
+    }
+}
+
 // Show all categories overview
 function showAllCategories() {
     currentView = 'overview';
@@ -323,7 +326,7 @@ function drawTimeline() {
             data: categoryData,
             fill: false,
             tension: 0.2,
-            borderWidth: 1,
+            borderWidth: 0.9,
             borderColor: colors[index], // Use color from palette instead of random
             borderCapStyle: 'round',
             borderJoinStyle: 'round',
