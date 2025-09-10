@@ -179,7 +179,7 @@ function renderCharts(labels, values) {
             datasets: [{ 
                 data: values, 
                 backgroundColor: colors, 
-                borderWidth: 0 
+                borderWidth: 0,
             }]
         },
         options: {
@@ -260,7 +260,9 @@ function showCategory(categoryKey) {
                         boxWidth: 20,
                         boxHeight: 1,
                         padding: 15,
-                        font: { size: 12 },
+                        font: { size: 13.28 },
+                        color: 'rgb(156, 163, 175)'
+                        
                         
                     }
                 }
@@ -361,7 +363,8 @@ function drawTimeline() {
                         boxWidth: 20,
                         boxHeight: 1,
                         padding: 15,
-                        font: { size: 12 },
+                        font: { size: 13.28 },
+                        color: 'rgb(156, 163, 175)'
                     }
                 }
             },
