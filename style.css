@@ -9,9 +9,10 @@ body {
 background-color: #000000;
 }
 
-#donutTabs{
+#donutTabs {
     margin-top: 13%;
 }
+
 
 
 /* Hover effects for inactive tabs */
@@ -96,6 +97,11 @@ background-color: #000000;
         white-space: nowrap;      /* Keep button text on one line */
         /* Your existing button styles remain unchanged */
     }
+
+    #tab-container {
+margin-top: 12%;
+}
+
 
 
 }
