@@ -275,6 +275,7 @@ function showCategory(categoryKey) {
                 y: { 
                     title: { display: false}, 
                     beginAtZero: true,
+                    min:0,
                     suggestedMax: 12,
                     ticks: { precision: 0 },
                     grid: { display: false, color: 'rgba(255, 255, 255, 0.1)' }
@@ -372,13 +373,13 @@ function drawTimeline() {
                 x: { 
                     title: { display: true, text: "Total days counted", align: 'end' },
                     grid: {lineWidth: 0.1, color: 'rgba(255, 255, 255, 1)'},
-                    beginAtZero:false,
-                    min:1
+                    beginAtZero:true,
+                    min:0
                 },
                 y: { 
                     title: { display: false, text: "Mentions per day" }, 
-                    beginAtZero: false,
-                    min:1,
+                    beginAtZero: true,
+                    min:0,
                     suggestedMax: 12,
                     ticks: { precision: 0 , font: { size: 11}},
                     
