@@ -226,7 +226,7 @@ function showCategory(categoryKey) {
             // REMOVED the duplicate borderColor line: borderColor: `hsl(${Math.random() * 360}, 75%, 60%)`,
             borderCapStyle: 'round',
             borderJoinStyle: 'round',
-              pointRadius: 2.8,               // Adds the points
+              pointRadius: 2.4,               // Adds the points
         pointHoverRadius: 6,
         pointBackgroundColor: colors[index], // Match point color to line color
         pointHoverBackgroundColor: colors[index],
@@ -333,7 +333,7 @@ function drawTimeline() {
             borderColor: colors[index], // Use color from palette instead of random
             borderCapStyle: 'round',
             borderJoinStyle: 'round',
-             pointRadius: 2.8,               // Adds the points
+             pointRadius: 2.4,               // Adds the points
         pointHoverRadius: 6,
              pointBackgroundColor: colors[index], // Match point color to line color
         pointHoverBackgroundColor: colors[index],
