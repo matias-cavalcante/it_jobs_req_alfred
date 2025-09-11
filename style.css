@@ -73,11 +73,8 @@ background-color: #000000;
 
 
 /* Default: Desktop Layout (flex with wrapping) */
-.tab-container {
-    display: flex;
-    flex-wrap: wrap; /* Allows buttons to wrap */
-    justify-content: center;
-    gap: 0.5rem;
+#tab-container {
+    margin-top: 4%;
 }
 
 
