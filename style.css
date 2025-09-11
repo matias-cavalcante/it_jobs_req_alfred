@@ -13,6 +13,9 @@ background-color: #000000;
     margin-top: 13%;
 }
 
+.timeline-chart-container{
+    min-height: 300px;
+}
 
 
 /* Hover effects for inactive tabs */
@@ -96,7 +99,7 @@ background-color: #000000;
     }
 
     #tab-container {
-margin-top: 12%;
+margin-top: 8%;
 }
 
 
