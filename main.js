@@ -8,12 +8,6 @@ let currentView = 'overview';
 let currentCategory = null;
 
 
-
-
-
-
-
-
 async function loadHistory() {
     try {
         const res = await fetch('history.json', { cache: 'no-store' });
@@ -252,7 +246,7 @@ function showCategory(categoryKey) {
             interaction: { mode: 'nearest', intersect: false },
             plugins: {
                 legend: { 
-                    display: true, 
+                    display: false, 
                     position: 'bottom',
                     labels: {
                         usePointStyle: false,
@@ -269,7 +263,7 @@ function showCategory(categoryKey) {
             },
             scales: {
                 x: { 
-                    title: { display: false, text: "Total days counted" },
+                    title: { display: true, text: "Total days counted" , align: 'end'},
                     grid: { color: 'rgba(255, 255, 255, 0.1)' }
                 },
                 y: { 
@@ -281,8 +275,12 @@ function showCategory(categoryKey) {
                     grid: { display: false, color: 'rgba(255, 255, 255, 0.1)' }
                 }
             }
+            
+            
         }
     });
+
+    createCustomLegend(timelineChart);
 }
 
 function activateTab(tabId) {
@@ -356,7 +354,7 @@ function drawTimeline() {
             interaction: { mode: 'nearest', intersect: false },
             plugins: {
                 legend: { 
-                    display: true, 
+                    display: false, 
                     position: 'bottom',
                     labels: {
                         usePointStyle: false,
@@ -388,6 +386,78 @@ function drawTimeline() {
             }
         }
     });
+
+    createCustomLegend(timelineChart);
+}
+
+function handleResize() {
+    if (timelineChart) {
+        timelineChart.resize();
+        updateCustomLegend(); // ← Update legends on resize too
+    }
+}
+
+function createCustomLegend(chart) {
+    const legendContainer = document.getElementById('timeline-legend');
+    legendContainer.innerHTML = '';
+    
+    chart.data.datasets.forEach((dataset, i) => {
+        const legendItem = document.createElement('div');
+        legendItem.className = 'legend-item';
+        
+        // Store which dataset this legend item controls
+        legendItem.dataset.index = i;
+        
+        legendItem.innerHTML = `
+            <span class="legend-color" style="background:${dataset.borderColor}"></span>
+            <span>${dataset.label}</span>
+        `;
+        
+        // Add click event to toggle visibility
+        legendItem.addEventListener('click', function() {
+            // Get the dataset index from our data attribute
+            const datasetIndex = parseInt(this.dataset.index);
+            
+            // Toggle visibility of this specific dataset
+            const meta = chart.getDatasetMeta(datasetIndex);
+            meta.hidden = !meta.hidden;
+            
+            // Update the chart to reflect the change
+            chart.update();
+            
+            // Update the legend appearance
+            updateLegendAppearance(chart);
+        });
+        
+        legendContainer.appendChild(legendItem);
+    });
+    
+    // Set initial appearance
+    updateLegendAppearance(chart);
+}
+
+function updateLegendAppearance(chart) {
+    const legendItems = document.querySelectorAll('.legend-item');
+    
+    legendItems.forEach(item => {
+        const datasetIndex = parseInt(item.dataset.index);
+        const meta = chart.getDatasetMeta(datasetIndex);
+        
+        // Update opacity based on visibility
+        if (meta.hidden) {
+            item.style.opacity = '0.5';
+            item.style.textDecoration = 'line-through';
+        } else {
+            item.style.opacity = '1';
+            item.style.textDecoration = 'none';
+        }
+    });
+}
+
+function updateCustomLegend() {
+    if (timelineChart) {
+        createCustomLegend(timelineChart);
+    }
 }
 
 function showApproxLastUpdated() {
