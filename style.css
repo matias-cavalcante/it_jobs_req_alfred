@@ -14,11 +14,7 @@ background-color: #000000;
 }
 
 /* Ensure chart container has fixed height */
-.timeline-chart-container {
-    height: 400px !important;
-    min-height: 400px !important;
-    max-height: 400px !important;
-}
+
 
 /* Style for custom legend */
 #timeline-legend {
@@ -29,23 +25,17 @@ background-color: #000000;
     display: inline-flex;
     align-items: center;
     margin: 0 10px 10px 0;
-    padding: 4px 8px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    font-size: 0.875rem;
+    font-size: 0.83em;
     cursor: pointer;
     transition: all 0.2s ease;
-    border-radius: 8px;
+    color:#9ca3af
 }
 
-.legend-item:hover {
-    background: rgba(255, 255, 255, 0.1);
-}
+
 
 .legend-color {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
+    width: 20px;
+    height: 1px;
     margin-right: 6px;
     flex-shrink: 0;
 }
@@ -112,7 +102,7 @@ background-color: #000000;
 
 /* Default: Desktop Layout (flex with wrapping) */
 #tab-container {
-    margin-top: 4%;
+    margin-top: 2.5%;
 }
 
 
