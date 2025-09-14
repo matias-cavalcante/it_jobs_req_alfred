@@ -1,122 +1,114 @@
 // ===== GLOBAL STATE =====
+const state = {
+    donutChart: null,
+    timelineChart: null,
+    historyData: null,
+    currentView: 'overview',
+    currentCategory: null,
+    isCurrentlyMobile: false,
+    resizeTimeout: null
+};
 
+// ===== CHART CONFIGURATIONS =====
+const chartConfig = {
+    defaults: {
+        color: '#fff',
+        plugins: {
+            legend: {
+                labels: { color: '#fff' }
+            },
+            tooltip: {
+                bodyColor: '#fff'
+            },
+            title: { color: '#fff' }
+        },
+        scales: {
+            x: {
+                ticks: { color: '#fff' },
+                title: { color: '#fff' }
+            },
+            y: {
+                ticks: { color: '#fff' },
+                title: { color: '#fff' }
+            }
+        }
+    },
+    
+    timeline: {
+        type: 'line',
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            aspectRatio: 2.5,
+            interaction: { mode: 'nearest', intersect: false },
+            plugins: {
+                legend: { 
+                    display: false, 
+                    position: 'bottom',
+                    labels: {
+                        usePointStyle: false,
+                        pointStyle: 'circle',
+                        boxWidth: 20,
+                        boxHeight: 1,
+                        padding: 15,
+                        font: { size: 13.28 },
+                        color: 'rgb(156, 163, 175)'
+                    }
+                }
+            },
+            scales: {
+                x: { 
+                    title: { display: true, text: "Total days counted", align: 'end' },
+                    grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                },
+                y: { 
+                    title: { display: false }, 
+                    beginAtZero: true,
+                    min: 0,
+                    suggestedMax: 12,
+                    ticks: { precision: 0 },
+                }
+            }
+        }
+    },
+    
+    donut: {
+        type: 'doughnut',
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: '60%',
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    callbacks: {
+                        label: (ctx) => `${ctx.label}: ${ctx.parsed}`
+                    }
+                }
+            }
+        }
+    }
+};
 
-
-let donutChart, timelineChart;
-let historyData = null;
-let currentView = 'overview';
-let currentCategory = null;
-
-let resizeTimeout;
-let isCurrentlyMobile = false;
+// ===== UTILITY FUNCTIONS =====
+function isMobileView() {
+    return window.innerWidth <= 767;
+}
 
 function updatePointSizes() {
-    if (!timelineChart) return;
+    if (!state.timelineChart) return;
     
-    const isMobile = window.innerWidth <= 767;
+    const isMobile = isMobileView();
+    if (state.isCurrentlyMobile === isMobile) return;
     
-    // Only update if the mobile state changed
-    if (isCurrentlyMobile === isMobile) return;
+    state.isCurrentlyMobile = isMobile;
+    const newPointRadius = isMobile ? 2 : 3;
     
-    isCurrentlyMobile = isMobile;
-    const newPointRadius = isMobile ? 2 : 3; // 2 for mobile, 7 for desktop
-    
-    console.log(`Screen ${isMobile ? 'mobile' : 'desktop'}, pointRadius: ${newPointRadius}`);
-    
-    // Update all datasets
-    timelineChart.data.datasets.forEach(dataset => {
+    state.timelineChart.data.datasets.forEach(dataset => {
         dataset.pointRadius = newPointRadius;
     });
     
-    timelineChart.update('none');
-}
-
-// Listen for window resize
-window.addEventListener('resize', updatePointSizes); // ← No timeout!
-
-
-// Set initial state
-
-
-async function loadHistory() {
-    try {
-        const res = await fetch('history.json', { cache: 'no-store' });
-        if (!res.ok) throw new Error("Can't fetch history.json");
-        const rawData = await res.json(); // Load the raw new format
-        
-        // PROCESS THE DATA into the old format
-        historyData = processHistoryData(rawData);
-        
-        console.log("Data loaded and processed:", historyData); // For debugging
-    } catch (e) {
-        console.error(e);
-        historyData = null;
-    }
-}
-
-// Add this function to process the new JSON format into the old one
-function processHistoryData(rawData) {
-    // 1. Extract all unique dates and sort them
-    const dateKeys = Object.keys(rawData).filter(key => key !== 'categories');
-    const allDates = dateKeys.sort();
-
-    // 2. Get the master list of all technologies we care about FROM THE CATEGORIES
-    const allTechnologies = new Set();
-    if (rawData.categories) {
-        for (const categoryTechs of Object.values(rawData.categories)) {
-            categoryTechs.forEach(tech => allTechnologies.add(tech));
-        }
-    }
-
-    // 3. Initialize the series object with arrays of zeros for every tech
-    const series = {};
-    allTechnologies.forEach(tech => {
-        series[tech] = new Array(allDates.length).fill(0);
-    });
-
-    // 4. Fill in the actual counts from the raw data
-    allDates.forEach((date, dateIndex) => {
-        const daysJobs = rawData[date] || [];
-        
-        daysJobs.forEach(job => {
-            Object.entries(job.technologies).forEach(([tech, count]) => {
-                if (allTechnologies.has(tech)) {
-                    series[tech][dateIndex] += count;
-                }
-            });
-        });
-    });
-
-    // 5. Return the structure that the rest of the code expects
-    return {
-        dates: allDates,
-        series: series,
-        categories: rawData.categories
-    };
-}
-
-function getLatestDay() {
-    if (!historyData?.dates?.length) return null;
-    const lastDayIndex = historyData.dates.length - 1;
-    
-    // REUSE THE LOGIC FROM drawTimeline() to get category totals for the last day
-    const categoryCounts = {};
-    
-    for (const [categoryName, techs] of Object.entries(historyData.categories)) {
-        // This is the exact same calculation done in drawTimeline()
-        let dailyTotal = 0;
-        techs.forEach(tech => {
-            dailyTotal += historyData.series[tech][lastDayIndex];
-        });
-        
-        if (dailyTotal > 0) {
-            categoryCounts[categoryName] = dailyTotal;
-        }
-    }
-    
-    return {
-        counts: categoryCounts
-    };
+    state.timelineChart.update('none');
 }
 
 function toSortedArrays(obj, topN) {
@@ -149,12 +141,94 @@ function palette(n) {
     
     for (let i = distinctColors.length; i < n; i++) {
         hue = (hue + goldenRatioConjugate) % 1;
-        // More intense: increased saturation to 85%, reduced lightness to 50%
         colors.push(`hsl(${Math.round(hue * 360)}, 85%, 50%)`);
     }
     
     return colors;
 }
+
+function showApproxLastUpdated() {
+    const now = new Date();
+    const update = new Date();
+    update.setUTCHours(8, 10, 0, 0);
+
+    if (now < update) update.setUTCDate(update.getUTCDate() - 1);
+
+    const diffHours = Math.floor((now - update) / 3600000);
+    document.getElementById("lastUpdated").textContent =
+        `Updated about ${diffHours} hour${diffHours !== 1 ? 's' : ''} ago`;
+}
+
+// ===== DATA PROCESSING =====
+async function loadHistory() {
+    try {
+        const res = await fetch('history.json', { cache: 'no-store' });
+        if (!res.ok) throw new Error("Can't fetch history.json");
+        const rawData = await res.json();
+        
+        state.historyData = processHistoryData(rawData);
+        console.log("Data loaded and processed:", state.historyData);
+    } catch (e) {
+        console.error(e);
+        state.historyData = null;
+    }
+}
+
+function processHistoryData(rawData) {
+    const dateKeys = Object.keys(rawData).filter(key => key !== 'categories');
+    const allDates = dateKeys.sort();
+    const allTechnologies = new Set();
+    
+    if (rawData.categories) {
+        for (const categoryTechs of Object.values(rawData.categories)) {
+            categoryTechs.forEach(tech => allTechnologies.add(tech));
+        }
+    }
+
+    const series = {};
+    allTechnologies.forEach(tech => {
+        series[tech] = new Array(allDates.length).fill(0);
+    });
+
+    allDates.forEach((date, dateIndex) => {
+        const daysJobs = rawData[date] || [];
+        
+        daysJobs.forEach(job => {
+            Object.entries(job.technologies).forEach(([tech, count]) => {
+                if (allTechnologies.has(tech)) {
+                    series[tech][dateIndex] += count;
+                }
+            });
+        });
+    });
+
+    return {
+        dates: allDates,
+        series: series,
+        categories: rawData.categories
+    };
+}
+
+function getLatestDay() {
+    if (!state.historyData?.dates?.length) return null;
+    const lastDayIndex = state.historyData.dates.length - 1;
+    
+    const categoryCounts = {};
+    for (const [categoryName, techs] of Object.entries(state.historyData.categories)) {
+        let dailyTotal = 0;
+        techs.forEach(tech => {
+            dailyTotal += state.historyData.series[tech][lastDayIndex];
+        });
+        
+        if (dailyTotal > 0) {
+            categoryCounts[categoryName] = dailyTotal;
+        }
+    }
+    
+    return { counts: categoryCounts };
+}
+
+// ===== CHART MANAGEMENT =====
 function updateLegend(labels, colors) {
     const legendContainer = document.getElementById('donutLegend');
     legendContainer.innerHTML = '';
@@ -171,33 +245,28 @@ function updateLegend(labels, colors) {
 }
 
 function renderCharts(labels, values) {
-
     const containerElement = document.getElementById('donutContainer');
     const chartElement = document.getElementById('donutChart');
     
-    // Remove any message divs that were added (but keep the canvas)
     const messageDivs = containerElement.querySelectorAll('div:not(#donutChart)');
     messageDivs.forEach(div => div.remove());
     
-    // Ensure the canvas is visible (BUT ONLY IF IT EXISTS)
     if (chartElement) {
         chartElement.style.display = 'block';
     } else {
-        // If canvas was destroyed, recreate it
         const newCanvas = document.createElement('canvas');
         newCanvas.id = 'donutChart';
         newCanvas.className = 'w-full h-full';
         containerElement.appendChild(newCanvas);
     }
     
-
     const colors = palette(values.length);
     updateLegend(labels, colors);
     
-    donutChart?.destroy();
+    state.donutChart?.destroy();
     
-    donutChart = new Chart(document.getElementById('donutChart'), {
-        type: 'doughnut',
+    state.donutChart = new Chart(document.getElementById('donutChart'), {
+        type: chartConfig.donut.type,
         data: {
             labels,
             datasets: [{ 
@@ -206,232 +275,107 @@ function renderCharts(labels, values) {
                 borderWidth: 0,
             }]
         },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            cutout: '60%',
-            plugins: {
-                legend: { display: false },
-                tooltip: {
-                    callbacks: {
-                        label: (ctx) => `${ctx.label}: ${ctx.parsed}`
-                    }
-                }
-            }
-        }
+        options: chartConfig.donut.options
     });
 }
 
-
-
-// Show technologies within a category
-function showCategory(categoryKey) {
-    currentView = 'detail';
-    currentCategory = categoryKey;
+function createDataset(label, data, colorIndex) {
+    const colors = palette(data.length);
+    const pointRadius = isMobileView() ? 2 : 3;
     
-    if (!historyData?.categories[categoryKey]) {
-        console.error('Category not found:', categoryKey);
-        return;
-    }
-
-    const technologies = historyData.categories[categoryKey];
-    const colors = palette(technologies.length);
-    
-    const datasets = technologies.map((tech, index) => { // Added 'index' parameter here
-        const techData = historyData.series[tech] || new Array(historyData.dates.length).fill(0);
-        return {
-            label: tech,
-            data: techData,
-            fill: false,
-            tension: 0.2,
-            borderWidth: 0.9,
-    
-            borderColor: colors[index], // Use the palette color
-            // REMOVED the duplicate borderColor line: borderColor: `hsl(${Math.random() * 360}, 75%, 60%)`,
-            borderCapStyle: 'round',
-            borderJoinStyle: 'round',
-             pointRadius: window.innerWidth <= 767 ? 2 : 3,
+    return {
+        label,
+        data,
+        fill: false,
+        tension: 0.2,
+        borderWidth: 0.9,
+        borderColor: colors[colorIndex],
+        borderCapStyle: 'round',
+        borderJoinStyle: 'round',
+        pointRadius,
         pointHoverRadius: 6,
-        pointBackgroundColor: colors[index], // Match point color to line color
-        pointHoverBackgroundColor: colors[index],
-        pointBorderColor: colors[index],
-        pointHoverBorderColor: colors[index],
-        };
-    });
-
-    if (timelineChart) {
-        timelineChart.destroy();
-    }
-
-    timelineChart = new Chart(document.getElementById('timeline').getContext('2d'), {
-        type: 'line',
-        data: {
-            labels: historyData.dates,
-            datasets: datasets
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            aspectRatio: 2.5,
-            interaction: { mode: 'nearest', intersect: false },
-            plugins: {
-                legend: { 
-                    display: false, 
-                    position: 'bottom',
-                    labels: {
-                        usePointStyle: false,
-                        pointStyle: 'circle',
-                        boxWidth: 20,
-                        boxHeight: 1,
-                        padding: 15,
-                        font: { size: 13.28 },
-                        color: 'rgb(156, 163, 175)'
-                        
-                        
-                    }
-                }
-            },
-            scales: {
-                x: { 
-                    title: { display: true, text: "Total days counted" , align: 'end'},
-                    grid: { color: 'rgba(255, 255, 255, 0.1)' }
-                },
-                y: { 
-                    title: { display: false}, 
-                    beginAtZero: true,
-                    min:0,
-                    suggestedMax: 12,
-                    ticks: { precision: 0 },
-                    grid: { display: false, color: 'rgba(255, 255, 255, 0.1)' }
-                }
-            }
-            
-            
-        }
-    });
-      isCurrentlyMobile = null; 
-    updatePointSizes(); 
-
-    createCustomLegend(timelineChart);
+        pointBackgroundColor: colors[colorIndex],
+        pointHoverBackgroundColor: colors[colorIndex],
+        pointBorderColor: colors[colorIndex],
+        pointHoverBorderColor: colors[colorIndex]
+    };
 }
 
+function createTimelineChart(labels, datasets) {
+    if (state.timelineChart) {
+        state.timelineChart.destroy();
+    }
+
+    state.timelineChart = new Chart(document.getElementById('timeline').getContext('2d'), {
+        type: chartConfig.timeline.type,
+        data: { labels, datasets },
+        options: chartConfig.timeline.options
+    });
+    
+    state.isCurrentlyMobile = null; 
+    updatePointSizes();
+    createCustomLegend(state.timelineChart);
+}
+
+// ===== VIEW MANAGEMENT =====
 function activateTab(tabId) {
-    // 1. Remove the 'active' class from all buttons
     document.querySelectorAll('.tab-button').forEach(tab => {
         tab.classList.remove('active');
     });
     
-    // 2. Add the 'active' class to the clicked button
     const activeTab = document.getElementById(tabId);
     if (activeTab) {
         activeTab.classList.add('active');
     }
 }
 
-// Show all categories overview
+function showCategory(categoryKey) {
+    state.currentView = 'detail';
+    state.currentCategory = categoryKey;
+    
+    if (!state.historyData?.categories[categoryKey]) {
+        console.error('Category not found:', categoryKey);
+        return;
+    }
+
+    const technologies = state.historyData.categories[categoryKey];
+    const datasets = technologies.map((tech, index) => {
+        const techData = state.historyData.series[tech] || new Array(state.historyData.dates.length).fill(0);
+        return createDataset(tech, techData, index);
+    });
+
+    createTimelineChart(state.historyData.dates, datasets);
+}
+
 function showAllCategories() {
-    currentView = 'overview';
-    currentCategory = null;
+    state.currentView = 'overview';
+    state.currentCategory = null;
     activateTab('tab-all');
     drawTimeline();
 }
 
 function drawTimeline() {
-    if (!historyData) return;
+    if (!state.historyData) return;
 
-    const { dates: labels } = historyData;
-    const categories = Object.entries(historyData.categories);
-    
-    // Generate colors for all categories using your palette function
-    const colors = palette(categories.length);
+    const { dates: labels } = state.historyData;
+    const categories = Object.entries(state.historyData.categories);
     
     const datasets = categories.map(([categoryName, techs], index) => {
-        const categoryData = historyData.dates.map((_, dayIndex) => {
+        const categoryData = state.historyData.dates.map((_, dayIndex) => {
             let dailyTotal = 0;
             techs.forEach(tech => {
-                dailyTotal += historyData.series[tech][dayIndex];
+                dailyTotal += state.historyData.series[tech][dayIndex];
             });
             return dailyTotal;
         });
         
-        return {
-            label: categoryName,
-            data: categoryData,
-            fill: false,
-            tension: 0.2,
-            borderWidth: 0.9,
-            borderColor: colors[index], // Use color from palette instead of random
-            borderCapStyle: 'round',
-            borderJoinStyle: 'round',
-           // Adds the points
-            pointRadius: window.innerWidth <= 767 ? 2 : 3,
-        pointHoverRadius: 6,
-             pointBackgroundColor: colors[index], // Match point color to line color
-        pointHoverBackgroundColor: colors[index],
-        pointBorderColor: colors[index],
-        pointHoverBorderColor: colors[index],
-        };
+        return createDataset(categoryName, categoryData, index);
     });
 
-    if (timelineChart) {
-        timelineChart.destroy();
-    }
-
-    timelineChart = new Chart(document.getElementById('timeline').getContext('2d'), {
-        type: 'line',
-        data: { labels, datasets },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            aspectRatio: 2.5,
-            interaction: { mode: 'nearest', intersect: false },
-            plugins: {
-                legend: { 
-                    display: false, 
-                    position: 'bottom',
-                    labels: {
-                        usePointStyle: false,
-                        pointStyle: 'circle',
-                        boxWidth: 20,
-                        boxHeight: 1,
-                        padding: 15,
-                        font: { size: 13.28 },
-                        color: 'rgb(156, 163, 175)'
-                    }
-                }
-            },
-            scales: {
-                x: { 
-                    title: { display: true, text: "Total days counted", align: 'end' },
-                    grid: {lineWidth: 0.1, color: 'rgba(255, 255, 255, 1)'},
-                    beginAtZero:true,
-                    min:0
-                },
-                y: { 
-                    title: { display: false, text: "Mentions per day" }, 
-                    beginAtZero: true,
-                    min:0,
-                    suggestedMax: 12,
-                    ticks: { precision: 0 , font: { size: 11}},
-                    
-                    grid: {display:false, color: 'rgba(255, 255, 255, 0.1)' }
-                }
-            }
-        }
-    });
-      isCurrentlyMobile = null; 
-    updatePointSizes(); 
-
-    createCustomLegend(timelineChart);
+    createTimelineChart(labels, datasets);
 }
 
-function handleResize() {
-    if (timelineChart) {
-        timelineChart.resize();
-        updateCustomLegend(); // ← Update legends on resize too
-    }
-}
-
+// ===== LEGEND MANAGEMENT =====
 function createCustomLegend(chart) {
     const legendContainer = document.getElementById('timeline-legend');
     legendContainer.innerHTML = '';
@@ -439,8 +383,6 @@ function createCustomLegend(chart) {
     chart.data.datasets.forEach((dataset, i) => {
         const legendItem = document.createElement('div');
         legendItem.className = 'legend-item';
-        
-        // Store which dataset this legend item controls
         legendItem.dataset.index = i;
         
         legendItem.innerHTML = `
@@ -448,26 +390,17 @@ function createCustomLegend(chart) {
             <span>${dataset.label}</span>
         `;
         
-        // Add click event to toggle visibility
         legendItem.addEventListener('click', function() {
-            // Get the dataset index from our data attribute
             const datasetIndex = parseInt(this.dataset.index);
-            
-            // Toggle visibility of this specific dataset
             const meta = chart.getDatasetMeta(datasetIndex);
             meta.hidden = !meta.hidden;
-            
-            // Update the chart to reflect the change
             chart.update();
-            
-            // Update the legend appearance
             updateLegendAppearance(chart);
         });
         
         legendContainer.appendChild(legendItem);
     });
     
-    // Set initial appearance
     updateLegendAppearance(chart);
 }
 
@@ -478,7 +411,6 @@ function updateLegendAppearance(chart) {
         const datasetIndex = parseInt(item.dataset.index);
         const meta = chart.getDatasetMeta(datasetIndex);
         
-        // Update opacity based on visibility
         if (meta.hidden) {
             item.style.opacity = '0.5';
             item.style.textDecoration = 'line-through';
@@ -490,97 +422,70 @@ function updateLegendAppearance(chart) {
 }
 
 function updateCustomLegend() {
-    if (timelineChart) {
-        createCustomLegend(timelineChart);
+    if (state.timelineChart) {
+        createCustomLegend(state.timelineChart);
     }
 }
 
-function showApproxLastUpdated() {
-    const now = new Date();
-    const update = new Date();
-    update.setUTCHours(8, 10, 0, 0);
-
-    if (now < update) update.setUTCDate(update.getUTCDate() - 1);
-
-    const diffHours = Math.floor((now - update) / 3600000);
-    document.getElementById("lastUpdated").textContent =
-        `Updated about ${diffHours} hour${diffHours !== 1 ? 's' : ''} ago`;
+function handleResize() {
+    if (state.timelineChart) {
+        state.timelineChart.resize();
+        updateCustomLegend();
+    }
 }
 
-// Global chart defaults
-Chart.defaults.color = '#fff';
-Chart.defaults.plugins.legend.labels.color = '#fff';
-Chart.defaults.plugins.tooltip.bodyColor = '#fff';
-Chart.defaults.plugins.title.color = '#fff';
-Chart.defaults.scales = {
-    x: {
-        ticks: { color: '#fff' },
-        title: { color: '#fff' }
-    },
-    y: {
-        ticks: { color: '#fff' },
-        title: { color: '#fff' }
-    }
-};
-
-
-
+// ===== DONUT CHART MANAGEMENT =====
 function updateDonutForCategory(categoryKey) {
-    if (!historyData) return;
+    if (!state.historyData) return;
     
     let categoryData = {};
-    const lastDayIndex = historyData.dates.length - 1;
+    const lastDayIndex = state.historyData.dates.length - 1;
     
     if (categoryKey === 'all') {
-        // Show all categories - use existing logic
-        for (const [categoryName, techs] of Object.entries(historyData.categories)) {
+        for (const [categoryName, techs] of Object.entries(state.historyData.categories)) {
             let dailyTotal = 0;
             techs.forEach(tech => {
-                dailyTotal += historyData.series[tech][lastDayIndex];
+                dailyTotal += state.historyData.series[tech][lastDayIndex];
             });
             if (dailyTotal > 0) {
                 categoryData[categoryName] = dailyTotal;
             }
         }
     } else {
-        
-        // Show specific category - show technologies within this category
-        const techs = historyData.categories[categoryKey];
-        let hasAnyData = false; // Track if we found ANY non-zero values
+        const techs = state.historyData.categories[categoryKey];
+        let hasAnyData = false;
         
         techs.forEach(tech => {
-            const count = historyData.series[tech][lastDayIndex] || 0; // Ensure it's a number
+            const count = state.historyData.series[tech][lastDayIndex] || 0;
             if (count > 0) {
                 categoryData[tech] = count;
-                hasAnyData = true; // We found at least one non-zero value
+                hasAnyData = true;
             }
         });
         
-        // === SIMPLE CHECK: If no data found, show message and return early === //
         if (!hasAnyData) {
             const chartElement = document.getElementById('donutContainer');
             chartElement.innerHTML = `
-       <div class="flex flex-col items-center justify-center h-full w-full text-center p-6">
-        <div class="w-14 h-14 mb-3 text-gray-400 opacity-70">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-            </svg>
-        </div>
-        <p class="text-gray-300 font-medium text-sm mb-1">No Data Available</p>
-        <p class="text-gray-400 text-xs">${categoryKey} skills weren't mentioned today</p>
-    </div>
+                <div class="flex flex-col items-center justify-center h-full w-full text-center p-6">
+                    <div class="w-14 h-14 mb-3 text-gray-400 opacity-70">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <p class="text-gray-300 font-medium text-sm mb-1">No Data Available</p>
+                    <p class="text-gray-400 text-xs">${categoryKey} skills weren't mentioned today</p>
+                </div>
             `;
-            donutChart?.destroy();
-            donutChart = null;
+            state.donutChart?.destroy();
+            state.donutChart = null;
             updateLegend([], []);
-            return; // Exit the function early
+            return;
         }
     }
     
     const { labels, values } = toSortedArrays(categoryData, 30);
     renderCharts(labels, values);
 }
-
 
 function setActiveTab(activeButton) {
     document.querySelectorAll('.donut-tab').forEach(tab => {
@@ -591,7 +496,7 @@ function setActiveTab(activeButton) {
 
 function initDonutTabs() {
     const tabsContainer = document.getElementById('donutTabs');
-    if (!tabsContainer || !historyData?.categories) return;
+    if (!tabsContainer || !state.historyData?.categories) return;
 
     document.querySelectorAll('.donut-tab').forEach(tab => {
         tab.addEventListener('click', function() {
@@ -600,83 +505,74 @@ function initDonutTabs() {
         });
     });
 
-
-
-    
-    
-    // Create tab for each category
-    Object.keys(historyData.categories).forEach(category => {
-         if (category === "all") return;
+    Object.keys(state.historyData.categories).forEach(category => {
+        if (category === "all") return;
         const button = document.createElement('button');
         button.className = 'donut-tab';
         button.textContent = category;
         button.dataset.category = category;
-         button.addEventListener('click', function() {
+        button.addEventListener('click', function() {
             setActiveTab(this);
             updateDonutForCategory(category);
         });
-
 
         tabsContainer.appendChild(button);
     });
 }
 
+// ===== TAB CONFIGURATION =====
+const tabConfig = {
+    'tab-all': showAllCategories,
+    'tab-web/js': () => showCategory('Web/JS'),
+    'tab-backend': () => showCategory('Backend'),
+    'tab-databases': () => showCategory('Databases'),
+    'tab-devops/cloud': () => showCategory('DevOps/Cloud'),
+    'tab-bitools': () => showCategory('BI Tools'),
+    'tab-design': () => showCategory('Design'),
+    'tab-netsec': () => showCategory('Net/Sec'),
+    'tab-front': () => showCategory('Front Tools')
+};
 
+function setupTabHandlers() {
+    Object.entries(tabConfig).forEach(([tabId, action]) => {
+        const tabElement = document.getElementById(tabId);
+        if (tabElement) {
+            tabElement.addEventListener('click', () => {
+                activateTab(tabId);
+                action();
+            });
+        }
+    });
+}
+
+// ===== INITIALIZATION =====
 async function boot() {
+    // Set global chart defaults
+    Chart.defaults.color = chartConfig.defaults.color;
+    Chart.defaults.plugins.legend.labels.color = chartConfig.defaults.plugins.legend.labels.color;
+    Chart.defaults.plugins.tooltip.bodyColor = chartConfig.defaults.plugins.tooltip.bodyColor;
+    Chart.defaults.plugins.title.color = chartConfig.defaults.plugins.title.color;
+    Chart.defaults.scales = chartConfig.defaults.scales;
+
     await loadHistory();
     const latest = getLatestDay();
     if (!latest) return;
 
     showApproxLastUpdated();
-    initDonutTabs()
+    initDonutTabs();
 
-
-    const { labels, values } = toSortedArrays(latest.counts, 20); // Show ample items
-
-
+    const { labels, values } = toSortedArrays(latest.counts, 20);
     renderCharts(labels, values);
 
-
     drawTimeline();
-    activateTab('tab-all'); // Activate "All Categories" tab by default
+    activateTab('tab-all');
 
-    // Add tab click handlers after everything is loaded
-    setTimeout(() => {
-        document.getElementById('tab-all')?.addEventListener('click', showAllCategories);
-
-        document.getElementById('tab-web/js')?.addEventListener('click', () => {
-            activateTab('tab-web/js');
-            showCategory('Web/JS');
-        });
-        document.getElementById('tab-backend')?.addEventListener('click', () => {
-            activateTab('tab-backend');
-            showCategory('Backend');
-        });
-        document.getElementById('tab-databases')?.addEventListener('click', () => {
-            activateTab('tab-databases');
-            showCategory('Databases');
-        });
-        document.getElementById('tab-devops/cloud')?.addEventListener('click', () => {
-            activateTab('tab-devops/cloud');
-            showCategory('DevOps/Cloud');
-        });
-        document.getElementById('tab-bitools')?.addEventListener('click', () => {
-            activateTab('tab-bitools');
-            showCategory('BI Tools');
-        });
-        document.getElementById('tab-design')?.addEventListener('click', () => {
-            activateTab('tab-design');
-            showCategory('Design');
-        });
-        document.getElementById('tab-netsec')?.addEventListener('click', () => {
-            activateTab('tab-netsec');
-            showCategory('Net/Sec');
-        });
-        document.getElementById('tab-front')?.addEventListener('click', () => {
-            activateTab('tab-front');
-            showCategory('Front Tools');
-        });
-    }, 1000);
+    // Setup all tab handlers
+    setTimeout(setupTabHandlers, 100);
 }
 
+// ===== EVENT LISTENERS =====
+window.addEventListener('resize', updatePointSizes);
+
+// Start the application
 boot();
