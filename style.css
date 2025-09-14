@@ -111,7 +111,6 @@ background-color: #000000;
 /* Mobile Layout: Horizontal Scrolling Carousel */
 @media (max-width: 767px) { /* Adjust breakpoint as needed */
 
-
     
     #tab-container::-webkit-scrollbar {
         display: none; /* Hide scrollbar Chrome/Safari */
@@ -127,8 +126,6 @@ background-color: #000000;
     #tab-container {
 margin-top: 8%;
 }
-
-
 
 }
 
@@ -147,6 +144,10 @@ margin-top: 8%;
       text-align: center;
       font-size: 1.8rem;
     }
+
+    .timeline-chart-container {
+      height: 250px!important;
+    }   
 
     #subtext{
       flex-wrap: wrap;

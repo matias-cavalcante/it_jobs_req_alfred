@@ -7,6 +7,36 @@ let historyData = null;
 let currentView = 'overview';
 let currentCategory = null;
 
+let resizeTimeout;
+let isCurrentlyMobile = false;
+
+function updatePointSizes() {
+    if (!timelineChart) return;
+    
+    const isMobile = window.innerWidth <= 767;
+    
+    // Only update if the mobile state changed
+    if (isCurrentlyMobile === isMobile) return;
+    
+    isCurrentlyMobile = isMobile;
+    const newPointRadius = isMobile ? 2 : 3; // 2 for mobile, 7 for desktop
+    
+    console.log(`Screen ${isMobile ? 'mobile' : 'desktop'}, pointRadius: ${newPointRadius}`);
+    
+    // Update all datasets
+    timelineChart.data.datasets.forEach(dataset => {
+        dataset.pointRadius = newPointRadius;
+    });
+    
+    timelineChart.update('none');
+}
+
+// Listen for window resize
+window.addEventListener('resize', updatePointSizes); // ← No timeout!
+
+
+// Set initial state
+
 
 async function loadHistory() {
     try {
@@ -220,7 +250,7 @@ function showCategory(categoryKey) {
             // REMOVED the duplicate borderColor line: borderColor: `hsl(${Math.random() * 360}, 75%, 60%)`,
             borderCapStyle: 'round',
             borderJoinStyle: 'round',
-              pointRadius: 2.4,               // Adds the points
+             pointRadius: window.innerWidth <= 767 ? 2 : 3,
         pointHoverRadius: 6,
         pointBackgroundColor: colors[index], // Match point color to line color
         pointHoverBackgroundColor: colors[index],
@@ -279,6 +309,8 @@ function showCategory(categoryKey) {
             
         }
     });
+      isCurrentlyMobile = null; 
+    updatePointSizes(); 
 
     createCustomLegend(timelineChart);
 }
@@ -331,7 +363,8 @@ function drawTimeline() {
             borderColor: colors[index], // Use color from palette instead of random
             borderCapStyle: 'round',
             borderJoinStyle: 'round',
-             pointRadius: 2.4,               // Adds the points
+           // Adds the points
+            pointRadius: window.innerWidth <= 767 ? 2 : 3,
         pointHoverRadius: 6,
              pointBackgroundColor: colors[index], // Match point color to line color
         pointHoverBackgroundColor: colors[index],
@@ -386,6 +419,8 @@ function drawTimeline() {
             }
         }
     });
+      isCurrentlyMobile = null; 
+    updatePointSizes(); 
 
     createCustomLegend(timelineChart);
 }
