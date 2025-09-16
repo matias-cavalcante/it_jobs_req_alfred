@@ -1,3 +1,4 @@
+import { createDataset, createTimelineChartLegend, createDonutChartLegend, updatePointSizes, toSortedArrays, palette, isMobileView, showApproxLastUpdated } from'./utilities.js';
 // ===== GLOBAL STATE =====
 const state = {
     donutChart: null,
@@ -90,75 +91,6 @@ const chartConfig = {
     }
 };
 
-// ===== UTILITY FUNCTIONS =====
-function isMobileView() {
-    return window.innerWidth <= 767;
-}
-
-function updatePointSizes() {
-    if (!state.timelineChart) return;
-    
-    const isMobile = isMobileView();
-    if (state.isCurrentlyMobile === isMobile) return;
-    
-    state.isCurrentlyMobile = isMobile;
-    const newPointRadius = isMobile ? 2 : 3;
-    
-    state.timelineChart.data.datasets.forEach(dataset => {
-        dataset.pointRadius = newPointRadius;
-    });
-    
-    state.timelineChart.update('none');
-}
-
-function toSortedArrays(obj, topN) {
-    return Object.entries(obj)
-        .filter(([, v]) => Number.isFinite(v) && v > 0)
-        .sort((a, b) => b[1] - a[1])
-        .slice(0, topN)
-        .reduce((acc, [k, v]) => {
-            acc.labels.push(k);
-            acc.values.push(v);
-            return acc;
-        }, { labels: [], values: [] });
-}
-
-function palette(n) {
-    const distinctColors = [
-        '#E74C3C', '#2980B9', '#27AE60', '#F39C12', '#8E44AD',
-        '#16A085', '#D35400', '#C0392B', '#2C3E50', '#9B59B6',
-        '#34495E', '#E67E22', '#1ABC9C', '#7D3C98', '#F1C40F',
-        '#2ECC71', '#E84393', '#3498DB', '#D68910', '#A569BD'
-    ];
-    
-    if (n <= distinctColors.length) {
-        return distinctColors.slice(0, n);
-    }
-    
-    const goldenRatioConjugate = 0.618033988749895;
-    const colors = distinctColors.slice();
-    let hue = Math.random();
-    
-    for (let i = distinctColors.length; i < n; i++) {
-        hue = (hue + goldenRatioConjugate) % 1;
-        colors.push(`hsl(${Math.round(hue * 360)}, 85%, 50%)`);
-    }
-    
-    return colors;
-}
-
-function showApproxLastUpdated() {
-    const now = new Date();
-    const update = new Date();
-    update.setUTCHours(8, 10, 0, 0);
-
-    if (now < update) update.setUTCDate(update.getUTCDate() - 1);
-
-    const diffHours = Math.floor((now - update) / 3600000);
-    document.getElementById("lastUpdated").textContent =
-        `Updated about ${diffHours} hour${diffHours !== 1 ? 's' : ''} ago`;
-}
-
 // ===== DATA PROCESSING =====
 async function loadHistory() {
     try {
@@ -229,22 +161,12 @@ function getLatestDay() {
 }
 
 // ===== CHART MANAGEMENT =====
-function updateLegend(labels, colors) {
-    const legendContainer = document.getElementById('donutLegend');
-    legendContainer.innerHTML = '';
-    
-    labels.forEach((label, index) => {
-        const legendItem = document.createElement('div');
-        legendItem.className = 'flex items-center gap-1';
-        legendItem.innerHTML = `
-            <span class="w-2 h-2" style="background-color: ${colors[index]}"></span>
-            <span class="text-gray-400 text-[0.83rem] tracking-wider">${label}</span>
-        `;
-        legendContainer.appendChild(legendItem);
-    });
+function updateDonutLegend(labels, colors) {
+    createDonutChartLegend(labels, colors);
+   
 }
 
-function renderCharts(labels, values) {
+function renderDonutChart(labels, values) {
     const containerElement = document.getElementById('donutContainer');
     const chartElement = document.getElementById('donutChart');
     
@@ -261,7 +183,7 @@ function renderCharts(labels, values) {
     }
     
     const colors = palette(values.length);
-    updateLegend(labels, colors);
+    updateDonutLegend(labels, colors);
     
     state.donutChart?.destroy();
     
@@ -279,28 +201,6 @@ function renderCharts(labels, values) {
     });
 }
 
-function createDataset(label, data, colorIndex) {
-    const colors = palette(data.length);
-    const pointRadius = isMobileView() ? 2 : 3;
-    
-    return {
-        label,
-        data,
-        fill: false,
-        tension: 0.2,
-        borderWidth: 0.9,
-        borderColor: colors[colorIndex],
-        borderCapStyle: 'round',
-        borderJoinStyle: 'round',
-        pointRadius,
-        pointHoverRadius: 6,
-        pointBackgroundColor: colors[colorIndex],
-        pointHoverBackgroundColor: colors[colorIndex],
-        pointBorderColor: colors[colorIndex],
-        pointHoverBorderColor: colors[colorIndex]
-    };
-}
-
 function createTimelineChart(labels, datasets) {
     if (state.timelineChart) {
         state.timelineChart.destroy();
@@ -313,8 +213,8 @@ function createTimelineChart(labels, datasets) {
     });
     
     state.isCurrentlyMobile = null; 
-    updatePointSizes();
-    createCustomLegend(state.timelineChart);
+    updatePointSizes(state.timelineChart, isMobileView, state);
+     createTimelineChartLegend(state.timelineChart);
 }
 
 // ===== VIEW MANAGEMENT =====
@@ -376,61 +276,10 @@ function drawTimeline() {
 }
 
 // ===== LEGEND MANAGEMENT =====
-function createCustomLegend(chart) {
-    const legendContainer = document.getElementById('timeline-legend');
-    legendContainer.innerHTML = '';
-    
-    chart.data.datasets.forEach((dataset, i) => {
-        const legendItem = document.createElement('div');
-        legendItem.className = 'legend-item';
-        legendItem.dataset.index = i;
-        
-        legendItem.innerHTML = `
-            <span class="legend-color" style="background:${dataset.borderColor}"></span>
-            <span>${dataset.label}</span>
-        `;
-        
-        legendItem.addEventListener('click', function() {
-            const datasetIndex = parseInt(this.dataset.index);
-            const meta = chart.getDatasetMeta(datasetIndex);
-            meta.hidden = !meta.hidden;
-            chart.update();
-            updateLegendAppearance(chart);
-        });
-        
-        legendContainer.appendChild(legendItem);
-    });
-    
-    updateLegendAppearance(chart);
-}
-
-function updateLegendAppearance(chart) {
-    const legendItems = document.querySelectorAll('.legend-item');
-    
-    legendItems.forEach(item => {
-        const datasetIndex = parseInt(item.dataset.index);
-        const meta = chart.getDatasetMeta(datasetIndex);
-        
-        if (meta.hidden) {
-            item.style.opacity = '0.5';
-            item.style.textDecoration = 'line-through';
-        } else {
-            item.style.opacity = '1';
-            item.style.textDecoration = 'none';
-        }
-    });
-}
-
-function updateCustomLegend() {
-    if (state.timelineChart) {
-        createCustomLegend(state.timelineChart);
-    }
-}
-
 function handleResize() {
     if (state.timelineChart) {
         state.timelineChart.resize();
-        updateCustomLegend();
+        createCustomLegend(state.timelineChart);
     }
 }
 
@@ -478,13 +327,13 @@ function updateDonutForCategory(categoryKey) {
             `;
             state.donutChart?.destroy();
             state.donutChart = null;
-            updateLegend([], []);
+            updateDonutLegend([], []);
             return;
         }
     }
     
     const { labels, values } = toSortedArrays(categoryData, 30);
-    renderCharts(labels, values);
+    renderDonutChart(labels, values);
 }
 
 function setActiveTab(activeButton) {
@@ -562,7 +411,7 @@ async function boot() {
     initDonutTabs();
 
     const { labels, values } = toSortedArrays(latest.counts, 20);
-    renderCharts(labels, values);
+    renderDonutChart(labels, values);
 
     drawTimeline();
     activateTab('tab-all');
@@ -572,7 +421,7 @@ async function boot() {
 }
 
 // ===== EVENT LISTENERS =====
-window.addEventListener('resize', updatePointSizes);
+window.addEventListener('resize', () => updatePointSizes(state.timelineChart, isMobileView, state));
 
 // Start the application
 boot();
