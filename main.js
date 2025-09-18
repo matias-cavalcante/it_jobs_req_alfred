@@ -1,4 +1,8 @@
 import { createDataset, createTimelineChartLegend, createDonutChartLegend, updatePointSizes, toSortedArrays, palette, isMobileView, showApproxLastUpdated } from'./utilities.js';
+import { loadHistoryData, getLatestDayCounts } from './data-handling.js';
+import { renderDonutChart, createTimelineChart} from './render-d-chart.js';
+
+
 // ===== GLOBAL STATE =====
 const state = {
     donutChart: null,
@@ -91,131 +95,6 @@ const chartConfig = {
     }
 };
 
-// ===== DATA PROCESSING =====
-async function loadHistory() {
-    try {
-        const res = await fetch('history.json', { cache: 'no-store' });
-        if (!res.ok) throw new Error("Can't fetch history.json");
-        const rawData = await res.json();
-        
-        state.historyData = processHistoryData(rawData);
-        console.log("Data loaded and processed:", state.historyData);
-    } catch (e) {
-        console.error(e);
-        state.historyData = null;
-    }
-}
-
-function processHistoryData(rawData) {
-    const dateKeys = Object.keys(rawData).filter(key => key !== 'categories');
-    const allDates = dateKeys.sort();
-    const allTechnologies = new Set();
-    
-    if (rawData.categories) {
-        for (const categoryTechs of Object.values(rawData.categories)) {
-            categoryTechs.forEach(tech => allTechnologies.add(tech));
-        }
-    }
-
-    const series = {};
-    allTechnologies.forEach(tech => {
-        series[tech] = new Array(allDates.length).fill(0);
-    });
-
-    allDates.forEach((date, dateIndex) => {
-        const daysJobs = rawData[date] || [];
-        
-        daysJobs.forEach(job => {
-            Object.entries(job.technologies).forEach(([tech, count]) => {
-                if (allTechnologies.has(tech)) {
-                    series[tech][dateIndex] += count;
-                }
-            });
-        });
-    });
-
-    return {
-        dates: allDates,
-        series: series,
-        categories: rawData.categories
-    };
-}
-
-function getLatestDay() {
-    if (!state.historyData?.dates?.length) return null;
-    const lastDayIndex = state.historyData.dates.length - 1;
-    
-    const categoryCounts = {};
-    for (const [categoryName, techs] of Object.entries(state.historyData.categories)) {
-        let dailyTotal = 0;
-        techs.forEach(tech => {
-            dailyTotal += state.historyData.series[tech][lastDayIndex];
-        });
-        
-        if (dailyTotal > 0) {
-            categoryCounts[categoryName] = dailyTotal;
-        }
-    }
-    
-    return { counts: categoryCounts };
-}
-
-// ===== CHART MANAGEMENT =====
-function updateDonutLegend(labels, colors) {
-    createDonutChartLegend(labels, colors);
-   
-}
-
-function renderDonutChart(labels, values) {
-    const containerElement = document.getElementById('donutContainer');
-    const chartElement = document.getElementById('donutChart');
-    
-    const messageDivs = containerElement.querySelectorAll('div:not(#donutChart)');
-    messageDivs.forEach(div => div.remove());
-    
-    if (chartElement) {
-        chartElement.style.display = 'block';
-    } else {
-        const newCanvas = document.createElement('canvas');
-        newCanvas.id = 'donutChart';
-        newCanvas.className = 'w-full h-full';
-        containerElement.appendChild(newCanvas);
-    }
-    
-    const colors = palette(values.length);
-    updateDonutLegend(labels, colors);
-    
-    state.donutChart?.destroy();
-    
-    state.donutChart = new Chart(document.getElementById('donutChart'), {
-        type: chartConfig.donut.type,
-        data: {
-            labels,
-            datasets: [{ 
-                data: values, 
-                backgroundColor: colors, 
-                borderWidth: 0,
-            }]
-        },
-        options: chartConfig.donut.options
-    });
-}
-
-function createTimelineChart(labels, datasets) {
-    if (state.timelineChart) {
-        state.timelineChart.destroy();
-    }
-
-    state.timelineChart = new Chart(document.getElementById('timeline').getContext('2d'), {
-        type: chartConfig.timeline.type,
-        data: { labels, datasets },
-        options: chartConfig.timeline.options
-    });
-    
-    state.isCurrentlyMobile = null; 
-    updatePointSizes(state.timelineChart, isMobileView, state);
-     createTimelineChartLegend(state.timelineChart);
-}
 
 // ===== VIEW MANAGEMENT =====
 function activateTab(tabId) {
@@ -232,11 +111,16 @@ function activateTab(tabId) {
 function showCategory(categoryKey) {
     state.currentView = 'detail';
     state.currentCategory = categoryKey;
+
+    
     
     if (!state.historyData?.categories[categoryKey]) {
         console.error('Category not found:', categoryKey);
         return;
     }
+
+    const { dates: labels } = state.historyData;
+
 
     const technologies = state.historyData.categories[categoryKey];
     const datasets = technologies.map((tech, index) => {
@@ -244,7 +128,9 @@ function showCategory(categoryKey) {
         return createDataset(tech, techData, index);
     });
 
-    createTimelineChart(state.historyData.dates, datasets);
+    createTimelineChart(state, chartConfig, labels, datasets);
+
+
 }
 
 function showAllCategories() {
@@ -272,68 +158,71 @@ function drawTimeline() {
         return createDataset(categoryName, categoryData, index);
     });
 
-    createTimelineChart(labels, datasets);
+    createTimelineChart(state, chartConfig, labels, datasets);
+
 }
 
-// ===== LEGEND MANAGEMENT =====
-function handleResize() {
-    if (state.timelineChart) {
-        state.timelineChart.resize();
-        createCustomLegend(state.timelineChart);
-    }
-}
 
 // ===== DONUT CHART MANAGEMENT =====
-function updateDonutForCategory(categoryKey) {
-    if (!state.historyData) return;
-    
-    let categoryData = {};
+
+ 
+
+function calculateAndRenderAllData() {
+    // This is the correct place to define lastDayIndex for this function
     const lastDayIndex = state.historyData.dates.length - 1;
+    const categoryData = {};
     
-    if (categoryKey === 'all') {
-        for (const [categoryName, techs] of Object.entries(state.historyData.categories)) {
-            let dailyTotal = 0;
-            techs.forEach(tech => {
-                dailyTotal += state.historyData.series[tech][lastDayIndex];
-            });
-            if (dailyTotal > 0) {
-                categoryData[categoryName] = dailyTotal;
-            }
-        }
-    } else {
-        const techs = state.historyData.categories[categoryKey];
-        let hasAnyData = false;
-        
+    for (const [categoryName, techs] of Object.entries(state.historyData.categories)) {
+        let dailyTotal = 0;
         techs.forEach(tech => {
-            const count = state.historyData.series[tech][lastDayIndex] || 0;
-            if (count > 0) {
-                categoryData[tech] = count;
-                hasAnyData = true;
-            }
+            dailyTotal += state.historyData.series[tech][lastDayIndex];
         });
-        
-        if (!hasAnyData) {
-            const chartElement = document.getElementById('donutContainer');
-            chartElement.innerHTML = `
-                <div class="flex flex-col items-center justify-center h-full w-full text-center p-6">
-                    <div class="w-14 h-14 mb-3 text-gray-400 opacity-70">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                        </svg>
-                    </div>
-                    <p class="text-gray-300 font-medium text-sm mb-1">No Data Available</p>
-                    <p class="text-gray-400 text-xs">${categoryKey} skills weren't mentioned today</p>
-                </div>
-            `;
-            state.donutChart?.destroy();
-            state.donutChart = null;
-            updateDonutLegend([], []);
-            return;
+        if (dailyTotal > 0) {
+            categoryData[categoryName] = dailyTotal;
         }
     }
     
     const { labels, values } = toSortedArrays(categoryData, 30);
-    renderDonutChart(labels, values);
+    renderDonutChart(state, chartConfig, labels, values);
+}
+
+function calculateAndRenderCategoryData(categoryKey) {
+    let categoryData = {};
+    const techs = state.historyData.categories[categoryKey];
+    const lastDayIndex = state.historyData.dates.length - 1;
+    let hasAnyData = false;
+
+    techs.forEach(tech => {
+        const count = state.historyData.series[tech][lastDayIndex] || 0;
+        if (count > 0) {
+            categoryData[tech] = count;
+            hasAnyData = true;
+        }
+    });
+
+    if (!hasAnyData) {
+        renderDonutChart(state, chartConfig, [], []);
+        return;
+    }
+
+    const { labels, values } = toSortedArrays(categoryData, 30);
+    renderDonutChart(state, chartConfig, labels, values);
+}
+
+
+function updateDonutForCategory(categoryKey) {
+    if (!state.historyData) return;
+
+    // This ensures a clean slate every time
+    const containerElementErase = document.getElementById('donutContainer');
+    containerElementErase.innerHTML = '';
+    
+    // The "painter" now decides which "brush" to use
+    if (categoryKey === 'all') {
+        calculateAndRenderAllData();
+    } else {
+        calculateAndRenderCategoryData(categoryKey);
+    }
 }
 
 function setActiveTab(activeButton) {
@@ -403,15 +292,19 @@ async function boot() {
     Chart.defaults.plugins.title.color = chartConfig.defaults.plugins.title.color;
     Chart.defaults.scales = chartConfig.defaults.scales;
 
-    await loadHistory();
-    const latest = getLatestDay();
+   
+
+    state.historyData = await loadHistoryData();
+    const latest = getLatestDayCounts(state.historyData);
     if (!latest) return;
 
     showApproxLastUpdated();
     initDonutTabs();
 
+
+
     const { labels, values } = toSortedArrays(latest.counts, 20);
-    renderDonutChart(labels, values);
+    renderDonutChart(state, chartConfig, labels, values); 
 
     drawTimeline();
     activateTab('tab-all');
