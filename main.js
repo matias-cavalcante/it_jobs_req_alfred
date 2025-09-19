@@ -1,6 +1,7 @@
 import { createDataset, createTimelineChartLegend, createDonutChartLegend, updatePointSizes, toSortedArrays, palette, isMobileView, showApproxLastUpdated } from'./utilities.js';
 import { loadHistoryData, getLatestDayCounts } from './data-handling.js';
 import { renderDonutChart, createTimelineChart} from './render-d-chart.js';
+import { chartConfig } from './chart-config.js';
 
 
 // ===== GLOBAL STATE =====
@@ -14,86 +15,7 @@ const state = {
     resizeTimeout: null
 };
 
-// ===== CHART CONFIGURATIONS =====
-const chartConfig = {
-    defaults: {
-        color: '#fff',
-        plugins: {
-            legend: {
-                labels: { color: '#fff' }
-            },
-            tooltip: {
-                bodyColor: '#fff'
-            },
-            title: { color: '#fff' }
-        },
-        scales: {
-            x: {
-                ticks: { color: '#fff' },
-                title: { color: '#fff' }
-            },
-            y: {
-                ticks: { color: '#fff' },
-                title: { color: '#fff' }
-            }
-        }
-    },
-    
-    timeline: {
-        type: 'line',
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            aspectRatio: 2.5,
-            interaction: { mode: 'nearest', intersect: false },
-            plugins: {
-                legend: { 
-                    display: false, 
-                    position: 'bottom',
-                    labels: {
-                        usePointStyle: false,
-                        pointStyle: 'circle',
-                        boxWidth: 20,
-                        boxHeight: 1,
-                        padding: 15,
-                        font: { size: 13.28 },
-                        color: 'rgb(156, 163, 175)'
-                    }
-                }
-            },
-            scales: {
-                x: { 
-                    title: { display: true, text: "Total days counted", align: 'end' },
-                    grid: { color: 'rgba(255, 255, 255, 0.1)' }
-                },
-                y: { 
-                    title: { display: false }, 
-                    beginAtZero: true,
-                    min: 0,
-                    suggestedMax: 12,
-                    ticks: { precision: 0 },
-                }
-            }
-        }
-    },
-    
-    donut: {
-        type: 'doughnut',
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            cutout: '60%',
-            plugins: {
-                legend: { display: false },
-                tooltip: {
-                    callbacks: {
-                        label: (ctx) => `${ctx.label}: ${ctx.parsed}`
-                    }
-                }
-            }
-        }
-    }
-};
+
 
 
 // ===== VIEW MANAGEMENT =====
@@ -112,15 +34,12 @@ function showCategory(categoryKey) {
     state.currentView = 'detail';
     state.currentCategory = categoryKey;
 
-    
-    
     if (!state.historyData?.categories[categoryKey]) {
         console.error('Category not found:', categoryKey);
         return;
     }
 
     const { dates: labels } = state.historyData;
-
 
     const technologies = state.historyData.categories[categoryKey];
     const datasets = technologies.map((tech, index) => {
@@ -129,8 +48,6 @@ function showCategory(categoryKey) {
     });
 
     createTimelineChart(state, chartConfig, labels, datasets);
-
-
 }
 
 function showAllCategories() {
