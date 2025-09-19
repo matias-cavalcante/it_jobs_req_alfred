@@ -16,74 +16,9 @@ const state = {
 };
 
 
-
-
-// ===== VIEW MANAGEMENT =====
-function activateTab(tabId) {
-    document.querySelectorAll('.tab-button').forEach(tab => {
-        tab.classList.remove('active');
-    });
-    
-    const activeTab = document.getElementById(tabId);
-    if (activeTab) {
-        activeTab.classList.add('active');
-    }
-}
-
-function showCategory(categoryKey) {
-    state.currentView = 'detail';
-    state.currentCategory = categoryKey;
-
-    if (!state.historyData?.categories[categoryKey]) {
-        console.error('Category not found:', categoryKey);
-        return;
-    }
-
-    const { dates: labels } = state.historyData;
-
-    const technologies = state.historyData.categories[categoryKey];
-    const datasets = technologies.map((tech, index) => {
-        const techData = state.historyData.series[tech] || new Array(state.historyData.dates.length).fill(0);
-        return createDataset(tech, techData, index);
-    });
-
-    createTimelineChart(state, chartConfig, labels, datasets);
-}
-
-function showAllCategories() {
-    state.currentView = 'overview';
-    state.currentCategory = null;
-    activateTab('tab-all');
-    drawTimeline();
-}
-
-function drawTimeline() {
-    if (!state.historyData) return;
-
-    const { dates: labels } = state.historyData;
-    const categories = Object.entries(state.historyData.categories);
-    
-    const datasets = categories.map(([categoryName, techs], index) => {
-        const categoryData = state.historyData.dates.map((_, dayIndex) => {
-            let dailyTotal = 0;
-            techs.forEach(tech => {
-                dailyTotal += state.historyData.series[tech][dayIndex];
-            });
-            return dailyTotal;
-        });
-        
-        return createDataset(categoryName, categoryData, index);
-    });
-
-    createTimelineChart(state, chartConfig, labels, datasets);
-
-}
-
-
 // ===== DONUT CHART MANAGEMENT =====
 
  
-
 function calculateAndRenderAllData() {
     // This is the correct place to define lastDayIndex for this function
     const lastDayIndex = state.historyData.dates.length - 1;
@@ -149,31 +84,104 @@ function setActiveTab(activeButton) {
     activeButton.classList.add('active', 'bg-white', 'bg-opacity-15', 'text-white', 'shadow-sm');
 }
 
+
+////
+function actionForTabListener(whichCategory) {
+    return function() {
+        setActiveTab(this);
+        updateDonutForCategory(whichCategory);
+    };
+}
+
+function createDonutTabButton(someCategory) {
+    const button = document.createElement('button');
+    button.className = 'donut-tab';
+    button.textContent = someCategory;
+    button.dataset.category = someCategory;
+    button.addEventListener('click', actionForTabListener(someCategory));
+    return button;
+}
+
 function initDonutTabs() {
     const tabsContainer = document.getElementById('donutTabs');
+
     if (!tabsContainer || !state.historyData?.categories) return;
 
     document.querySelectorAll('.donut-tab').forEach(tab => {
-        tab.addEventListener('click', function() {
-            setActiveTab(this);
-            updateDonutForCategory(this.dataset.category);
-        });
+        tab.addEventListener('click', actionForTabListener(tab.dataset.category));
     });
-
+    
     Object.keys(state.historyData.categories).forEach(category => {
         if (category === "all") return;
-        const button = document.createElement('button');
-        button.className = 'donut-tab';
-        button.textContent = category;
-        button.dataset.category = category;
-        button.addEventListener('click', function() {
-            setActiveTab(this);
-            updateDonutForCategory(category);
-        });
-
+        const button = createDonutTabButton(category);
         tabsContainer.appendChild(button);
     });
 }
+
+
+// ===== VIEW MANAGEMENT (In Timeline section?) =====
+function activateTab(tabId) {
+    document.querySelectorAll('.tab-button').forEach(tab => {
+        tab.classList.remove('active');
+    });
+    
+    const activeTab = document.getElementById(tabId);
+    if (activeTab) {
+        activeTab.classList.add('active');
+    }
+}
+
+function showCategory(categoryKey) {
+    state.currentView = 'detail';
+    state.currentCategory = categoryKey;
+
+    if (!state.historyData?.categories[categoryKey]) {
+        console.error('Category not found:', categoryKey);
+        return;
+    }
+
+    const { dates: labels } = state.historyData;
+
+    const technologies = state.historyData.categories[categoryKey];
+    const datasets = technologies.map((tech, index) => {
+        const techData = state.historyData.series[tech] || new Array(state.historyData.dates.length).fill(0);
+        return createDataset(tech, techData, index);
+    });
+
+    createTimelineChart(state, chartConfig, labels, datasets);
+}
+
+function showAllCategories() {
+    state.currentView = 'overview';
+    state.currentCategory = null;
+    activateTab('tab-all');
+    drawTimeline();
+}
+
+function drawTimeline() {
+    if (!state.historyData) return;
+
+    const { dates: labels } = state.historyData;
+    const categories = Object.entries(state.historyData.categories);
+    
+    const datasets = categories.map(([categoryName, techs], index) => {
+        const categoryData = state.historyData.dates.map((_, dayIndex) => {
+            let dailyTotal = 0;
+            techs.forEach(tech => {
+                dailyTotal += state.historyData.series[tech][dayIndex];
+            });
+            return dailyTotal;
+        });
+        
+        return createDataset(categoryName, categoryData, index);
+    });
+
+    createTimelineChart(state, chartConfig, labels, datasets);
+
+}
+
+
+
 
 // ===== TAB CONFIGURATION =====
 const tabConfig = {
