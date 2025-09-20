@@ -4,7 +4,7 @@
  */
 export async function loadHistoryData() {
     try {
-        const res = await fetch('../../history.json', { cache: 'no-store' });
+        const res = await fetch('history.json', { cache: 'no-store' });
         if (!res.ok) throw new Error("Can't fetch history.json");
         const rawData = await res.json();
         
