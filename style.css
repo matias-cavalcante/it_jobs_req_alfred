@@ -22,6 +22,7 @@ header{
 .charts-text{
 padding: 0.2em;
 font-size: 1em;
+text-align: justify;
 }
 
 section{
@@ -112,12 +113,12 @@ section{
     }
 
     section{
-        margin-top: %!important;
+        margin-top: 5%!important;
         margin-bottom: 12%!important;
     }
 
     header{
-        margin-bottom: 14%;
+        margin-bottom: 8%;
     }
     
     #main-title {
@@ -132,7 +133,9 @@ section{
     #subtext {
         flex-direction: column;
         align-items: flex-start;
-        gap: 0.3rem;}
+        gap: 0.1rem;
+        padding-left: 0.2rem;
+    }
 
     #subtext h3, #subtext p {
         font-size: 0.75rem !important;
