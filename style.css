@@ -1,22 +1,10 @@
-
-  html, body {
-    height: 100%; }
-
- /* --- New CSS for the Aspect Ratio Container --- */
-
-
-body {
-background-color: #000000;
+/* ===== BASE STYLES ===== */
+html, body {
+    height: 100%;
+    background-color: #000000;
 }
 
-#donutTabs {
-    margin-top: 13%;
-}
-
-/* Ensure chart container has fixed height */
-
-
-/* Style for custom legend */
+/* ===== LEGEND STYLES ===== */
 #timeline-legend {
     min-height: 40px;
 }
@@ -28,10 +16,8 @@ background-color: #000000;
     font-size: 0.83em;
     cursor: pointer;
     transition: all 0.2s ease;
-    color:#9ca3af
+    color: #9ca3af;
 }
-
-
 
 .legend-color {
     width: 20px;
@@ -40,126 +26,82 @@ background-color: #000000;
     flex-shrink: 0;
 }
 
-
-
-
-/* Hover effects for inactive tabs */
-.bg-gray-700 button:not(:first-child):hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-1px);
+/* ===== TAB STYLES ===== */
+.tab-button, .donut-tab {
+    flex-shrink: 0;
+    white-space: nowrap;
+    font-weight: 300;
+    color: white;
+    transition: all 0.2s ease;
 }
 
+.tab-button {
+    min-width: max-content;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+}
 
 .donut-tab {
     padding: 0.40rem 0.85rem;
     border-radius: 50px;
-    font-size: 1rem;
-    font-weight: 300;
-    transition: all 0.2s;
-    color: white;
 }
 
-.donut-tab:hover {
-    background-color: rgb(115, 7, 61, 0.3);
-    color: white;
+/* Hover and Active states for all tabs */
+.tab-button:hover, .donut-tab:hover {
+    background-color: rgba(115, 7, 61, 0.3);
+}
+
+.tab-button.active, .donut-tab.active {
+    background-color: rgba(115, 7, 61, 0.7);
 }
 
 .donut-tab.active {
-    background-color: rgb(115, 7, 61, 0.7);
-    color: white;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
 }
 
-
-
-
-.tab-button {
-    flex-shrink: 1;
-    min-width: max-content;
-    padding: 0.5rem 1rem;
-    border-radius: 9999px;
-    font-size: 1rem;
-    font-weight: 300;
-    color: white;
-    transition: all 0.2s ease;
-    white-space: nowrap;
-
-    
-    flex-shrink: 0; /* Prevents buttons from shrinking */
-    /* Ensure you have these for sizing: */
-    padding: 0.5rem 1rem; 
-    white-space: nowrap;
+#donutTabs {
+    margin-top: 13%;
 }
 
-.tab-button:hover{
-     background-color: rgb(115, 7, 61, 0.3);
-}
-
-.tab-button.active{
-      background-color: rgb(115, 7, 61, 0.7);
-}
-
-
-/* Default: Desktop Layout (flex with wrapping) */
 #tab-container {
     margin-top: 2.5%;
 }
 
+/* ===== MOBILE-FIRST OPTIMIZATION ===== */
+/* This is a better way to handle responsive styles */
+@media (max-width: 768px) {
+    #tab-container {
+        margin-top: 8%;
+        -ms-overflow-style: none; /* Hide scrollbar IE/Edge */
+        scrollbar-width: none;  /* Hide scrollbar Firefox */
+    }
 
-
-
-/* Mobile Layout: Horizontal Scrolling Carousel */
-@media (max-width: 767px) { /* Adjust breakpoint as needed */
-
-    
     #tab-container::-webkit-scrollbar {
         display: none; /* Hide scrollbar Chrome/Safari */
     }
-    
+
     .tab-button {
-        scroll-snap-align: start; /* Snap to button start */
-        flex-shrink: 0;           /* Prevent button shrinking */
-        white-space: nowrap;      /* Keep button text on one line */
-        /* Your existing button styles remain unchanged */
-    }
-
-    #tab-container {
-margin-top: 8%;
-}
-
-}
-
-
-    
-
-
-
-@media (max-width: 768px) {
-    .tab-button {
+        scroll-snap-align: start;
         padding: 0.4rem 0.8rem;
         font-size: 1rem;
     }
-
-    #main-title{
-      text-align: center;
-      font-size: 1.8rem;
+    
+    #main-title {
+        text-align: center;
+        font-size: 1.8rem;
     }
 
     .timeline-chart-container {
-      height: 250px!important;
-    }   
-
-    #subtext{
-      flex-wrap: wrap;
-      justify-content: center;
+        height: 250px !important;
     }
 
-    #subtext h3{
-      text-align: center;
-      font-size: 0.8rem;
+    #subtext {
+        flex-wrap: wrap;
+        justify-content: center;
     }
-    #subtext p{
-      text-align:center ;
-      font-size: 0.8rem ! important;
-    } 
+
+    #subtext h3, #subtext p {
+        text-align: center;
+        font-size: 0.8rem !important;
+    }
 }
