@@ -4,6 +4,10 @@ html, body {
     background-color: #000000;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 header{
     margin-bottom: 5%;
 }
@@ -12,16 +16,29 @@ header{
     font-size: 2.5rem;
 }
 
+#about-button{
+    font-weight: 400; 
+    margin-right: 0.5em; 
+    margin-top: 0.2em;
+    color: rgba(4, 71, 38, 0.87);
+    text-shadow: 0 0 8px rgba(41, 99, 40, 0.7);
+}
+
+#about-button:hover{
+    cursor: pointer;
+    color: rgba(64, 115, 64, 0.7);
+}
+
 #subtext h3, #subtext p {
     font-size: 0.77rem;
     font-weight: 300;
     color:rgb(193, 187, 187)
-
 }
 
 .charts-text{
 padding: 0.2em;
 font-size: 1em;
+font-weight: 300;
 text-align: justify;
 }
 
@@ -126,12 +143,22 @@ section{
         margin-bottom: 1rem;
     }
 
+    #title-top-section{
+        flex-direction: column;
+    }
+
+    #about-button{
+        margin-right: 0; 
+        margin-top: 0;
+        padding-left: 0.2rem;
+    }
+
+    
     .timeline-chart-container {
         height: 250px !important;
     }
 
     #subtext {
-        flex-direction: column;
         align-items: flex-start;
         gap: 0.1rem;
         padding-left: 0.2rem;

@@ -14,11 +14,17 @@
     <main class="max-w-6xl mx-auto p-3 space-y-6">
         <header class="flex flex-col md:flex-row md:items-center justify-between gap-2">
             <div class="w-full"> <!-- Added w-full here -->
-                <h1 id = "main-title" class="text-2xl md:text-3xl font-semibold tracking-tight">
-                TECH WANTED IN THE ICELANDIC IT MARKET
-                </h1>
+                <div id = "title-top-section" class = "flex justify-between">
+                    
+                    <h1 id = "main-title" class="text-2xl md:text-3xl font-semibold tracking-tight">
+                    TECH WANTED IN THE ICELANDIC IT MARKET
+                    </h1>
+                   <a href="#about" id = "about-button">ABOUT</a>
+
+                </div>
+               
                 <div id = "subtext" class="flex justify-between items-center w-full mt-1">
-                    <h3 class="text-sm md:text-base font-light">Data based on jobs posted on Alfred</h3>
+                    <h3 class="text-sm md:text-base font-light">Based on data from <a href="https://alfred.is" target="_blank">Alfred</a></h3>
                     <p id="lastUpdated" class="text-sm"></p>
                 </div>
             </div>
@@ -31,7 +37,7 @@
         <section class="grid grid-cols-1">
             <div class="bg-[#111239] bg-opacity-80 backdrop-blur-md rounded-2xl shadow p-4 md:p-6 text-white">
     
-                <h2 class="text-lg font-medium mb-4 text-center">Technologies distribution</h2>
+                <h2 class="text-lg font-medium mb-4 text-center">TODAY´S DEMAND OF TECHNOLOGIES</h2>
 
                 <!-- Donut + legend/slider layout -->
                 <div class="mx-auto w-full max-w-[1100px] grid grid-cols-1 md:grid-cols-2 items-center gap-6">
@@ -64,7 +70,7 @@
         </p>
         <!-- TIMELINE CARD -->
         <section id = "timeline-section" class="bg-[#111239] bg-opacity-80 backdrop-blur-md rounded-2xl shadow p-2 md:p-3 ">
-            <h2 class="text-lg font-medium mb-6 text-center">Trends over time</h2>
+            <h2 class="text-lg font-medium mb-6 text-center">TRENDS OVER TIME</h2>
 
             <!-- Add this right below your timeline title -->
         
@@ -115,22 +121,23 @@
         </section>
 
         <section id = "about" class="grid grid-cols-1">
-            <h2>ABOUT THIS WEBSITE </h2>
-            <p>The purpose of this website is to aid those who want in a way, see how the IT market in Iceland is doing.
-            The data here could in a way reflect the fluctuations in the market but that wont necessarily be 100% representative of reality,
-            since the data used is solely based on jobs posted on Alfred, which although is the biggest job site in Iceland (there are some or course, other sites where IT
-            jobs are also posted, Linkedin, internal company searches, etc) is not the only one. 
-            
-            The main focus here is to see what technologies and tools are being asked, so if you are looking for a job, or want to learn or do a course that will help you get a job,
-            this website could help you make a more informed choice, and of course other people like recruiters, curious individuals, etc. could have a look and
-            perhaps use the information here display for different purposes.
+            <h2 style = "text-align: center; margin-bottom: 5%;">ABOUT THIS WEBSITE </h2>
 
-            Best efforts were put to track the most relevant technologies, but naturally some might be missing.
-            The data displayed here is updated once per day. 
+            <p class = "charts-text">The purpose of this website is to aid those who want in a way, see how the IT market in Iceland is doing.
+            The data here could reflect the fluctuations in the market but that wont necessarily be 100% representative of reality,
+            since the data used is solely based on jobs posted on <a href="https://alfred.is" target="_blank">Alfred</a>, which although is the biggest job site in Iceland (there are of course other sites where IT
+            jobs are also posted, Linkedin, internal company searches, etc) is not the only one.</p>
+            <br>
+            <p class="charts-text">The main focus here is to see what technologies and tools are being asked, so if you are looking for a job, or want to learn or do a course that will help you get a job,
+            this website could help you make a more informed choice, and of course other people like recruiters, curious individuals, etc. can have a look and
+            use the information here displayed for different purposes.</p>
+            <br>
+            <p class="charts-text">Best efforts were put to track the most relevant technologies, but naturally some might be missing.
+            The data displayed here is updated once per day.</p>
+            <br>
+            <p class="charts-text">This is a personal project and no profit is being made from it.
+            For feedback, comments or questions, you can reach me in the contact options below.</p>
             
-            This is a personal project and no profit in being made with it.
-            For feedback, comments or questions, you can reach me in the contact options below.
-            </p>
         </section>
     </main>
 
