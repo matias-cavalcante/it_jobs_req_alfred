@@ -12,19 +12,20 @@
 
 <body class="text-white">
     <main class="max-w-6xl mx-auto p-3 space-y-6">
-
-        <!-- HEADER -->
         <header class="flex flex-col md:flex-row md:items-center justify-between gap-2">
-    <div class="w-full"> <!-- Added w-full here -->
-        <h1 id = "main-title" class="text-2xl md:text-3xl font-semibold tracking-tight">
-            TECH WANTED IN THE ICELANDIC IT MARKET
-        </h1>
-        <div id = "subtext" class="flex justify-between items-center w-full mt-1">
-            <h3 class="text-sm md:text-base font-light">Data based on jobs posted on Alfred</h3>
-            <p id="lastUpdated" class="text-sm"></p>
-        </div>
-    </div>
-</header>
+            <div class="w-full"> <!-- Added w-full here -->
+                <h1 id = "main-title" class="text-2xl md:text-3xl font-semibold tracking-tight">
+                TECH WANTED IN THE ICELANDIC IT MARKET
+                </h1>
+                <div id = "subtext" class="flex justify-between items-center w-full mt-1">
+                    <h3 class="text-sm md:text-base font-light">Data based on jobs posted on Alfred</h3>
+                    <p id="lastUpdated" class="text-sm"></p>
+                </div>
+            </div>
+        </header>
+
+        <p class = "charts-text">Here you can see today´s required tech either in a total of how many each category
+        has in total or see each category´s specific technologies required. This of course changes everyday</p>
 
         <!-- DONUT CARD -->
         <section class="grid grid-cols-1">
@@ -58,8 +59,11 @@
             </div>
         </section>
 
+        <p class = "charts-text">This chart shows the trends in required technologies over time, allowing you to see how demand has shifted.
+            You can see the total number of requirements or filter by specific categories to analyze trends within those areas.
+        </p>
         <!-- TIMELINE CARD -->
-        <section id = "timeline-section" class="bg-[#111239] bg-opacity-80 backdrop-blur-md rounded-2xl shadow p-2 md:p-3">
+        <section id = "timeline-section" class="bg-[#111239] bg-opacity-80 backdrop-blur-md rounded-2xl shadow p-2 md:p-3 ">
             <h2 class="text-lg font-medium mb-6 text-center">Trends over time</h2>
 
             <!-- Add this right below your timeline title -->
@@ -107,9 +111,6 @@
     
 </div>
 </div>
-
-
-
 
         </section>
     </main>

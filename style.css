@@ -4,6 +4,31 @@ html, body {
     background-color: #000000;
 }
 
+header{
+    margin-bottom: 5%;
+}
+
+#main-title{
+    font-size: 2.5rem;
+}
+
+#subtext h3, #subtext p {
+    font-size: 0.77rem;
+    font-weight: 300;
+    color:rgb(193, 187, 187)
+
+}
+
+.charts-text{
+padding: 0.2em;
+font-size: 1em;
+}
+
+section{
+    margin-bottom: 5%!important;
+}
+
+
 /* ===== LEGEND STYLES ===== */
 #timeline-legend {
     min-height: 40px;
@@ -85,10 +110,19 @@ html, body {
         padding: 0.4rem 0.8rem;
         font-size: 1rem;
     }
+
+    section{
+        margin-top: %!important;
+        margin-bottom: 12%!important;
+    }
+
+    header{
+        margin-bottom: 14%;
+    }
     
     #main-title {
-        text-align: center;
-        font-size: 1.8rem;
+        font-size: 2.1rem;
+        margin-bottom: 1rem;
     }
 
     .timeline-chart-container {
@@ -96,12 +130,15 @@ html, body {
     }
 
     #subtext {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;}
 
     #subtext h3, #subtext p {
-        text-align: center;
-        font-size: 0.8rem !important;
+        font-size: 0.75rem !important;
+    }
+
+    .charts-text{
+        padding-bottom: 0;
     }
 }
