@@ -3,7 +3,6 @@ import { loadHistoryData, getLatestDayCounts } from './modules/data-handling.js'
 import { renderDonutChart, createTimelineChart} from './modules/render-d-chart.js';
 import { chartConfig } from './modules/chart-config.js';
 
-
 // ===== GLOBAL STATE =====
 const state = {
     donutChart: null,

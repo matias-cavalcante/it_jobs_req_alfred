@@ -8,7 +8,8 @@ html {
   scroll-behavior: smooth;
 }
 
-header{
+#main-header{
+    margin-top: 2%;
     margin-bottom: 5%;
 }
 
@@ -36,10 +37,10 @@ header{
 }
 
 .charts-text{
-padding: 0.2em;
-font-size: 1em;
-font-weight: 300;
-text-align: justify;
+    padding: 0.2em;
+    font-size: 1em;
+    font-weight: 300;
+    text-align: justify;
 }
 
 section{
@@ -108,6 +109,32 @@ section{
 
 #tab-container {
     margin-top: 2.5%;
+}
+
+/*Footer*/
+
+footer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2%!important;
+    color: rgba(4, 71, 38, 0.87);
+}
+
+.footer-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-links a {
+    display: flex;
+    align-items: center;
+    color: rgba(4, 71, 38, 0.87);
+    font-size: 1.5rem;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: rgba(72, 145, 72, 0.7);
 }
 
 /* ===== MOBILE-FIRST OPTIMIZATION ===== */

@@ -8,11 +8,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
     <link rel="stylesheet" href="style.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body class="text-white">
     <main class="max-w-6xl mx-auto p-3 space-y-6">
-        <header class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+        <header id = "main-header" class="flex flex-col md:flex-row md:items-center justify-between gap-2">
             <div class="w-full"> <!-- Added w-full here -->
                 <div id = "title-top-section" class = "flex justify-between">
                     
@@ -71,52 +73,29 @@
         <!-- TIMELINE CARD -->
         <section id = "timeline-section" class="bg-[#111239] bg-opacity-80 backdrop-blur-md rounded-2xl shadow p-2 md:p-3 ">
             <h2 class="text-lg font-medium mb-6 text-center">TRENDS OVER TIME</h2>
-
-            <!-- Add this right below your timeline title -->
         
-            <div class="timeline-chart-container" style="position: relative; height: 290px; width: 100%;">
-
-            
+            <div class="timeline-chart-container" style="position: relative; height: 290px; width: 100%;">            
                 <canvas id="timeline"></canvas>
             </div>
 
-             <div id="timeline-legend" class="flex flex-wrap justify-center gap-2 mt-4 p-2"></div>
+            <div id="timeline-legend" class="flex flex-wrap justify-center gap-2 mt-4 p-2"></div>
 
 
-            <!-- Replace your existing code with this OBSERVE!!!-->
-<div class="flex justify-center mb-6">
-   <div id="tab-container" class="rounded-full p-1 flex flex-wrap justify-center gap-2">
-    <button data-category = "All" id="tab-all" class="tab-button">
-        Total
-    </button>
-    <button data-category = "Web/JS" id="tab-web/js" class="tab-button">             <!-- WORKING MORE OR LESS DATACAT OBSERVE!!!-->
-        Web/JS
-    </button>
-    <button data-category= "Backend" id="tab-backend" class="tab-button">
-        Backend
-    </button>
-    <button data-category = "Databases" id="tab-databases" class="tab-button">
-        Databases
-    </button>
-     <button data-category="BI Tools" id="tab-bitools" class="tab-button">
-        BI Tools
-    </button>
-    <button data-category="DevOps/Cloud" id="tab-devops/cloud" class="tab-button">
-        DevOps/Cloud
-    </button>
-    <button data-category="Front Tools" id="tab-front" class="tab-button">
-        Front Tools
-    </button>
-   
-    <button data-category="Design" id="tab-design" class="tab-button">
-        Design
-    </button>
-    <button data-category="Net/Sec" id="tab-netsec" class="tab-button">
-        Net/Sec
-    </button>
+            <div class="flex justify-center mb-6">
+                <div id="tab-container" class="rounded-full p-1 flex flex-wrap justify-center gap-2">
+
+                    <button data-category = "All" id="tab-all" class="tab-button">Total</button>
+                    <button data-category = "Web/JS" id="tab-web/js" class="tab-button">Web/JS</button>
+                    <button data-category= "Backend" id="tab-backend" class="tab-button">Backend</button>
+                    <button data-category = "Databases" id="tab-databases" class="tab-button">Databases</button>
+                    <button data-category="BI Tools" id="tab-bitools" class="tab-button">BI Tools</button>
+                    <button data-category="DevOps/Cloud" id="tab-devops/cloud" class="tab-button">DevOps/Cloud</button>
+                    <button data-category="Front Tools" id="tab-front" class="tab-button">Front Tools</button>
+                    <button data-category="Design" id="tab-design" class="tab-button">Design</button>
+                    <button data-category="Net/Sec" id="tab-netsec" class="tab-button">Net/Sec</button>
     
-</div>
-</div>
+                </div>
+            </div>
 
         </section>
 
@@ -139,6 +118,20 @@
             For feedback, comments or questions, you can reach me in the contact options below.</p>
             
         </section>
+
+        <footer>
+    <div class="footer-links">
+            <p>CONTACT ME!</p>
+
+        <a href="mailto:matias.cavalcante93@gmail.com" aria-label="Email me">
+            <i class="fas fa-envelope"></i>
+        </a>
+        
+        <a href="https://github.com/matias-cavalcante" target="_blank" aria-label="My GitHub profile">
+            <i class="fab fa-github"></i>
+        </a>
+    </div>
+</footer>
     </main>
 
   
