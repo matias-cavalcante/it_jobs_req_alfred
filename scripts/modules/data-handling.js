@@ -23,6 +23,7 @@ export async function loadHistoryData() {
 function processHistoryData(rawData) {
     const dateKeys = Object.keys(rawData).filter(key => key !== 'categories');
     const allDates = dateKeys.sort();
+    
     const allTechnologies = new Set();
     
     if (rawData.categories) {
