@@ -36,7 +36,10 @@ try {
 const dropdownButton = document.getElementById('.dropdown-button');
 const dropdownMenu = document.getElementsByClassName('.dropdown-menu');
 
-document.addEventListener('DOMContentLoaded', () => {   
+document.addEventListener('DOMContentLoaded', () => {
+   
+
+    // Handle all dropdown interactions with a single event listener on the document
     document.addEventListener('click', (event) => {
         // Log every click to see if the listener is active
         console.log("Click event fired.");
