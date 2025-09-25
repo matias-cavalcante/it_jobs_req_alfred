@@ -1,4 +1,32 @@
-const { DateTime } = require('luxon');
+export function setupMonthSelector(onMonthSelected) {
+    const dropdownButton = document.querySelector('.dropdown-button');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+
+    if (!dropdownButton || !dropdownMenu) {
+        console.error('Dropdown elements not found');
+        return;
+    }
+
+    dropdownButton.addEventListener('click', () => {
+        dropdownMenu.classList.toggle('show');
+    });
+
+    document.addEventListener('click', (event) => {
+        const clickedButton = event.target.closest('.month-button');
+        if (clickedButton) {
+            const monthName = clickedButton.textContent.trim();
+            onMonthSelected(monthName);
+            dropdownMenu.classList.remove('show');
+            dropdownButton.textContent = monthName;
+        }
+        
+        // Close dropdown if clicking outside
+        if (!event.target.closest('.dropdown')) {
+            dropdownMenu.classList.remove('show');
+        }
+    });
+}
+
 
 /**
  * Gets the first and last date of a specified month and year.
@@ -6,10 +34,12 @@ const { DateTime } = require('luxon');
  * @returns {{firstDay: string, lastDay: string}} An object containing the first and last date in 'YYYY-MM-DD' format.
  */
 
-function getMonthDateRange(monthYear) {
-  const date = DateTime.fromFormat(monthYear, 'MMMM yyyy');
+export function getMonthDateRange(monthYear) {
+  const date = luxon.DateTime.fromFormat(monthYear, 'MMMM yyyy');
+
 
   if (!date.isValid) {
+    console.log("date looks like this: ", date)
     throw new Error('Invalid month/year string provided.');
   }
 
@@ -19,47 +49,5 @@ function getMonthDateRange(monthYear) {
   };
 }
 
-/*
-try {
 
-  const testMonth2 = 'September 2025';
-  const result2 = getMonthDateRange(testMonth2);
-  console.log(`The range for ${testMonth2} is:`, result2);
 
-} catch (error) {
-  console.error("An error occurred:", error.message);
-}*/
-
-// Get the dropdown menu element.
-// Wait for the DOM to be fully loaded before running the script
-
-const dropdownButton = document.getElementById('.dropdown-button');
-const dropdownMenu = document.getElementsByClassName('.dropdown-menu');
-
-document.addEventListener('DOMContentLoaded', () => {
-   
-
-    // Handle all dropdown interactions with a single event listener on the document
-    document.addEventListener('click', (event) => {
-        // Log every click to see if the listener is active
-        console.log("Click event fired.");
-
-        if (event.target === dropdownButton) {
-            dropdownMenu.classList.toggle('show');
-            return;
-        }
-
-        const clickedButton = event.target.closest('.month-button');
-        if (clickedButton) {
-            const monthName = clickedButton.textContent.trim();
-            console.log("Button pressed:", monthName);
-
-            dropdownMenu.classList.remove('show');
-            return; 
-        }
-
-        if (dropdownMenu.classList.contains('show')) {
-            dropdownMenu.classList.remove('show');
-        }
-    });
-});

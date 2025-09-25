@@ -1,5 +1,5 @@
 import { createDataset, createTimelineChartLegend, createDonutChartLegend, updatePointSizes, toSortedArrays, palette, isMobileView, showApproxLastUpdated } from'./modules/utilities.js';
-import { loadHistoryData, getLatestDayCounts } from './modules/data-handling.js';
+import { loadHistoryData, getLatestDayCounts, processHistoryData } from './modules/data-handling.js';
 import { renderDonutChart, createTimelineChart} from './modules/render-d-chart.js';
 import { chartConfig } from './modules/chart-config.js';
 
@@ -203,7 +203,6 @@ function drawTimeline() {
 
 }
 
-
 // ===== INITIALIZATION =====
 async function boot() {
     // Set global chart defaults
@@ -213,27 +212,35 @@ async function boot() {
     Chart.defaults.plugins.title.color = chartConfig.defaults.plugins.title.color;
     Chart.defaults.scales = chartConfig.defaults.scales;
 
-   
+    function updateTimelineWithNewData(newData) {
+        state.historyData = processHistoryData(newData);
+        drawTimeline();
+    }
 
-    state.historyData = await loadHistoryData();
+    // Load initial data
+    state.historyData = await loadHistoryData(updateTimelineWithNewData);
     const latest = getLatestDayCounts(state.historyData);
     if (!latest) return;
 
+    // Initial setup (runs only once)
     showApproxLastUpdated();
     initDonutTabs();
 
     const { labels, values } = toSortedArrays(latest.counts, 20);
     renderDonutChart(state, chartConfig, labels, values); 
 
-    drawTimeline();
+    // Initial timeline render
+    drawTimeline(); 
     activateTab('tab-all');
 
     // Setup all tab handlers
     setTimeout(setupTabHandlers, 100);
 }
-
 // ===== EVENT LISTENERS =====
 window.addEventListener('resize', () => updatePointSizes(state.timelineChart, isMobileView, state));
 
 // Start the application
 boot();
+
+
+
