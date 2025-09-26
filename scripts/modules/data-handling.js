@@ -10,7 +10,7 @@ function filterDataByDateRange(rawData, dateRange) {
     
     // Loop through all dates in rawData (excluding 'categories')
     Object.keys(rawData).forEach(date => {
-        if (date !== 'categories') { // Skip the categories key
+        if (date !== 'categories') {
             // Check if date is within the month range
             if (date >= firstDay && date <= lastDay) {
                 filteredData[date] = rawData[date];
@@ -22,9 +22,7 @@ function filterDataByDateRange(rawData, dateRange) {
 }
 
 function showNoDataMessage(monthName) {
-    // You can show a toast, alert, or update a message element
     console.log(`No data available for ${monthName}`);
-    // Example: Update a message element in your HTML
     const messageElement = document.getElementById('data-message');
     if (messageElement) {
         messageElement.textContent = `No data available for ${monthName}`;
@@ -68,9 +66,12 @@ export async function loadHistoryData(onDataUpdate) {
             if (!hasData) {
                 // Show message but keep current data displayed
                 showNoDataMessage(monthName);
+                return; 
             } else {
                 // Call the update function to refresh charts
                 onDataUpdate(filteredData);
+                document.getElementById('current-month-name').textContent = monthName;
+
             }
         });
         

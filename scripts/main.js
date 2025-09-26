@@ -233,6 +233,9 @@ async function boot() {
     drawTimeline(); 
     activateTab('tab-all');
 
+    const currentMonth = new Date().toLocaleString('en-US', { month: 'long' });
+    document.getElementById('current-month-name').textContent = currentMonth;
+
     // Setup all tab handlers
     setTimeout(setupTabHandlers, 100);
 }

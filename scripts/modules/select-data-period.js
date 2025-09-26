@@ -15,9 +15,10 @@ export function setupMonthSelector(onMonthSelected) {
         const clickedButton = event.target.closest('.month-button');
         if (clickedButton) {
             const monthName = clickedButton.textContent.trim();
+
             onMonthSelected(monthName);
             dropdownMenu.classList.remove('show');
-            dropdownButton.textContent = monthName;
+            //dropdownButton.textContent = monthName;
         }
         
         // Close dropdown if clicking outside
