@@ -117,6 +117,26 @@ section{
  * General dropdown container styling.
  * This sets the position context and minimum width for the entire component.
  */
+
+#data-message {
+    display: none;
+    background-color: black;
+    color: rgba(115, 7, 61, 0.7);
+    font-weight: 500;
+    max-width: 250px;
+    padding: 8px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-right: 10px;
+    z-index: 1000;
+    text-align: center;
+    
+    /* Add these positioning properties */
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
 .dropdown {
     position: relative;
     display: inline-block;

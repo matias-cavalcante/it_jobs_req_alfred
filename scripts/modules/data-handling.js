@@ -25,7 +25,7 @@ function showNoDataMessage(monthName) {
     console.log(`No data available for ${monthName}`);
     const messageElement = document.getElementById('data-message');
     if (messageElement) {
-        messageElement.textContent = `No data available for ${monthName}`;
+        messageElement.textContent = `No data for ${monthName}!`;
         messageElement.style.display = 'block';
         
         // Hide message after 3 seconds
