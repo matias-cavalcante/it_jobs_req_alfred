@@ -4613,5 +4613,189 @@
         "Git": 1
       }
     }
+  ],
+  "2025-09-28": [
+    {
+      "company": "Alfreð",
+      "title": "Tæknilegur þjónustufulltrúi - Tímabundið starf",
+      "technologies": {
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Sensa ehf.",
+      "title": "Linux sérfræðingur",
+      "technologies": {
+        "Windows": 1,
+        "Linux": 1
+      }
+    },
+    {
+      "company": "Landsbankinn",
+      "title": "Hugbúnaðarsérfræðingur",
+      "technologies": {
+        "TypeScript": 1,
+        "React": 1
+      }
+    },
+    {
+      "company": "Vörður tryggingar ",
+      "title": "Gagnasérfræðingur (e. Data scientist)",
+      "technologies": {
+        "Python": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Nox Medical",
+      "title": "Software Engineer — AI/Cloud",
+      "technologies": {
+        "Python": 1,
+        "AWS": 1
+      }
+    },
+    {
+      "company": "Nox Medical",
+      "title": "Software Engineer — AI/Cloud (Fixed-term)",
+      "technologies": {
+        "Python": 1,
+        "AWS": 1
+      }
+    },
+    {
+      "company": "dk hugbúnaður ehf. ",
+      "title": "Forritari í þróunarteymi",
+      "technologies": {
+        "Git": 1
+      }
+    },
+    {
+      "company": "Verkís",
+      "title": "Tæknimaður tölvukerfa",
+      "technologies": {
+        "Windows": 1
+      }
+    },
+    {
+      "company": "SASS og Orkídea",
+      "title": "VERKEFNASTJÓRI MIÐLUNAR",
+      "technologies": {
+        "Sass/SCSS": 1
+      }
+    },
+    {
+      "company": "Landsvirkjun",
+      "title": "Sérfræðingur í vöruhúsi gagna og viðskiptagreind",
+      "technologies": {
+        "Power BI": 1
+      }
+    },
+    {
+      "company": "ST2",
+      "title": "Power Platform Sérfræðingur",
+      "technologies": {
+        "DevOps": 1
+      }
+    },
+    {
+      "company": "Icelandair",
+      "title": "Manager Experience Engineering",
+      "technologies": {
+        "Next.js": 1,
+        "Node.js": 1,
+        "React": 1
+      }
+    },
+    {
+      "company": "Icelandair",
+      "title": "Manager Decision Engineering",
+      "technologies": {
+        "Power BI": 1
+      }
+    },
+    {
+      "company": "CCP Games",
+      "title": "UI/UX Designer",
+      "technologies": {
+        "JavaScript": 1,
+        "QA / Testing": 1,
+        "Figma": 1,
+        "HTML": 1,
+        "CSS": 1
+      }
+    },
+    {
+      "company": "AGR ",
+      "title": "Infrastructure & DevOps Engineer (Security-Oriented)",
+      "technologies": {
+        "Kubernetes": 1,
+        "DevOps": 1,
+        "GitHub": 1,
+        "Azure": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "AGR ",
+      "title": "Quality Assurance (Q.A) Manager",
+      "technologies": {
+        "Kubernetes": 1,
+        "QA / Testing": 1,
+        "DevOps": 1,
+        "GitHub": 1,
+        "Azure": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Bókun / Tripadvisor",
+      "title": "Back-end Software Engineer",
+      "technologies": {
+        "TypeScript": 1,
+        "Tailwind CSS": 1,
+        "Next.js": 1,
+        "React": 1,
+        "MySQL": 1,
+        "Redis": 1,
+        "Java": 1
+      }
+    },
+    {
+      "company": "Bókun / Tripadvisor",
+      "title": "Front-end Software Engineer",
+      "technologies": {
+        "TypeScript": 1,
+        "Tailwind CSS": 1,
+        "Next.js": 1,
+        "React": 1,
+        "MySQL": 1,
+        "Redis": 1,
+        "Java": 1
+      }
+    },
+    {
+      "company": "Rapyd Europe hf.",
+      "title": "Software Specialist",
+      "technologies": {
+        "DevOps": 1
+      }
+    },
+    {
+      "company": "Sundra ehf.",
+      "title": "Join our Startup as Lead Developer",
+      "technologies": {
+        "Tailwind CSS": 1,
+        "TypeScript": 1,
+        "Laravel": 1,
+        "Python": 1,
+        "GitHub": 1,
+        "MySQL": 1,
+        "Figma": 1,
+        "Vue.js": 1,
+        "PHP": 1,
+        "AWS": 1,
+        "Git": 1
+      }
+    }
   ]
 }
