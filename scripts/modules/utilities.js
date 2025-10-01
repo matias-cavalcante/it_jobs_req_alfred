@@ -73,22 +73,32 @@ export function showApproxLastUpdated() {
         `Updated about ${diffHours} hour${diffHours !== 1 ? 's' : ''} ago`;
 }
 
-export function createDataset(label, data, colorIndex) {
-    const colors = palette(data.length);
-    const pointRadius = isMobileView() ? 2 : 2.5;
+export function createDataset(label, data, colorIndex, totalCount) {
+    // --- FIX IS HERE ---
+    // Now call the palette function with the total number of datasets
+    const colors = palette(totalCount);
+    // ---
     
+    const pointRadius = isMobileView() ? 2 : 2.5;
+
     return {
         label,
         data,
         fill: false,
         tension: 0.26,
         borderWidth: 0.85,
-        borderColor: colors[colorIndex],
         borderCapStyle: 'round',
         borderJoinStyle: 'round',
+        
+        // This will now be a valid color for every dataset
+        borderColor: colors[colorIndex], 
+        
         pointRadius,
         pointHoverRadius: 5,
-        pointBackgroundColor: colors[colorIndex],
+        
+        // This will also be a valid color
+        pointBackgroundColor: colors[colorIndex], 
+        
         pointHoverBackgroundColor: colors[colorIndex],
         pointBorderColor: colors[colorIndex],
         pointHoverBorderColor: colors[colorIndex]

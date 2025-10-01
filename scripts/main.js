@@ -1,4 +1,4 @@
-import { createDataset, createTimelineChartLegend, createDonutChartLegend, updatePointSizes, toSortedArrays, palette, isMobileView, showApproxLastUpdated } from'./modules/utilities.js';
+import { createDataset, updatePointSizes, toSortedArrays, isMobileView, showApproxLastUpdated } from'./modules/utilities.js';
 import { loadHistoryData, getLatestDayCounts, processHistoryData } from './modules/data-handling.js';
 import { renderDonutChart, createTimelineChart} from './modules/render-d-chart.js';
 import { chartConfig } from './modules/chart-config.js';
