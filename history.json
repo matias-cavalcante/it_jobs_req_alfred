@@ -6623,5 +6623,217 @@
         "Git": 1
       }
     }
+  ],
+  "2025-10-07": [
+    {
+      "company": "Embla Medical | Össur",
+      "title": "Digital Product Specialist",
+      "technologies": {
+        "Figma": 1
+      }
+    },
+    {
+      "company": "Expectus",
+      "title": "Sérfræðingur í viðskiptagreind (BI)",
+      "technologies": {
+        "Power BI": 1,
+        "Azure": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Orkuveitan",
+      "title": "Við leitum að hugbúnaðarsérfræðingum",
+      "technologies": {
+        "DevOps": 1
+      }
+    },
+    {
+      "company": "Retric ehf.",
+      "title": "Hugbúnaðarsérfræðingur",
+      "technologies": {
+        "React": 1,
+        "Azure": 1,
+        ".NET": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "Advania",
+      "title": "Hugbúnaðarsérfræðingur í Sérlausnum og samþættingu",
+      "technologies": {
+        "JavaScript": 1,
+        ".NET": 1,
+        "HTML": 1,
+        "SQL": 1,
+        "CSS": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "CEO HUXUN ehf",
+      "title": "Full stack forritari",
+      "technologies": {
+        "TypeScript": 1,
+        "PostgreSQL": 1,
+        "Angular": 1,
+        "DevOps": 1,
+        "GitHub": 1,
+        "Azure": 1,
+        "HTML": 1,
+        "Sass/SCSS": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "FlyOver Iceland",
+      "title": "IT support",
+      "technologies": {
+        "Windows": 1,
+        "Cisco": 1,
+        "Active Directory": 1
+      }
+    },
+    {
+      "company": "Heilsugæsla Höfuðborgarsvæðisins",
+      "title": "Sérfræðistarf - Samhæfingarmiðstöð ",
+      "technologies": {
+        "Python": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Reiknistofa bankanna",
+      "title": "Sérfræðingur í vélasölum",
+      "technologies": {
+        "Windows": 1,
+        "Linux": 1
+      }
+    },
+    {
+      "company": "PLAIO",
+      "title": "Designer",
+      "technologies": {
+        "Figma": 1
+      }
+    },
+    {
+      "company": "TACTICA",
+      "title": "Sérfræðingur í Microsoft 365 Skýjalausnum ",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Azure": 1
+      }
+    },
+    {
+      "company": "CookieHub",
+      "title": "Software Engineer",
+      "technologies": {
+        "TypeScript": 1,
+        "Laravel": 1,
+        "QA / Testing": 1,
+        "DevOps": 1,
+        "React": 1,
+        "PHP": 1
+      }
+    },
+    {
+      "company": "CookieHub",
+      "title": "DevOps Engineer",
+      "technologies": {
+        "Kubernetes": 1,
+        "QA / Testing": 1,
+        "Python": 1,
+        "Docker": 1,
+        "DevOps": 1,
+        "GitHub": 1,
+        "Azure": 1,
+        "Linux": 1,
+        "Bash/Shell": 1,
+        "AWS": 1,
+        "GCP": 1
+      }
+    },
+    {
+      "company": "Alfreð",
+      "title": "Tæknilegur þjónustufulltrúi - Tímabundið starf",
+      "technologies": {
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Nox Medical",
+      "title": "Software Engineer — AI/Cloud",
+      "technologies": {
+        "Python": 1,
+        "AWS": 1
+      }
+    },
+    {
+      "company": "Nox Medical",
+      "title": "Software Engineer — AI/Cloud (Fixed-term)",
+      "technologies": {
+        "Python": 1,
+        "AWS": 1
+      }
+    },
+    {
+      "company": "CCP Games",
+      "title": "UI/UX Designer",
+      "technologies": {
+        "JavaScript": 1,
+        "QA / Testing": 1,
+        "Figma": 1,
+        "HTML": 1,
+        "CSS": 1
+      }
+    },
+    {
+      "company": "AGR ",
+      "title": "Infrastructure & DevOps Engineer (Security-Oriented)",
+      "technologies": {
+        "Kubernetes": 1,
+        "DevOps": 1,
+        "GitHub": 1,
+        "Azure": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "AGR ",
+      "title": "Quality Assurance (Q.A) Manager",
+      "technologies": {
+        "Kubernetes": 1,
+        "QA / Testing": 1,
+        "DevOps": 1,
+        "GitHub": 1,
+        "Azure": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Rapyd Europe hf.",
+      "title": "Software Specialist",
+      "technologies": {
+        "DevOps": 1
+      }
+    },
+    {
+      "company": "Sundra ehf.",
+      "title": "Join our Startup as Lead Developer",
+      "technologies": {
+        "Tailwind CSS": 1,
+        "TypeScript": 1,
+        "Laravel": 1,
+        "Python": 1,
+        "GitHub": 1,
+        "MySQL": 1,
+        "Figma": 1,
+        "Vue.js": 1,
+        "PHP": 1,
+        "AWS": 1,
+        "Git": 1
+      }
+    }
   ]
 }
