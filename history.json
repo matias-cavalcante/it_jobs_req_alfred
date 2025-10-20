@@ -9354,5 +9354,184 @@
         "GCP": 1
       }
     }
+  ],
+  "2025-10-20": [
+    {
+      "company": "Húsnæðis- og mannvirkjastofnun",
+      "title": "Gagnasérfræðingur",
+      "technologies": {
+        "Power BI": 1,
+        "Azure": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "uiData ehf.",
+      "title": "Data engineer - BI & AI Solutions",
+      "technologies": {
+        "Power BI": 1
+      }
+    },
+    {
+      "company": "Veitur",
+      "title": "💡 Sérfræðingur í stafrænum lausnum",
+      "technologies": {
+        "Figma": 1
+      }
+    },
+    {
+      "company": "Rapyd Europe hf.",
+      "title": "IT Support Specialist",
+      "technologies": {
+        "Python": 1,
+        "Bash/Shell": 1
+      }
+    },
+    {
+      "company": "Hagstofa Íslands",
+      "title": "Sérfræðingur í vinnumarkaðstölfræði",
+      "technologies": {
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Arion banki",
+      "title": "Vefforritari",
+      "technologies": {
+        "React": 1,
+        ".NET": 1
+      }
+    },
+    {
+      "company": "Íslensk erfðagreining",
+      "title": "Sérfræðingur í Linux og reikniklösum",
+      "technologies": {
+        "Kubernetes": 1,
+        "Docker": 1,
+        "DevOps": 1,
+        "Linux": 1
+      }
+    },
+    {
+      "company": "Rexby",
+      "title": "Frontend/Fullstack Developer",
+      "technologies": {
+        "TypeScript": 1,
+        "PostgreSQL": 1,
+        "Next.js": 1,
+        "Node.js": 1,
+        "React": 1,
+        "SQL": 1,
+        "AWS": 1
+      }
+    },
+    {
+      "company": "Síminn",
+      "title": "Við leitum að hugbúnaðarprófara",
+      "technologies": {
+        "JavaScript": 1,
+        "Python": 1,
+        "Java": 1
+      }
+    },
+    {
+      "company": "Síminn",
+      "title": "Forritari - Sjónvarp Símans",
+      "technologies": {
+        "TypeScript": 1,
+        "React": 1
+      }
+    },
+    {
+      "company": "Expectus",
+      "title": "Sérfræðingur í viðskiptagreind (BI)",
+      "technologies": {
+        "Power BI": 1,
+        "Azure": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Rexby",
+      "title": "Lead Mobile App Developer",
+      "technologies": {
+        "SQLite": 1,
+        "React": 1
+      }
+    },
+    {
+      "company": "Þjóðskjalasafn Íslands",
+      "title": "Rekstrarstjóri upplýsingatækni",
+      "technologies": {
+        "PostgreSQL": 1,
+        "Windows": 1,
+        "MySQL": 1,
+        "Linux": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Too Lost",
+      "title": "Infrastructure & Security Engineer",
+      "technologies": {
+        "Kubernetes": 1,
+        "Node.js": 1,
+        "Laravel": 1,
+        "Vue.js": 1,
+        "Python": 1,
+        "Docker": 1,
+        "DevOps": 1,
+        "GitHub": 1,
+        "PHP": 1,
+        "AWS": 1,
+        "JavaScript": 1
+      }
+    },
+    {
+      "company": "Advania",
+      "title": "Sérfræðingur í öryggi net- og upplýsingakerfa",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Windows": 1,
+        "Azure": 1
+      }
+    },
+    {
+      "company": "Reiknistofa bankanna",
+      "title": "Sérfræðingur í vélasölum",
+      "technologies": {
+        "Windows": 1,
+        "Linux": 1
+      }
+    },
+    {
+      "company": "CookieHub",
+      "title": "Software Engineer",
+      "technologies": {
+        "TypeScript": 1,
+        "Laravel": 1,
+        "QA / Testing": 1,
+        "DevOps": 1,
+        "React": 1,
+        "PHP": 1
+      }
+    },
+    {
+      "company": "CookieHub",
+      "title": "DevOps Engineer",
+      "technologies": {
+        "Kubernetes": 1,
+        "QA / Testing": 1,
+        "Python": 1,
+        "Docker": 1,
+        "DevOps": 1,
+        "GitHub": 1,
+        "Azure": 1,
+        "Linux": 1,
+        "Bash/Shell": 1,
+        "AWS": 1,
+        "GCP": 1
+      }
+    }
   ]
 }
