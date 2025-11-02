@@ -12079,5 +12079,174 @@
         "GCP": 1
       }
     }
+  ],
+  "2025-11-02": [
+    {
+      "company": "OK",
+      "title": "OK leitar að tæknileiðtoga netlausna",
+      "technologies": {
+        "Fortinet": 1,
+        "Cisco": 1
+      }
+    },
+    {
+      "company": "CCP Games",
+      "title": "Senior Data Engineer",
+      "technologies": {
+        "Python": 1,
+        "Azure": 1,
+        "Java": 1,
+        "SQL": 1,
+        "AWS": 1,
+        "GCP": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "Advania",
+      "title": "Kerfisstjóri í notenda- og útstöðvaþjónustu",
+      "technologies": {
+        "Active Directory": 1,
+        "Microsoft 365": 1,
+        "Windows": 1
+      }
+    },
+    {
+      "company": "CCP Games",
+      "title": "QA Analyst",
+      "technologies": {
+        "QA / Testing": 1
+      }
+    },
+    {
+      "company": "Tindar-Tæknilausnir",
+      "title": "Kerfisstjóri",
+      "technologies": {
+        "Windows": 1
+      }
+    },
+    {
+      "company": "Abler - Sport Matters",
+      "title": "Data Engineer",
+      "technologies": {
+        "TypeScript": 1,
+        "Node.js": 1,
+        "Python": 1,
+        "SQL": 1,
+        "JavaScript": 1
+      }
+    },
+    {
+      "company": "Orkuveitan",
+      "title": "Gagnaforritari – Data Engineer",
+      "technologies": {
+        "Python": 1,
+        "Azure": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Rapyd Europe hf.",
+      "title": "Database Administrator (DBA)",
+      "technologies": {
+        "DevOps": 1,
+        "MySQL": 1,
+        "Azure": 1,
+        "SQL": 1,
+        "AWS": 1
+      }
+    },
+    {
+      "company": "Sessor",
+      "title": "Sérfræðingur í rekstrar og tækniþjónustu",
+      "technologies": {
+        "Microsoft 365": 1
+      }
+    },
+    {
+      "company": "Travel Connect",
+      "title": "Gervigreindarsérfærðingur / AI Specialist",
+      "technologies": {
+        "Python": 1
+      }
+    },
+    {
+      "company": "Origo ehf.",
+      "title": "Reynslumikill Business Central ráðgjafi",
+      "technologies": {
+        "Power BI": 1,
+        "Azure": 1
+      }
+    },
+    {
+      "company": "ST2",
+      "title": "Microsoft Power Platform Sérfræðingur",
+      "technologies": {
+        "DevOps": 1
+      }
+    },
+    {
+      "company": "Advania",
+      "title": "Kerfisstjóri í notendaþjónustu á Sauðárkrók",
+      "technologies": {
+        "Active Directory": 1,
+        "Microsoft 365": 1,
+        "Windows": 1
+      }
+    },
+    {
+      "company": "Wise lausnir ehf.",
+      "title": "Wise leitar að sérfræðingi í fjarþjónustu",
+      "technologies": {
+        "Active Directory": 1,
+        "Microsoft 365": 1
+      }
+    },
+    {
+      "company": "Rapyd Europe hf.",
+      "title": "IT Support Specialist",
+      "technologies": {
+        "Python": 1,
+        "Bash/Shell": 1
+      }
+    },
+    {
+      "company": "Advania",
+      "title": "Sérfræðingur í öryggi net- og upplýsingakerfa",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Windows": 1,
+        "Azure": 1
+      }
+    },
+    {
+      "company": "CookieHub",
+      "title": "Software Engineer",
+      "technologies": {
+        "TypeScript": 1,
+        "Laravel": 1,
+        "QA / Testing": 1,
+        "DevOps": 1,
+        "React": 1,
+        "PHP": 1
+      }
+    },
+    {
+      "company": "CookieHub",
+      "title": "DevOps Engineer",
+      "technologies": {
+        "Kubernetes": 1,
+        "QA / Testing": 1,
+        "Python": 1,
+        "Docker": 1,
+        "DevOps": 1,
+        "GitHub": 1,
+        "Azure": 1,
+        "Linux": 1,
+        "Bash/Shell": 1,
+        "AWS": 1,
+        "GCP": 1
+      }
+    }
   ]
 }
