@@ -14542,5 +14542,121 @@
         "Azure": 1
       }
     }
+  ],
+  "2025-11-17": [
+    {
+      "company": "Lágafellsskóli ",
+      "title": "Kerfisstjóri - Lágafellsskóli",
+      "technologies": {
+        "Active Directory": 1,
+        "Microsoft 365": 1,
+        "Windows": 1,
+        "Cisco": 1
+      }
+    },
+    {
+      "company": "Dagar hf.",
+      "title": "Upplýsingatæknistjóri",
+      "technologies": {
+        "Microsoft 365": 1
+      }
+    },
+    {
+      "company": "Atlantik",
+      "title": "Tækniaðstoð og stafrænar lausnir ",
+      "technologies": {
+        "Microsoft 365": 1
+      }
+    },
+    {
+      "company": "Samkeppniseftirlitið",
+      "title": "Ert þú sérfræðingur í upplýsingatækni og öryggismálum – með áhuga á gagnagreiningu og nýsköpun?",
+      "technologies": {
+        "Python": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Smitten",
+      "title": "Machine Learning Engineer",
+      "technologies": {
+        "QA / Testing": 1,
+        "Python": 1,
+        "SQL": 1,
+        "AWS": 1,
+        "GCP": 1
+      }
+    },
+    {
+      "company": "Origo ehf.",
+      "title": "Ert þú sérfræðingur í tæknimálum?",
+      "technologies": {
+        "Windows": 1,
+        "Linux": 1,
+        "macOS": 1
+      }
+    },
+    {
+      "company": "VIRK Starfsendurhæfingarsjóður",
+      "title": "Hugbúnaðarsérfræðingur",
+      "technologies": {
+        "GitHub": 1,
+        ".NET": 1,
+        "Git": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "Bókun / Tripadvisor",
+      "title": "Senior Data Analyst",
+      "technologies": {
+        "Python": 1,
+        "SQL": 1,
+        "Active Directory": 1
+      }
+    },
+    {
+      "company": "Rapyd Europe hf.",
+      "title": "Database Administrator (DBA)",
+      "technologies": {
+        "DevOps": 1,
+        "MySQL": 1,
+        "Azure": 1,
+        "SQL": 1,
+        "AWS": 1
+      }
+    },
+    {
+      "company": "Sessor",
+      "title": "Sérfræðingur í rekstrar og tækniþjónustu",
+      "technologies": {
+        "Microsoft 365": 1
+      }
+    },
+    {
+      "company": "Wise lausnir ehf.",
+      "title": "Wise leitar að sérfræðingi í fjarþjónustu",
+      "technologies": {
+        "Active Directory": 1,
+        "Microsoft 365": 1
+      }
+    },
+    {
+      "company": "Rapyd Europe hf.",
+      "title": "IT Support Specialist",
+      "technologies": {
+        "Python": 1,
+        "Bash/Shell": 1
+      }
+    },
+    {
+      "company": "Advania",
+      "title": "Sérfræðingur í öryggi net- og upplýsingakerfa",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Windows": 1,
+        "Azure": 1
+      }
+    }
   ]
 }
