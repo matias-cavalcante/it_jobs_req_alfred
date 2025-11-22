@@ -15194,5 +15194,160 @@
         "Microsoft 365": 1
       }
     }
+  ],
+  "2025-11-22": [
+    {
+      "company": "Norðurorka hf.",
+      "title": "Sérfræðingur í gagnavinnslu",
+      "technologies": {
+        "Power BI": 1
+      }
+    },
+    {
+      "company": "Vettvangur",
+      "title": "Experienced Backend Developer",
+      "technologies": {
+        "DevOps": 1,
+        "Azure": 1,
+        ".NET": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Geko",
+      "title": "Senior DevOps Engineer",
+      "technologies": {
+        "Kubernetes": 1,
+        "Python": 1,
+        "Docker": 1,
+        "DevOps": 1,
+        "GitHub": 1,
+        "React": 1,
+        "Azure": 1,
+        ".NET": 1,
+        "SQL": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "Orkusalan",
+      "title": "Gagnasérfræðingur",
+      "technologies": {
+        "Power BI": 1,
+        "Azure": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Atlantik",
+      "title": "Tækniaðstoð og stafrænar lausnir ",
+      "technologies": {
+        "Microsoft 365": 1
+      }
+    },
+    {
+      "company": "ÍSOR",
+      "title": "Sérfræðingur í upplýsingastjórnun",
+      "technologies": {
+        "Microsoft 365": 1
+      }
+    },
+    {
+      "company": "OK",
+      "title": "Viltu starfa í upplýsingatækni?",
+      "technologies": {
+        "Microsoft 365": 1
+      }
+    },
+    {
+      "company": "Teledyne Gavia ehf.",
+      "title": "Software Engineer",
+      "technologies": {
+        "Windows": 1,
+        "Python": 1
+      }
+    },
+    {
+      "company": "VÍS",
+      "title": "Senior Full Stack forritari",
+      "technologies": {
+        "TypeScript": 1,
+        "Next.js": 1,
+        "GitHub": 1,
+        "React": 1,
+        ".NET": 1
+      }
+    },
+    {
+      "company": "Tixly",
+      "title": "Grafískur hönnuður",
+      "technologies": {
+        "Figma": 1
+      }
+    },
+    {
+      "company": "Samkeppniseftirlitið",
+      "title": "Ert þú sérfræðingur í upplýsingatækni og öryggismálum – með áhuga á gagnagreiningu og nýsköpun?",
+      "technologies": {
+        "Python": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "66°North",
+      "title": "IT notendaumsjón (IT user support) hjá 66°Norður",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Windows": 1,
+        "Active Directory": 1
+      }
+    },
+    {
+      "company": "Lágafellsskóli ",
+      "title": "Kerfisstjóri - Lágafellsskóli",
+      "technologies": {
+        "Active Directory": 1,
+        "Microsoft 365": 1,
+        "Windows": 1,
+        "Cisco": 1
+      }
+    },
+    {
+      "company": "Smitten",
+      "title": "Machine Learning Engineer",
+      "technologies": {
+        "QA / Testing": 1,
+        "Python": 1,
+        "SQL": 1,
+        "AWS": 1,
+        "GCP": 1
+      }
+    },
+    {
+      "company": "VIRK Starfsendurhæfingarsjóður",
+      "title": "Hugbúnaðarsérfræðingur",
+      "technologies": {
+        "GitHub": 1,
+        ".NET": 1,
+        "Git": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "Bókun / Tripadvisor",
+      "title": "Senior Data Analyst",
+      "technologies": {
+        "Python": 1,
+        "SQL": 1,
+        "Active Directory": 1
+      }
+    },
+    {
+      "company": "Sessor",
+      "title": "Sérfræðingur í rekstrar og tækniþjónustu",
+      "technologies": {
+        "Microsoft 365": 1
+      }
+    }
   ]
 }
