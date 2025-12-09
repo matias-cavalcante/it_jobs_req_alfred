@@ -17784,5 +17784,104 @@
         "Active Directory": 1
       }
     }
+  ],
+  "2025-12-09": [
+    {
+      "company": "LS Retail",
+      "title": "Technical Consultant",
+      "technologies": {
+        "JavaScript": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "Síminn",
+      "title": "Vörustjóri netlausna á fyrirtækjamarkaði",
+      "technologies": {
+        "Fortinet": 1
+      }
+    },
+    {
+      "company": "Pollard Digital Solutions",
+      "title": "Software Engineer (Entry Level)",
+      "technologies": {
+        "JavaScript": 1,
+        "PostgreSQL": 1,
+        "Kubernetes": 1,
+        "QA / Testing": 1,
+        "Vue.js": 1,
+        "Python": 1,
+        "Docker": 1,
+        "Java": 1,
+        "AWS": 1,
+        "Git": 1
+      }
+    },
+    {
+      "company": "beqom",
+      "title": "Product Owner (Machine Learning)",
+      "technologies": {
+        "QA / Testing": 1
+      }
+    },
+    {
+      "company": "Five Degrees ehf.",
+      "title": "DevOps Engineer",
+      "technologies": {
+        "DevOps": 1,
+        "Azure": 1,
+        ".NET": 1,
+        "SQL": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "Advania",
+      "title": "Business Central hugbúnaðarsérfræðingur",
+      "technologies": {
+        ".NET": 1,
+        "SQL": 1,
+        "Git": 1
+      }
+    },
+    {
+      "company": "Creditinfo",
+      "title": "Framendaforritari hjá Creditinfo",
+      "technologies": {
+        "React": 1,
+        "HTML": 1,
+        "CSS": 1
+      }
+    },
+    {
+      "company": "Smitten",
+      "title": "Machine Learning Engineer",
+      "technologies": {
+        "QA / Testing": 1,
+        "Python": 1,
+        "SQL": 1,
+        "AWS": 1,
+        "GCP": 1
+      }
+    },
+    {
+      "company": "Vettvangur",
+      "title": "Experienced Backend Developer",
+      "technologies": {
+        "DevOps": 1,
+        "Azure": 1,
+        ".NET": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "66°North",
+      "title": "IT notendaumsjón (IT user support) hjá 66°Norður",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Windows": 1,
+        "Active Directory": 1
+      }
+    }
   ]
 }
