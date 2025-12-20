@@ -19081,5 +19081,139 @@
         "Git": 1
       }
     }
+  ],
+  "2025-12-20": [
+    {
+      "company": "RML",
+      "title": "Forritari",
+      "technologies": {
+        "Python": 1,
+        "Django": 1,
+        "React": 1,
+        "Flask": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Embla Medical | Össur",
+      "title": "Business Central Technical Architect",
+      "technologies": {
+        "DevOps": 1,
+        "Azure": 1,
+        "Git": 1
+      }
+    },
+    {
+      "company": "Klappir grænar lausnir hf.",
+      "title": "Software engineer - Automation & Integrations",
+      "technologies": {
+        "TypeScript": 1,
+        "Node.js": 1,
+        ".NET": 1,
+        "AWS": 1,
+        "JavaScript": 1
+      }
+    },
+    {
+      "company": "Icelandair",
+      "title": "Tech Lead – Maintenance domain",
+      "technologies": {
+        "QA / Testing": 1,
+        "Python": 1,
+        "DevOps": 1
+      }
+    },
+    {
+      "company": "Örugg afritun",
+      "title": "Tæknimaður á þjónustuborði – spennandi tækifæri! ",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Windows": 1,
+        "Linux": 1
+      }
+    },
+    {
+      "company": "Síminn",
+      "title": "Sérfræðingur í netkerfum og netbúnaði",
+      "technologies": {
+        "Fortinet": 1,
+        "Cisco": 1
+      }
+    },
+    {
+      "company": "Nox Medical",
+      "title": "Software Development Engineer",
+      "technologies": {
+        "QA / Testing": 1,
+        "Python": 1,
+        ".NET": 1,
+        "Git": 1
+      }
+    },
+    {
+      "company": "APRÓ",
+      "title": "Gervigreindar- og gagnafræðingur (junior staða)",
+      "technologies": {
+        "Python": 1,
+        "Azure": 1,
+        "AWS": 1
+      }
+    },
+    {
+      "company": "APRÓ",
+      "title": "Gervigreindar- og gagnafræðingur",
+      "technologies": {
+        "Python": 1,
+        "Azure": 1,
+        "AWS": 1
+      }
+    },
+    {
+      "company": "OK",
+      "title": "Tæknimaður á Sauðárkróki",
+      "technologies": {
+        "Microsoft 365": 1
+      }
+    },
+    {
+      "company": "LS Retail",
+      "title": "Technical Consultant",
+      "technologies": {
+        "JavaScript": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "Pollard Digital Solutions",
+      "title": "Software Engineer (Entry Level)",
+      "technologies": {
+        "JavaScript": 1,
+        "PostgreSQL": 1,
+        "Kubernetes": 1,
+        "QA / Testing": 1,
+        "Vue.js": 1,
+        "Python": 1,
+        "Docker": 1,
+        "Java": 1,
+        "AWS": 1,
+        "Git": 1
+      }
+    },
+    {
+      "company": "beqom",
+      "title": "Product Owner (Machine Learning)",
+      "technologies": {
+        "QA / Testing": 1
+      }
+    },
+    {
+      "company": "Advania",
+      "title": "Business Central hugbúnaðarsérfræðingur",
+      "technologies": {
+        ".NET": 1,
+        "SQL": 1,
+        "Git": 1
+      }
+    }
   ]
 }
