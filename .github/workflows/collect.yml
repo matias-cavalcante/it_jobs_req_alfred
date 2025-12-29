@@ -37,9 +37,12 @@ jobs:
 
       - name: Commit and push updated JSON files
         run: |
+          CURRENT_YEAR=$(date +%Y)
+          DATA_FILE="data_${CURRENT_YEAR}.json"
+          
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git pull --rebase origin "${GITHUB_REF_NAME}" || true
-          git add history.json
-          git diff --staged --quiet || git commit -m "Update history.json"
+          git add "$DATA_FILE"  # Now adds data_2024.json, etc.
+          git diff --staged --quiet || git commit -m "Update ${DATA_FILE}"
           git push
