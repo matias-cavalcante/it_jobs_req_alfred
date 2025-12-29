@@ -46,7 +46,8 @@ function showNoDataMessage(monthName) {
 
 export async function loadHistoryData(onDataUpdate) {
     try {
-        const res = await fetch('data_2025.json', { cache: 'no-store' });
+        const res = await fetch(currentFileName, { cache: 'no-store' });
+        console.log("test ", currentFileName)
         if (!res.ok) throw new Error("Can't fetch history.json");
         const rawData = await res.json();
 
