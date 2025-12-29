@@ -6,10 +6,14 @@ import html
 import re
 import requests
 from collections import Counter
+from datetime import datetime
 import json, os
 
 from datetime import date
 
+print("DEBUG---> : ", datetime)
+CURRENT_YEAR = str(datetime.now().year)
+FILE_NAME = f"data_{CURRENT_YEAR}.json"
 
 LIST_URL   = "https://userapi.alfred.is/api/v1/front-web/jobs"
 DETAIL_URL = "https://userapi.alfred.is/api/v1/front-web/jobs"
@@ -299,7 +303,9 @@ def main():
 
     
     today_str = str(date.today())  # e.g., "2025-09-02"
-    history_path = "history.json"
+    #history_path = "history.json"!!! CAREFULL IM MODYFING THIS !!
+
+    history_path = FILE_NAME
 
     # Load existing history if present
     if os.path.exists(history_path):
