@@ -1,4 +1,76 @@
 {
+  "categories": {
+    "Web/JS": [
+      "React",
+      "Next.js",
+      "Vue.js",
+      "Angular",
+      "JavaScript",
+      "TypeScript"
+    ],
+    "Backend": [
+      "Node.js",
+      "Python",
+      "Django",
+      "Flask",
+      "FastAPI",
+      ".NET",
+      "C#",
+      "Java",
+      "PHP",
+      "Laravel",
+      "Ruby",
+      "Go",
+      "C++"
+    ],
+    "Databases": [
+      "PostgreSQL",
+      "MySQL",
+      "SQL",
+      "MongoDB",
+      "Redis",
+      "SQLite"
+    ],
+    "BI Tools": [
+      "Power BI",
+      "Salesforce",
+      "Microsoft 365",
+      "Active Directory"
+    ],
+    "DevOps/Cloud": [
+      "Docker",
+      "Kubernetes",
+      "AWS",
+      "Azure",
+      "GCP",
+      "Linux",
+      "Windows",
+      "macOS",
+      "Bash/Shell",
+      "CI/CD",
+      "DevOps",
+      "QA / Testing",
+      "Ubuntu"
+    ],
+    "Front Tools": [
+      "HTML",
+      "CSS",
+      "Sass/SCSS",
+      "Git",
+      "Tailwind CSS",
+      "GitHub",
+      "Bootstrap"
+    ],
+    "Design": [
+      "Figma",
+      "Adobe Photoshop",
+      "Adobe Illustrator"
+    ],
+    "Net/Sec": [
+      "Cisco",
+      "Fortinet"
+    ]
+  },
   "2026-01-01": [
     {
       "company": "Lagaviti ehf.",
