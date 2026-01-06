@@ -838,5 +838,133 @@
         "Git": 1
       }
     }
+  ],
+  "2026-01-06": [
+    {
+      "company": "Hefring ehf.",
+      "title": "Marketing Specialist",
+      "technologies": {
+        "Figma": 1
+      }
+    },
+    {
+      "company": "APRÓ",
+      "title": "Gervigreindar- og gagnafræðingur",
+      "technologies": {
+        "Python": 1,
+        "Azure": 1,
+        "AWS": 1
+      }
+    },
+    {
+      "company": "Lagaviti ehf.",
+      "title": "Gagnasérfræðingur / Data Engineer (gervigreind) ",
+      "technologies": {
+        "TypeScript": 1,
+        "Python": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Landsbankinn",
+      "title": "Linux kerfisstjóri",
+      "technologies": {
+        "Kubernetes": 1,
+        "Docker": 1,
+        "Linux": 1
+      }
+    },
+    {
+      "company": "Embla Medical | Össur",
+      "title": "DevOps Engineer ",
+      "technologies": {
+        "Kubernetes": 1,
+        "Docker": 1,
+        "DevOps": 1,
+        "GitHub": 1,
+        "Azure": 1,
+        "AWS": 1,
+        "GCP": 1
+      }
+    },
+    {
+      "company": "Kvikna medical",
+      "title": "Hugbúnaðarþróun og öryggismál",
+      "technologies": {
+        ".NET": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "Embla Medical | Össur",
+      "title": "Business Central Technical Architect",
+      "technologies": {
+        "DevOps": 1,
+        "Azure": 1,
+        "Git": 1
+      }
+    },
+    {
+      "company": "Edico",
+      "title": "Öflugur forritari",
+      "technologies": {
+        "JavaScript": 1,
+        "SQL": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "RML",
+      "title": "Forritari",
+      "technologies": {
+        "Python": 1,
+        "Django": 1,
+        "React": 1,
+        "Flask": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Örugg afritun",
+      "title": "Tæknimaður á þjónustuborði – spennandi tækifæri! ",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Windows": 1,
+        "Linux": 1
+      }
+    },
+    {
+      "company": "APRÓ",
+      "title": "Gervigreindar- og gagnafræðingur (junior staða)",
+      "technologies": {
+        "Python": 1,
+        "Azure": 1,
+        "AWS": 1
+      }
+    },
+    {
+      "company": "LS Retail",
+      "title": "Technical Consultant",
+      "technologies": {
+        "JavaScript": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "beqom",
+      "title": "Product Owner (Machine Learning)",
+      "technologies": {
+        "QA / Testing": 1
+      }
+    },
+    {
+      "company": "Advania",
+      "title": "Business Central hugbúnaðarsérfræðingur",
+      "technologies": {
+        ".NET": 1,
+        "SQL": 1,
+        "Git": 1
+      }
+    }
   ]
 }
