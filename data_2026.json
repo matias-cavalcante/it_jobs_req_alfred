@@ -1404,5 +1404,164 @@
         "QA / Testing": 1
       }
     }
+  ],
+  "2026-01-10": [
+    {
+      "company": "Sjúkratryggingar Íslands",
+      "title": "Kerfisstjóri",
+      "technologies": {
+        "Active Directory": 1,
+        "Windows": 1,
+        "Azure": 1,
+        "SQL": 1,
+        "AWS": 1
+      }
+    },
+    {
+      "company": "Embla Medical | Össur",
+      "title": "Software Developer - Bionics | Össur ",
+      "technologies": {
+        ".NET": 1,
+        "Java": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "Fons Juris ehf.",
+      "title": "Forritari hjá Fons Juris - þróaðu Lögmennið!",
+      "technologies": {
+        "Python": 1,
+        "Docker": 1,
+        "React": 1,
+        "SQL": 1,
+        "AWS": 1
+      }
+    },
+    {
+      "company": "Hefring Marine",
+      "title": "Markaðssérfræðingur/ Marketing Specialist",
+      "technologies": {
+        "Figma": 1
+      }
+    },
+    {
+      "company": "Syndis",
+      "title": "Ráðgjafar í tæknilegri upplýsingaöryggisstjórnun",
+      "technologies": {
+        "Active Directory": 1
+      }
+    },
+    {
+      "company": "Síminn",
+      "title": "Stafrænn hönnuður  ",
+      "technologies": {
+        "Figma": 1,
+        "HTML": 1,
+        "CSS": 1
+      }
+    },
+    {
+      "company": "COWI",
+      "title": "Local IT Support in Kópavogur",
+      "technologies": {
+        "QA / Testing": 1
+      }
+    },
+    {
+      "company": "Reiknistofa bankanna",
+      "title": "Sérfræðingur í hugbúnaðarþróun",
+      "technologies": {
+        "Kubernetes": 1,
+        "PostgreSQL": 1,
+        ".NET": 1,
+        "Git": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "APRÓ",
+      "title": "Gervigreindar- og gagnafræðingur",
+      "technologies": {
+        "Python": 1,
+        "Azure": 1,
+        "AWS": 1
+      }
+    },
+    {
+      "company": "Landsbankinn",
+      "title": "Linux kerfisstjóri",
+      "technologies": {
+        "Kubernetes": 1,
+        "Docker": 1,
+        "Linux": 1
+      }
+    },
+    {
+      "company": "Embla Medical | Össur",
+      "title": "DevOps Engineer ",
+      "technologies": {
+        "Kubernetes": 1,
+        "Docker": 1,
+        "DevOps": 1,
+        "GitHub": 1,
+        "Azure": 1,
+        "AWS": 1,
+        "GCP": 1
+      }
+    },
+    {
+      "company": "Kvikna medical",
+      "title": "Hugbúnaðarþróun og öryggismál",
+      "technologies": {
+        ".NET": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "Embla Medical | Össur",
+      "title": "Business Central Technical Architect",
+      "technologies": {
+        "DevOps": 1,
+        "Azure": 1,
+        "Git": 1
+      }
+    },
+    {
+      "company": "Edico",
+      "title": "Öflugur forritari",
+      "technologies": {
+        "JavaScript": 1,
+        "SQL": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "RML",
+      "title": "Forritari",
+      "technologies": {
+        "Python": 1,
+        "Django": 1,
+        "React": 1,
+        "Flask": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "APRÓ",
+      "title": "Gervigreindar- og gagnafræðingur (junior staða)",
+      "technologies": {
+        "Python": 1,
+        "Azure": 1,
+        "AWS": 1
+      }
+    },
+    {
+      "company": "LS Retail",
+      "title": "Technical Consultant",
+      "technologies": {
+        "JavaScript": 1,
+        "C#": 1
+      }
+    }
   ]
 }
