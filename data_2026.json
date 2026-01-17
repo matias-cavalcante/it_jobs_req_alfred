@@ -2611,5 +2611,225 @@
         "C#": 1
       }
     }
+  ],
+  "2026-01-17": [
+    {
+      "company": "Örninn",
+      "title": "Verkefnastjóri vefmála",
+      "technologies": {
+        "Adobe Photoshop": 1,
+        "Figma": 1
+      }
+    },
+    {
+      "company": "Lagaviti ehf.",
+      "title": "Kerfisstjóri / DevOps",
+      "technologies": {
+        "Kubernetes": 1,
+        "Python": 1,
+        "Docker": 1,
+        "DevOps": 1,
+        "GitHub": 1,
+        "Azure": 1,
+        "Linux": 1,
+        "Bash/Shell": 1,
+        "GCP": 1
+      }
+    },
+    {
+      "company": "Lagaviti ehf.",
+      "title": "Full Stack / AI Forritari ",
+      "technologies": {
+        "JavaScript": 1,
+        "TypeScript": 1,
+        "Python": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Teledyne Gavia ehf.",
+      "title": "Software Quality Assurance Engineer",
+      "technologies": {
+        "Windows": 1
+      }
+    },
+    {
+      "company": "Atmos Cloud",
+      "title": "Kerfisstjóri/geimfari með öryggi á heilanum",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Azure": 1
+      }
+    },
+    {
+      "company": "Arion banki",
+      "title": "QA Specialist",
+      "technologies": {
+        "DevOps": 1,
+        "Azure": 1,
+        "SQL": 1,
+        "C#": 1,
+        "QA / Testing": 1
+      }
+    },
+    {
+      "company": "Deloitte",
+      "title": "Gagna- og gervigreind Deloitte (AI & Data)",
+      "technologies": {
+        "Power BI": 1,
+        "Python": 1,
+        "Azure": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "CCP Games",
+      "title": "Senior Data Engineer",
+      "technologies": {
+        "Python": 1,
+        "Azure": 1,
+        "Java": 1,
+        "SQL": 1,
+        "AWS": 1,
+        "GCP": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "CCP Games",
+      "title": "Senior AI Engineer",
+      "technologies": {
+        "Python": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Treble Technologies",
+      "title": "Scientific Software Engineer – Simulation & Signal Processing",
+      "technologies": {
+        "Python": 1,
+        "C++": 1
+      }
+    },
+    {
+      "company": "Treble Technologies",
+      "title": "Senior Audio AI Scientist",
+      "technologies": {
+        "Python": 1
+      }
+    },
+    {
+      "company": "Síminn",
+      "title": "Stafrænn hönnuður  ",
+      "technologies": {
+        "Figma": 1,
+        "HTML": 1,
+        "CSS": 1
+      }
+    },
+    {
+      "company": "Embla Medical | Össur",
+      "title": "Software Developer - Bionics | Össur ",
+      "technologies": {
+        ".NET": 1,
+        "Java": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "66°North",
+      "title": "Sérfræðingur í hugbúnaðarþróun hjá 66°Norður",
+      "technologies": {
+        "Windows": 1,
+        "Python": 1,
+        "Django": 1,
+        "Docker": 1,
+        "GitHub": 1,
+        "Flask": 1,
+        "Linux": 1,
+        "SQL": 1,
+        "Git": 1
+      }
+    },
+    {
+      "company": "Fons Juris ehf.",
+      "title": "Forritari hjá Fons Juris - þróaðu Lögmennið!",
+      "technologies": {
+        "Python": 1,
+        "Docker": 1,
+        "React": 1,
+        "SQL": 1,
+        "AWS": 1
+      }
+    },
+    {
+      "company": "Jónsbók",
+      "title": "Software Engineer (AI & Data) - Jónsbók ",
+      "technologies": {
+        "TypeScript": 1,
+        "Python": 1
+      }
+    },
+    {
+      "company": "Sjúkratryggingar Íslands",
+      "title": "Kerfisstjóri",
+      "technologies": {
+        "Active Directory": 1,
+        "Windows": 1,
+        "Azure": 1,
+        "SQL": 1,
+        "AWS": 1
+      }
+    },
+    {
+      "company": "Hefring Marine",
+      "title": "Markaðssérfræðingur/ Marketing Specialist",
+      "technologies": {
+        "Figma": 1
+      }
+    },
+    {
+      "company": "Syndis",
+      "title": "Ráðgjafar í tæknilegri upplýsingaöryggisstjórnun",
+      "technologies": {
+        "Active Directory": 1
+      }
+    },
+    {
+      "company": "COWI",
+      "title": "Local IT Support in Kópavogur",
+      "technologies": {
+        "QA / Testing": 1
+      }
+    },
+    {
+      "company": "Reiknistofa bankanna",
+      "title": "Sérfræðingur í hugbúnaðarþróun",
+      "technologies": {
+        "Kubernetes": 1,
+        "PostgreSQL": 1,
+        ".NET": 1,
+        "Git": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "Embla Medical | Össur",
+      "title": "Business Central Technical Architect",
+      "technologies": {
+        "DevOps": 1,
+        "Azure": 1,
+        "Git": 1
+      }
+    },
+    {
+      "company": "Edico",
+      "title": "Öflugur forritari",
+      "technologies": {
+        "JavaScript": 1,
+        "SQL": 1,
+        "C#": 1
+      }
+    }
   ]
 }
