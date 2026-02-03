@@ -6020,5 +6020,210 @@
         "C#": 1
       }
     }
+  ],
+  "2026-02-03": [
+    {
+      "company": "Hagstofa Íslands",
+      "title": "Sérfræðingur í hagtölum um laun og tekjur",
+      "technologies": {
+        "Python": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "VAST Data",
+      "title": "Frontend Developer (UI/UX)",
+      "technologies": {
+        "TypeScript": 1,
+        "React": 1
+      }
+    },
+    {
+      "company": "VAST Data",
+      "title": "DevOps Engineer",
+      "technologies": {
+        "Kubernetes": 1,
+        "Docker": 1,
+        "DevOps": 1,
+        "GitHub": 1,
+        "Git": 1
+      }
+    },
+    {
+      "company": "Eir hjúkrunarheimili",
+      "title": "Viltu leiða stafræna þróun og upplýsingatækni?",
+      "technologies": {
+        "Microsoft 365": 1
+      }
+    },
+    {
+      "company": "Sveitarfélagið Hornafjörður",
+      "title": "Þjónustufulltrúi tæknimála ",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Windows": 1
+      }
+    },
+    {
+      "company": "Festi",
+      "title": "Hugbúnaðarsérfræðingur",
+      "technologies": {
+        "PostgreSQL": 1,
+        "Python": 1,
+        "Django": 1,
+        "React": 1,
+        "Redis": 1,
+        ".NET": 1,
+        "AWS": 1
+      }
+    },
+    {
+      "company": "VAST Data",
+      "title": "Backend Developer – Go Expert",
+      "technologies": {
+        "PostgreSQL": 1,
+        "Kubernetes": 1,
+        "Azure": 1,
+        "AWS": 1,
+        "GCP": 1
+      }
+    },
+    {
+      "company": "1984 ehf",
+      "title": "Linux kerfisstjórn og forritun",
+      "technologies": {
+        "Python": 1,
+        "Django": 1,
+        "Linux": 1,
+        "Bash/Shell": 1
+      }
+    },
+    {
+      "company": "Five Degrees ehf.",
+      "title": "Framenda / Full stack forritari (Software Developer)",
+      "technologies": {
+        "Angular": 1,
+        "React": 1,
+        "Azure": 1,
+        ".NET": 1,
+        "SQL": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "KPMG á Íslandi",
+      "title": "Verkefnastjóri í stafrænni þróun",
+      "technologies": {
+        "Azure": 1
+      }
+    },
+    {
+      "company": "Tryggingastofnun",
+      "title": "Forritari á sviði stafrænnar þróunar",
+      "technologies": {
+        "TypeScript": 1,
+        "Next.js": 1,
+        "Docker": 1,
+        "DevOps": 1,
+        "React": 1,
+        "Azure": 1,
+        ".NET": 1,
+        "SQL": 1,
+        "Git": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "VIRK Starfsendurhæfingarsjóður",
+      "title": "Hugbúnaðarsérfræðingur",
+      "technologies": {
+        "DevOps": 1,
+        "GitHub": 1,
+        ".NET": 1,
+        "Git": 1
+      }
+    },
+    {
+      "company": "Parka Lausnir ehf.",
+      "title": "Software Engineer – Full-Stack",
+      "technologies": {
+        "JavaScript": 1,
+        "TypeScript": 1,
+        "Bootstrap": 1,
+        "Angular": 1,
+        "Python": 1,
+        "Django": 1,
+        "Linux": 1,
+        "HTML": 1,
+        "Vue.js": 1,
+        "AWS": 1,
+        "CSS": 1
+      }
+    },
+    {
+      "company": "Tern Systems",
+      "title": "Frontend Software Engineer",
+      "technologies": {
+        "C++": 1
+      }
+    },
+    {
+      "company": "Ripple",
+      "title": "Software Engineer",
+      "technologies": {
+        "Java": 1
+      }
+    },
+    {
+      "company": "Aftra",
+      "title": "Product Software Developer",
+      "technologies": {
+        "Tailwind CSS": 1,
+        "Angular": 1,
+        "QA / Testing": 1,
+        "Vue.js": 1,
+        "React": 1
+      }
+    },
+    {
+      "company": "Atmos Cloud",
+      "title": "Kerfisstjóri/geimfari með öryggi á heilanum",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Azure": 1
+      }
+    },
+    {
+      "company": "Treble Technologies",
+      "title": "Scientific Software Engineer – Simulation & Signal Processing",
+      "technologies": {
+        "Python": 1,
+        "C++": 1
+      }
+    },
+    {
+      "company": "Treble Technologies",
+      "title": "Senior Audio AI Scientist",
+      "technologies": {
+        "Python": 1
+      }
+    },
+    {
+      "company": "Jónsbók",
+      "title": "Software Engineer (AI & Data) - Jónsbók ",
+      "technologies": {
+        "TypeScript": 1,
+        "Python": 1
+      }
+    },
+    {
+      "company": "Edico",
+      "title": "Öflugur forritari",
+      "technologies": {
+        "JavaScript": 1,
+        "SQL": 1,
+        "C#": 1
+      }
+    }
   ]
 }
