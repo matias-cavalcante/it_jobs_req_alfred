@@ -9980,5 +9980,204 @@
         "Java": 1
       }
     }
+  ],
+  "2026-02-20": [
+    {
+      "company": "TACTICA",
+      "title": "Sérfræðingur í upplýsingatækni og kerfisrekstri",
+      "technologies": {
+        "Windows": 1
+      }
+    },
+    {
+      "company": "Vegagerðin",
+      "title": "Kerfisfræðingur í notendaþjónustu hjá Vegagerðinni",
+      "technologies": {
+        "Windows": 1,
+        "Linux": 1
+      }
+    },
+    {
+      "company": "Vegagerðin",
+      "title": "Gagnasérfræðingur hjá Vegagerðinni",
+      "technologies": {
+        "PostgreSQL": 1,
+        "Python": 1
+      }
+    },
+    {
+      "company": "Arctic Adventures",
+      "title": "Gagnasérfræðingur (Data Engineer / Data Specialist) ",
+      "technologies": {
+        "Python": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Sýn",
+      "title": "Gagnasérfræðingur",
+      "technologies": {
+        "Power BI": 1,
+        "Python": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Advania",
+      "title": "Sérfræðingur í Microsoft lausnum",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Windows": 1,
+        "Azure": 1,
+        "Linux": 1
+      }
+    },
+    {
+      "company": "66°North",
+      "title": "Sérfræðingur í vörustýringu (e. Allocation Specialist) ",
+      "technologies": {
+        "Power BI": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Svarmi",
+      "title": "Full Stack Developer",
+      "technologies": {
+        "Kubernetes": 1,
+        "React": 1,
+        "QA / Testing": 1,
+        "Node.js": 1,
+        "Python": 1,
+        "GitHub": 1,
+        "SQL": 1,
+        "AWS": 1,
+        "Git": 1
+      }
+    },
+    {
+      "company": "Icelandair",
+      "title": "Report Analyst",
+      "technologies": {
+        "Power BI": 1,
+        "Python": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Wise lausnir ehf.",
+      "title": "Viltu starfa sem sérfræðingur í skýjalausnum hjá Wise?",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Windows": 1,
+        "DevOps": 1,
+        "Azure": 1
+      }
+    },
+    {
+      "company": "APRÓ",
+      "title": "Hugbúnaðarsérfræðingur – tækifæri til að sérhæfa sig",
+      "technologies": {
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Your Friend In Reykjavik",
+      "title": "Whisper & Service Agent",
+      "technologies": {
+        "QA / Testing": 1
+      }
+    },
+    {
+      "company": "Raförninn",
+      "title": "Ert þú týpan sem elskar að leysa tæknileg vandamál?",
+      "technologies": {
+        "Linux": 1
+      }
+    },
+    {
+      "company": "dk hugbúnaður ehf. ",
+      "title": "Framendaforritari í þróunarteymi",
+      "technologies": {
+        "TypeScript": 1,
+        "Angular": 1,
+        "React": 1,
+        "Sass/SCSS": 1,
+        "Git": 1
+      }
+    },
+    {
+      "company": "Advania",
+      "title": "Leiðtogi í þróun gervigreindarlausna",
+      "technologies": {
+        "Kubernetes": 1,
+        "Azure": 1
+      }
+    },
+    {
+      "company": "Arion banki",
+      "title": "Hefur þú áhuga á gervigreind, sjálfvirkni og umbótum?",
+      "technologies": {
+        "Power BI": 1,
+        "Python": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Vettvangur",
+      "title": "Experienced UI/UX designer",
+      "technologies": {
+        "Figma": 1
+      }
+    },
+    {
+      "company": "VAST Data",
+      "title": "Frontend Developer (UI/UX)",
+      "technologies": {
+        "TypeScript": 1,
+        "React": 1
+      }
+    },
+    {
+      "company": "VAST Data",
+      "title": "DevOps Engineer",
+      "technologies": {
+        "Kubernetes": 1,
+        "Docker": 1,
+        "DevOps": 1,
+        "GitHub": 1,
+        "Git": 1
+      }
+    },
+    {
+      "company": "VAST Data",
+      "title": "Backend Developer – Go Expert",
+      "technologies": {
+        "PostgreSQL": 1,
+        "Kubernetes": 1,
+        "Azure": 1,
+        "AWS": 1,
+        "GCP": 1
+      }
+    },
+    {
+      "company": "Five Degrees ehf.",
+      "title": "Framenda / Full stack forritari (Software Developer)",
+      "technologies": {
+        "Angular": 1,
+        "React": 1,
+        "Azure": 1,
+        ".NET": 1,
+        "SQL": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "Ripple",
+      "title": "Software Engineer",
+      "technologies": {
+        "Java": 1
+      }
+    }
   ]
 }
