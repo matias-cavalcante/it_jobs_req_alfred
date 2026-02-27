@@ -11282,5 +11282,191 @@
         "Java": 1
       }
     }
+  ],
+  "2026-02-27": [
+    {
+      "company": "Sorgarmiðstöð, félagasamtök",
+      "title": "Verkefnastjóri hjá Sorgarmiðstöð",
+      "technologies": {
+        "Microsoft 365": 1
+      }
+    },
+    {
+      "company": "Terra hf.",
+      "title": "Ertu næsti UT meistarinn okkar ?",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Windows": 1,
+        "Azure": 1,
+        "Linux": 1
+      }
+    },
+    {
+      "company": "Aveo ehf.",
+      "title": "Unreal Engine Technical Artist / Generalist",
+      "technologies": {
+        "React": 1
+      }
+    },
+    {
+      "company": "Vegagerðin",
+      "title": "Kerfisstjóri á upplýsingatæknideild",
+      "technologies": {
+        "Windows": 1,
+        "Linux": 1
+      }
+    },
+    {
+      "company": "Embla Medical | Össur",
+      "title": "Software Developer | Embla Medical ",
+      "technologies": {
+        "Azure": 1,
+        ".NET": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "Rapyd Europe hf.",
+      "title": "NOC Specialist - Summer Position",
+      "technologies": {
+        "DevOps": 1,
+        "SQL": 1,
+        "AWS": 1
+      }
+    },
+    {
+      "company": "TACTICA",
+      "title": "Sérfræðingur í upplýsingatækni og kerfisrekstri",
+      "technologies": {
+        "Windows": 1
+      }
+    },
+    {
+      "company": "Vegagerðin",
+      "title": "Kerfisfræðingur í notendaþjónustu hjá Vegagerðinni",
+      "technologies": {
+        "Windows": 1,
+        "Linux": 1
+      }
+    },
+    {
+      "company": "Vegagerðin",
+      "title": "Gagnasérfræðingur hjá Vegagerðinni",
+      "technologies": {
+        "PostgreSQL": 1,
+        "Python": 1
+      }
+    },
+    {
+      "company": "Arctic Adventures",
+      "title": "Gagnasérfræðingur (Data Engineer / Data Specialist) ",
+      "technologies": {
+        "Python": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Sýn",
+      "title": "Gagnasérfræðingur",
+      "technologies": {
+        "Power BI": 1,
+        "Python": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Advania",
+      "title": "Sérfræðingur í Microsoft lausnum",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Windows": 1,
+        "Azure": 1,
+        "Linux": 1
+      }
+    },
+    {
+      "company": "66°North",
+      "title": "Sérfræðingur í vörustýringu (e. Allocation Specialist) ",
+      "technologies": {
+        "Power BI": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Svarmi",
+      "title": "Full Stack Developer",
+      "technologies": {
+        "Kubernetes": 1,
+        "React": 1,
+        "QA / Testing": 1,
+        "Node.js": 1,
+        "Python": 1,
+        "GitHub": 1,
+        "SQL": 1,
+        "AWS": 1,
+        "Git": 1
+      }
+    },
+    {
+      "company": "Wise lausnir ehf.",
+      "title": "Viltu starfa sem sérfræðingur í skýjalausnum hjá Wise?",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Windows": 1,
+        "DevOps": 1,
+        "Azure": 1
+      }
+    },
+    {
+      "company": "APRÓ",
+      "title": "Hugbúnaðarsérfræðingur – tækifæri til að sérhæfa sig",
+      "technologies": {
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Vettvangur",
+      "title": "Experienced UI/UX designer",
+      "technologies": {
+        "Figma": 1
+      }
+    },
+    {
+      "company": "VAST Data",
+      "title": "Frontend Developer (UI/UX)",
+      "technologies": {
+        "TypeScript": 1,
+        "React": 1
+      }
+    },
+    {
+      "company": "VAST Data",
+      "title": "DevOps Engineer",
+      "technologies": {
+        "Kubernetes": 1,
+        "Docker": 1,
+        "DevOps": 1,
+        "GitHub": 1,
+        "Git": 1
+      }
+    },
+    {
+      "company": "VAST Data",
+      "title": "Backend Developer – Go Expert",
+      "technologies": {
+        "PostgreSQL": 1,
+        "Kubernetes": 1,
+        "Azure": 1,
+        "AWS": 1,
+        "GCP": 1
+      }
+    },
+    {
+      "company": "Ripple",
+      "title": "Software Engineer",
+      "technologies": {
+        "Java": 1
+      }
+    }
   ]
 }
