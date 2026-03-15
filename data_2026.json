@@ -14536,5 +14536,244 @@
         "Git": 1
       }
     }
+  ],
+  "2026-03-15": [
+    {
+      "company": "Hafnarfjarðarbær",
+      "title": "Sumarstarf á fjármálasviði",
+      "technologies": {
+        "Power BI": 1
+      }
+    },
+    {
+      "company": "Too Lost",
+      "title": "Senior Cloud Infrastructure Engineer (AWS + Cloudflare)",
+      "technologies": {
+        "AWS": 1
+      }
+    },
+    {
+      "company": "Too Lost",
+      "title": "Senior Full Stack Developer",
+      "technologies": {
+        "Laravel": 1,
+        "Vue.js": 1,
+        "JavaScript": 1
+      }
+    },
+    {
+      "company": "Kara Connect",
+      "title": "Senior Software Engineer — Full Stack TypeScript",
+      "technologies": {
+        "TypeScript": 1,
+        "Node.js": 1,
+        "QA / Testing": 1,
+        "Python": 1,
+        "Docker": 1,
+        "GitHub": 1,
+        "React": 1,
+        "Flask": 1,
+        "MySQL": 1,
+        "AWS": 1
+      }
+    },
+    {
+      "company": "Total Tempo ehf.",
+      "title": "Full-stack forritari",
+      "technologies": {
+        "TypeScript": 1,
+        "PostgreSQL": 1,
+        "React": 1
+      }
+    },
+    {
+      "company": "InfoMentor ehf",
+      "title": "Full-Stack forritari í menntatækni",
+      "technologies": {
+        "TypeScript": 1,
+        "Python": 1,
+        "React": 1,
+        ".NET": 1,
+        "Java": 1,
+        "Vue.js": 1,
+        "SQL": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "Reykjavíkurborg",
+      "title": "Forritari (e.developer)",
+      "technologies": {
+        "TypeScript": 1,
+        "GitHub": 1,
+        "React": 1,
+        "Azure": 1,
+        ".NET": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "atNorth",
+      "title": "Data Engineer & BI Platform Owner",
+      "technologies": {
+        "Power BI": 1,
+        "DevOps": 1,
+        "Azure": 1,
+        "SQL": 1,
+        "Git": 1
+      }
+    },
+    {
+      "company": "Atmos Cloud",
+      "title": "Kerfisstjóri - Geimfari 2.0",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Windows": 1,
+        "Azure": 1
+      }
+    },
+    {
+      "company": "CCP Games",
+      "title": "Senior UI/UX Designer",
+      "technologies": {
+        "Figma": 1
+      }
+    },
+    {
+      "company": "CCP Games",
+      "title": "Tools Programmer",
+      "technologies": {
+        "JavaScript": 1,
+        "Kubernetes": 1,
+        "PostgreSQL": 1,
+        "Python": 1,
+        "Django": 1,
+        "Docker": 1,
+        "MySQL": 1,
+        "HTML": 1,
+        "CSS": 1
+      }
+    },
+    {
+      "company": "Origo ehf.",
+      "title": "Origo leitar að bakendaforritara",
+      "technologies": {
+        "TypeScript": 1,
+        "Next.js": 1,
+        "Node.js": 1,
+        "DevOps": 1,
+        "GitHub": 1,
+        "React": 1,
+        "Azure": 1,
+        ".NET": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "Veðurstofa Íslands",
+      "title": "Sérfræðingur í Kerfisstjórnun",
+      "technologies": {
+        "Docker": 1,
+        "Linux": 1
+      }
+    },
+    {
+      "company": "Sorgarmiðstöð, félagasamtök",
+      "title": "Verkefnastjóri hjá Sorgarmiðstöð",
+      "technologies": {
+        "Microsoft 365": 1
+      }
+    },
+    {
+      "company": "TACTICA",
+      "title": "Leitum að kerfisstjóra í vef- og hýsingardeild",
+      "technologies": {
+        "MySQL": 1,
+        "Redis": 1,
+        "Linux": 1,
+        "PHP": 1
+      }
+    },
+    {
+      "company": "TACTICA",
+      "title": "Sérfræðingur í upplýsingatækni og kerfisrekstri",
+      "technologies": {
+        "Active Directory": 1,
+        "Microsoft 365": 1,
+        "Windows": 1,
+        "Azure": 1
+      }
+    },
+    {
+      "company": "Fagkaup ehf",
+      "title": "Verkefnastjóri- Gögn & Gervigreind ",
+      "technologies": {
+        "Power BI": 1,
+        "Azure": 1
+      }
+    },
+    {
+      "company": "atNorth",
+      "title": "DevOps & Systems Engineer",
+      "technologies": {
+        "DevOps": 1,
+        "Node.js": 1
+      }
+    },
+    {
+      "company": "Rapyd Europe hf.",
+      "title": "NOC Specialist - Summer Position",
+      "technologies": {
+        "DevOps": 1,
+        "SQL": 1,
+        "AWS": 1
+      }
+    },
+    {
+      "company": "Advania",
+      "title": "Sérfræðingur í Microsoft lausnum",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Windows": 1,
+        "Azure": 1,
+        "Linux": 1
+      }
+    },
+    {
+      "company": "Wise lausnir ehf.",
+      "title": "Viltu starfa sem sérfræðingur í skýjalausnum hjá Wise?",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Windows": 1,
+        "DevOps": 1,
+        "Azure": 1
+      }
+    },
+    {
+      "company": "Vettvangur",
+      "title": "Experienced UI/UX designer",
+      "technologies": {
+        "Figma": 1
+      }
+    },
+    {
+      "company": "VAST Data",
+      "title": "Frontend Developer (UI/UX)",
+      "technologies": {
+        "TypeScript": 1,
+        "React": 1
+      }
+    },
+    {
+      "company": "VAST Data",
+      "title": "DevOps Engineer",
+      "technologies": {
+        "Kubernetes": 1,
+        "Docker": 1,
+        "DevOps": 1,
+        "GitHub": 1,
+        "Git": 1
+      }
+    }
   ]
 }
