@@ -19335,5 +19335,164 @@
         "PHP": 1
       }
     }
+  ],
+  "2026-04-07": [
+    {
+      "company": "Mynstra",
+      "title": "AI-first Hugbúnaðarverkfræðingur",
+      "technologies": {
+        "PostgreSQL": 1,
+        "Next.js": 1,
+        "Python": 1,
+        "JavaScript": 1
+      }
+    },
+    {
+      "company": "Arion banki",
+      "title": "QA Automation Engineer – forritari á upplýsingatæknisviði",
+      "technologies": {
+        "QA / Testing": 1,
+        "SQL": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "Bakkinn vöruhótel",
+      "title": "Sérfræðingur á upplýsingtæknisviði – Vöruhús Bakkans",
+      "technologies": {
+        "Power BI": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Controlant",
+      "title": "ERP Application Support Lead",
+      "technologies": {
+        "QA / Testing": 1,
+        "DevOps": 1,
+        "Azure": 1
+      }
+    },
+    {
+      "company": "CCP Games",
+      "title": "Graphics Programmer",
+      "technologies": {
+        "Python": 1,
+        "C++": 1
+      }
+    },
+    {
+      "company": "Helix Health",
+      "title": "Full stack forritari ",
+      "technologies": {
+        "Angular": 1,
+        ".NET": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "Helix Health",
+      "title": "Framendaforritari",
+      "technologies": {
+        "TypeScript": 1,
+        "React": 1,
+        "HTML": 1,
+        "CSS": 1
+      }
+    },
+    {
+      "company": "Ljósleiðarinn",
+      "title": "Hugbúnaðarsérfræðingur ",
+      "technologies": {
+        "TypeScript": 1,
+        "Kubernetes": 1,
+        "FastAPI": 1,
+        "Python": 1,
+        "Vue.js": 1,
+        "AWS": 1,
+        "Git": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "Tern Systems",
+      "title": "Quality Assurance Lead",
+      "technologies": {
+        "QA / Testing": 1,
+        "DevOps": 1
+      }
+    },
+    {
+      "company": "Umbra - þjónustumiðstöð stjórnarráðsins",
+      "title": "Kerfisstjóri",
+      "technologies": {
+        "Microsoft 365": 1
+      }
+    },
+    {
+      "company": "Matvælastofnun",
+      "title": "Forritari",
+      "technologies": {
+        "PostgreSQL": 1,
+        "Next.js": 1,
+        "React": 1,
+        ".NET": 1,
+        "SQL": 1,
+        "AWS": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "Reykjavíkurborg",
+      "title": "Sumarstarf hjá stafrænni Reykjavík",
+      "technologies": {
+        "Microsoft 365": 1
+      }
+    },
+    {
+      "company": "Gildi ",
+      "title": "Forritari",
+      "technologies": {
+        "JavaScript": 1,
+        "Vue.js": 1,
+        ".NET": 1,
+        "SQL": 1,
+        "Git": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "Tern Systems",
+      "title": "Software Engineer",
+      "technologies": {
+        "C++": 1
+      }
+    },
+    {
+      "company": "Too Lost",
+      "title": "Senior Full Stack Developer",
+      "technologies": {
+        "Laravel": 1,
+        "Vue.js": 1,
+        "JavaScript": 1
+      }
+    },
+    {
+      "company": "CCP Games",
+      "title": "Senior UI/UX Designer",
+      "technologies": {
+        "Figma": 1
+      }
+    },
+    {
+      "company": "TACTICA",
+      "title": "Leitum að kerfisstjóra í vef- og hýsingardeild",
+      "technologies": {
+        "MySQL": 1,
+        "Redis": 1,
+        "Linux": 1,
+        "PHP": 1
+      }
+    }
   ]
 }
