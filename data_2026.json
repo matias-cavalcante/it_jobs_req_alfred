@@ -20009,5 +20009,122 @@
         "Figma": 1
       }
     }
+  ],
+  "2026-04-12": [
+    {
+      "company": "Nox Medical",
+      "title": "Research Intern",
+      "technologies": {
+        "Python": 1,
+        "AWS": 1
+      }
+    },
+    {
+      "company": "Mynstra",
+      "title": "AI-first Hugbúnaðarverkfræðingur",
+      "technologies": {
+        "PostgreSQL": 1,
+        "Next.js": 1,
+        "Python": 1,
+        "JavaScript": 1
+      }
+    },
+    {
+      "company": "Kaptio",
+      "title": "Solution Engineer",
+      "technologies": {
+        "Salesforce": 1
+      }
+    },
+    {
+      "company": "Kaptio",
+      "title": "Senior DevOps Engineer",
+      "technologies": {
+        "PostgreSQL": 1,
+        "Python": 1,
+        "DevOps": 1,
+        "AWS": 1,
+        "GCP": 1
+      }
+    },
+    {
+      "company": "Controlant",
+      "title": "ERP Application Support Lead",
+      "technologies": {
+        "QA / Testing": 1,
+        "DevOps": 1,
+        "Azure": 1
+      }
+    },
+    {
+      "company": "Arion banki",
+      "title": "QA Automation Engineer – forritari á upplýsingatæknisviði",
+      "technologies": {
+        "QA / Testing": 1,
+        "SQL": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "Bakkinn vöruhótel",
+      "title": "Sérfræðingur á upplýsingtæknisviði – Vöruhús Bakkans",
+      "technologies": {
+        "Power BI": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "CCP Games",
+      "title": "Graphics Programmer",
+      "technologies": {
+        "Python": 1,
+        "C++": 1
+      }
+    },
+    {
+      "company": "Ljósleiðarinn",
+      "title": "Hugbúnaðarsérfræðingur ",
+      "technologies": {
+        "TypeScript": 1,
+        "Kubernetes": 1,
+        "FastAPI": 1,
+        "Python": 1,
+        "Vue.js": 1,
+        "AWS": 1,
+        "Git": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "Tern Systems",
+      "title": "Software Quality Assurance Lead",
+      "technologies": {
+        "QA / Testing": 1,
+        "DevOps": 1
+      }
+    },
+    {
+      "company": "Umbra - þjónustumiðstöð stjórnarráðsins",
+      "title": "Kerfisstjóri",
+      "technologies": {
+        "Microsoft 365": 1
+      }
+    },
+    {
+      "company": "Too Lost",
+      "title": "Senior Full Stack Developer",
+      "technologies": {
+        "Laravel": 1,
+        "Vue.js": 1,
+        "JavaScript": 1
+      }
+    },
+    {
+      "company": "CCP Games",
+      "title": "Senior UI/UX Designer",
+      "technologies": {
+        "Figma": 1
+      }
+    }
   ]
 }
