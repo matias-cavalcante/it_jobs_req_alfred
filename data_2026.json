@@ -23840,5 +23840,192 @@
         "AWS": 1
       }
     }
+  ],
+  "2026-05-13": [
+    {
+      "company": "RÚV",
+      "title": "Framendaforritari",
+      "technologies": {
+        "TypeScript": 1,
+        "Next.js": 1,
+        "React": 1,
+        "HTML": 1,
+        "AWS": 1,
+        "CSS": 1
+      }
+    },
+    {
+      "company": "Icelandair",
+      "title": "Tech Lead – Travel",
+      "technologies": {
+        "Next.js": 1,
+        "QA / Testing": 1,
+        "DevOps": 1,
+        "React": 1
+      }
+    },
+    {
+      "company": "Payday ehf.",
+      "title": "Hugbúnaðarsérfræðingur",
+      "technologies": {
+        "GitHub": 1,
+        "Azure": 1,
+        ".NET": 1,
+        "Git": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "atNorth",
+      "title": "Senior Manager of Cyber, Infrastructure, and IT Support",
+      "technologies": {
+        "Azure": 1
+      }
+    },
+    {
+      "company": "KAPP ehf",
+      "title": "Forritari / hugbúnaðarþróunaraðili óskast í spennandi fiskeldis- og tækniverkefni",
+      "technologies": {
+        "PostgreSQL": 1,
+        "Next.js": 1,
+        "Node.js": 1,
+        "Python": 1,
+        "Docker": 1,
+        "React": 1,
+        "Azure": 1,
+        "AWS": 1,
+        "Git": 1
+      }
+    },
+    {
+      "company": "Reykjavíkurborg",
+      "title": "Tæknistjóri hugbúnaðarþróunar",
+      "technologies": {
+        "TypeScript": 1,
+        "React": 1,
+        "Azure": 1,
+        ".NET": 1
+      }
+    },
+    {
+      "company": "Múrbúðin ehf.",
+      "title": "Fjölbreytt skrifstofustarf hjá Múrbúðinni",
+      "technologies": {
+        "Microsoft 365": 1
+      }
+    },
+    {
+      "company": "Bera hf.",
+      "title": "Óskum eftir kerfisstjóra",
+      "technologies": {
+        "Active Directory": 1,
+        "Microsoft 365": 1,
+        "Windows": 1,
+        "Azure": 1
+      }
+    },
+    {
+      "company": "APRÓ",
+      "title": "Sérfræðingur í hugbúnaðarprófunum (QA)",
+      "technologies": {
+        "QA / Testing": 1
+      }
+    },
+    {
+      "company": "Akraneskaupstaður",
+      "title": "Verkefnastjóri í þjónustu- og þróunardeild Akraneskaupstaðar",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Power BI": 1
+      }
+    },
+    {
+      "company": "TimeXtender",
+      "title": "AI-first Full Stack Developer ",
+      "technologies": {
+        "GitHub": 1,
+        ".NET": 1,
+        "SQL": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "Coca-Cola á Íslandi",
+      "title": "Sérfræðingur í upplýsingatækni",
+      "technologies": {
+        "Salesforce": 1
+      }
+    },
+    {
+      "company": "Abler - Sport Matters",
+      "title": "Back End / Fullstack Engineer",
+      "technologies": {
+        "TypeScript": 1,
+        "PostgreSQL": 1,
+        "Node.js": 1,
+        "React": 1,
+        "MySQL": 1,
+        "GCP": 1
+      }
+    },
+    {
+      "company": "Bókun / Tripadvisor",
+      "title": "Back-end Software Engineer",
+      "technologies": {
+        "TypeScript": 1,
+        "Tailwind CSS": 1,
+        "Next.js": 1,
+        "React": 1,
+        "MySQL": 1,
+        "Redis": 1,
+        "Java": 1
+      }
+    },
+    {
+      "company": "Fenris Creations",
+      "title": "Software Engineer",
+      "technologies": {
+        "Python": 1,
+        "C++": 1
+      }
+    },
+    {
+      "company": "Hugvit ",
+      "title": "Web UI Specialist (front-end develpment)",
+      "technologies": {
+        "TypeScript": 1,
+        "Bootstrap": 1,
+        "Angular": 1,
+        "React": 1,
+        "Sass/SCSS": 1,
+        "CSS": 1
+      }
+    },
+    {
+      "company": "Reykjavíkurborg",
+      "title": "Hópstjóri DevOps",
+      "technologies": {
+        "Kubernetes": 1,
+        "DevOps": 1,
+        "Azure": 1
+      }
+    },
+    {
+      "company": "Tern Systems",
+      "title": "Software Quality Assurance Engineer",
+      "technologies": {
+        "QA / Testing": 1,
+        "Python": 1,
+        "Linux": 1,
+        "Bash/Shell": 1
+      }
+    },
+    {
+      "company": "Asana",
+      "title": "Junior Software Engineer",
+      "technologies": {
+        "AWS": 1
+      }
+    }
   ]
 }
