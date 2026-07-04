@@ -33554,5 +33554,130 @@
         "Java": 1
       }
     }
+  ],
+  "2026-07-04": [
+    {
+      "company": "Orkuveitan",
+      "title": "Delivery Lead ",
+      "technologies": {
+        "QA / Testing": 1
+      }
+    },
+    {
+      "company": "66°North",
+      "title": "Verkefnastjóri vörugagna hjá 66°Norður ",
+      "technologies": {
+        "SQL": 1
+      }
+    },
+    {
+      "company": "JBT Marel",
+      "title": " Software Engineer",
+      "technologies": {
+        "JavaScript": 1,
+        "QA / Testing": 1,
+        "Linux": 1,
+        "HTML": 1,
+        "C++": 1
+      }
+    },
+    {
+      "company": "Arion banki",
+      "title": "Sérfræðingur í gervigreindarinnviðum",
+      "technologies": {
+        "Python": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Dineout ehf.",
+      "title": "Dineout leitar að öflugum framendaforritara",
+      "technologies": {
+        "TypeScript": 1,
+        "React": 1
+      }
+    },
+    {
+      "company": "Wise lausnir ehf.",
+      "title": "Viltu starfa sem kerfisstjóri hjá Wise á Akureyri?",
+      "technologies": {
+        "Active Directory": 1,
+        "Microsoft 365": 1,
+        "Windows": 1
+      }
+    },
+    {
+      "company": "Wise lausnir ehf.",
+      "title": "Viltu starfa sem kerfisstjóri hjá Wise?",
+      "technologies": {
+        "Active Directory": 1,
+        "Microsoft 365": 1,
+        "Windows": 1
+      }
+    },
+    {
+      "company": "Atmos Cloud",
+      "title": "Kerfisstjóri með AI-ofurkrafta",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Azure": 1
+      }
+    },
+    {
+      "company": "Auðkenni ehf.",
+      "title": "Kerfisstjóri / IT Administrator",
+      "technologies": {
+        "Windows": 1,
+        "Python": 1,
+        "Docker": 1,
+        "Linux": 1,
+        "Bash/Shell": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Wise lausnir ehf.",
+      "title": "Viltu starfa sem sérfræðingur í skýjalausnum hjá Wise?",
+      "technologies": {
+        "Microsoft 365": 1
+      }
+    },
+    {
+      "company": "Asana",
+      "title": "Backend Software Engineer",
+      "technologies": {
+        "TypeScript": 1,
+        "React": 1
+      }
+    },
+    {
+      "company": "Asana",
+      "title": "Junior Software Engineer",
+      "technologies": {
+        "AWS": 1
+      }
+    },
+    {
+      "company": "beqom",
+      "title": "Senior Front End Engineer",
+      "technologies": {
+        "TypeScript": 1,
+        "Tailwind CSS": 1,
+        "QA / Testing": 1,
+        "React": 1,
+        "Vue.js": 1
+      }
+    },
+    {
+      "company": "beqom",
+      "title": "Senior Back End Engineer",
+      "technologies": {
+        "PostgreSQL": 1,
+        "QA / Testing": 1,
+        "Python": 1,
+        "Django": 1,
+        "Java": 1
+      }
+    }
   ]
 }
