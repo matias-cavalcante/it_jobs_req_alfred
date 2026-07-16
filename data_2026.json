@@ -35187,5 +35187,140 @@
         "Azure": 1
       }
     }
+  ],
+  "2026-07-16": [
+    {
+      "company": "Lagaviti ehf.",
+      "title": "DevOps sérfræðingur / Full Stack forritari",
+      "technologies": {
+        "JavaScript": 1,
+        "TypeScript": 1,
+        "Kubernetes": 1,
+        "Python": 1,
+        "Docker": 1,
+        "DevOps": 1,
+        "GitHub": 1,
+        "Azure": 1,
+        "Linux": 1,
+        "Bash/Shell": 1,
+        "GCP": 1
+      }
+    },
+    {
+      "company": "Lagaviti ehf.",
+      "title": "Gagnasérfræðingur / Data Engineer (gervigreind)",
+      "technologies": {
+        "TypeScript": 1,
+        "Python": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Lagaviti ehf.",
+      "title": "Full Stack / AI forritari",
+      "technologies": {
+        "JavaScript": 1,
+        "TypeScript": 1,
+        "Python": 1,
+        "DevOps": 1,
+        "SQL": 1,
+        "Git": 1
+      }
+    },
+    {
+      "company": "Fenris Creations",
+      "title": "UI/UX Designer",
+      "technologies": {
+        "QA / Testing": 1
+      }
+    },
+    {
+      "company": "Örugg afritun",
+      "title": "Ert þú tæknimaðurinn sem aðrir leita til þegar ekkert virkar? ",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Windows": 1
+      }
+    },
+    {
+      "company": "TACTICA",
+      "title": "TACTICA leitar að tæknimanni",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Windows": 1
+      }
+    },
+    {
+      "company": "Lífeyrissjóður verzlunarmanna",
+      "title": "Verkefnastjóri  ",
+      "technologies": {
+        "Microsoft 365": 1
+      }
+    },
+    {
+      "company": "Öryggismiðstöðin",
+      "title": "Forritari / Sérfræðingur í hússtjórnarkerfum",
+      "technologies": {
+        "Docker": 1,
+        "Git": 1
+      }
+    },
+    {
+      "company": "ODT",
+      "title": "Junior forritari - lausnahönnuður í Liquid og sjálfvirkni reikningsskila ",
+      "technologies": {
+        "Power BI": 1,
+        "HTML": 1,
+        "Git": 1
+      }
+    },
+    {
+      "company": "DTE",
+      "title": "Project Manager - Customer Delivery",
+      "technologies": {
+        "QA / Testing": 1
+      }
+    },
+    {
+      "company": "Orkuveitan",
+      "title": "Delivery Lead ",
+      "technologies": {
+        "QA / Testing": 1
+      }
+    },
+    {
+      "company": "66°North",
+      "title": "Verkefnastjóri vörugagna hjá 66°Norður ",
+      "technologies": {
+        "SQL": 1
+      }
+    },
+    {
+      "company": "JBT Marel",
+      "title": " Software Engineer",
+      "technologies": {
+        "JavaScript": 1,
+        "QA / Testing": 1,
+        "Linux": 1,
+        "HTML": 1,
+        "C++": 1
+      }
+    },
+    {
+      "company": "Arion banki",
+      "title": "Sérfræðingur í gervigreindarinnviðum",
+      "technologies": {
+        "Python": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Atmos Cloud",
+      "title": "Kerfisstjóri með AI-ofurkrafta",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Azure": 1
+      }
+    }
   ]
 }
