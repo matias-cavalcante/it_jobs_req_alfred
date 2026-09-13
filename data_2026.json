@@ -42840,5 +42840,116 @@
         "Linux": 1
       }
     }
+  ],
+  "2026-09-13": [
+    {
+      "company": "Ísprjón ehf",
+      "title": "Grafískur hönnuður – tímabundið starf (50–100%)",
+      "technologies": {
+        "Adobe Illustrator": 1,
+        "Adobe Photoshop": 1
+      }
+    },
+    {
+      "company": "Heilbrigðisráðuneytið",
+      "title": "Starf í þjónustuveri Stafrænnar heilsu",
+      "technologies": {
+        "Microsoft 365": 1
+      }
+    },
+    {
+      "company": "Clinitech",
+      "title": "Clinitech leitar að tæknimanni",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Windows": 1
+      }
+    },
+    {
+      "company": "Asana",
+      "title": "Backend Software Engineer",
+      "technologies": {
+        "TypeScript": 1,
+        "React": 1
+      }
+    },
+    {
+      "company": "Asana",
+      "title": "Senior Backend Software Engineer",
+      "technologies": {
+        "TypeScript": 1,
+        "React": 1
+      }
+    },
+    {
+      "company": "Landsbankinn",
+      "title": "Sérfræðingur í Grunnkerfum",
+      "technologies": {
+        "Kubernetes": 1,
+        "Linux": 1
+      }
+    },
+    {
+      "company": "Úrvinnslusjóður",
+      "title": "Sérfræðingur í gagnavinnslu og sjálfvirknivæðingu",
+      "technologies": {
+        "Power BI": 1,
+        "Python": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Sensa ehf.",
+      "title": "Tæknimaður í net- og öryggislausnum",
+      "technologies": {
+        "Fortinet": 1,
+        "Cisco": 1
+      }
+    },
+    {
+      "company": "Sensa ehf.",
+      "title": "Sérfræðingur í net- og öryggislausnum",
+      "technologies": {
+        "Fortinet": 1,
+        "Cisco": 1
+      }
+    },
+    {
+      "company": "Atmos Cloud",
+      "title": "Kerfisstjóri = Geimfari",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Azure": 1
+      }
+    },
+    {
+      "company": "Sýn",
+      "title": "Gagnasérfræðingur",
+      "technologies": {
+        "Power BI": 1,
+        "Python": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Bókun / Tripadvisor",
+      "title": "Front-end Software Engineer",
+      "technologies": {
+        "TypeScript": 1,
+        "Tailwind CSS": 1,
+        "Next.js": 1,
+        "React": 1,
+        "MySQL": 1,
+        "Redis": 1,
+        "Java": 1
+      }
+    },
+    {
+      "company": "Raförninn",
+      "title": "Ert þú týpan sem elskar að leysa tæknileg vandamál?",
+      "technologies": {
+        "Linux": 1
+      }
+    }
   ]
 }
