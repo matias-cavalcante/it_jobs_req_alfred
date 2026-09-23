@@ -44246,5 +44246,138 @@
         "Azure": 1
       }
     }
+  ],
+  "2026-09-23": [
+    {
+      "company": "Fenris Creations",
+      "title": "Senior QA Analyst",
+      "technologies": {
+        "QA / Testing": 1,
+        "Python": 1
+      }
+    },
+    {
+      "company": "Fenris Creations",
+      "title": "Senior Infrastructure Engineer",
+      "technologies": {
+        "Kubernetes": 1,
+        "Python": 1,
+        "Azure": 1,
+        "Node.js": 1,
+        "Java": 1,
+        "C++": 1,
+        "AWS": 1
+      }
+    },
+    {
+      "company": "TACTICA",
+      "title": "Leitum að kerfisstjóra",
+      "technologies": {
+        "Active Directory": 1,
+        "Microsoft 365": 1,
+        "Windows": 1
+      }
+    },
+    {
+      "company": "VÍS",
+      "title": "Hugbúnaðarsérfræðingur",
+      "technologies": {
+        "TypeScript": 1,
+        "Next.js": 1,
+        "GitHub": 1,
+        "JavaScript": 1
+      }
+    },
+    {
+      "company": "Treble Technologies",
+      "title": "Software Engineer",
+      "technologies": {
+        "TypeScript": 1,
+        "Kubernetes": 1,
+        "QA / Testing": 1,
+        "Python": 1,
+        "Docker": 1,
+        "React": 1,
+        "C++": 1,
+        "SQL": 1,
+        "Git": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "atNorth",
+      "title": "Data Engineer",
+      "technologies": {
+        "Power BI": 1,
+        "Azure": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Heilbrigðisráðuneytið",
+      "title": "Starf í þjónustuveri Stafrænnar heilsu",
+      "technologies": {
+        "Microsoft 365": 1
+      }
+    },
+    {
+      "company": "SnerpaPower",
+      "title": "SnerpaPower - Sérfræðingur í skýjalausnum",
+      "technologies": {
+        "Python": 1,
+        "Django": 1,
+        "AWS": 1,
+        "Git": 1
+      }
+    },
+    {
+      "company": "Advania",
+      "title": "Microsoft sérfræðingur",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Windows": 1
+      }
+    },
+    {
+      "company": "Lagerinn Iceland ehf.",
+      "title": "Sérfræðingur í upplýsingatækni",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Windows": 1,
+        "Active Directory": 1
+      }
+    },
+    {
+      "company": "Clinitech",
+      "title": "Clinitech leitar að tæknimanni",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Windows": 1
+      }
+    },
+    {
+      "company": "Asana",
+      "title": "Backend Software Engineer",
+      "technologies": {
+        "TypeScript": 1,
+        "React": 1
+      }
+    },
+    {
+      "company": "Asana",
+      "title": "Senior Backend Software Engineer",
+      "technologies": {
+        "TypeScript": 1,
+        "React": 1
+      }
+    },
+    {
+      "company": "Atmos Cloud",
+      "title": "Kerfisstjóri = Geimfari",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Azure": 1
+      }
+    }
   ]
 }
