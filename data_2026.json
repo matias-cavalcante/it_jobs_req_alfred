@@ -46579,5 +46579,284 @@
         "Azure": 1
       }
     }
+  ],
+  "2026-10-08": [
+    {
+      "company": "KPMG á Íslandi",
+      "title": "Microsoft ráðgjafi",
+      "technologies": {
+        "Microsoft 365": 1
+      }
+    },
+    {
+      "company": "Alvotech hf",
+      "title": "CapEx PMO Systems Specialist",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Power BI": 1
+      }
+    },
+    {
+      "company": "Wise lausnir ehf.",
+      "title": "Business Central forritari",
+      "technologies": {
+        "Git": 1
+      }
+    },
+    {
+      "company": "Embla Medical | Össur",
+      "title": "Software Developer | Embla Medical  ",
+      "technologies": {
+        "Azure": 1,
+        "SQL": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "Lagaviti ehf.",
+      "title": "Senior Full Stack / AI forritari",
+      "technologies": {
+        "JavaScript": 1,
+        "TypeScript": 1,
+        "Python": 1,
+        "DevOps": 1,
+        "SQL": 1,
+        "Git": 1
+      }
+    },
+    {
+      "company": "Lagaviti ehf.",
+      "title": "Full Stack / AI forritari",
+      "technologies": {
+        "JavaScript": 1,
+        "TypeScript": 1,
+        "Python": 1,
+        "DevOps": 1,
+        "SQL": 1,
+        "Git": 1
+      }
+    },
+    {
+      "company": "OK",
+      "title": "Tæknifólk í Framlínuþjónustu",
+      "technologies": {
+        "Microsoft 365": 1
+      }
+    },
+    {
+      "company": "1984 ehf",
+      "title": "Senior Network Engineer – Datacenter & Cloud Networking",
+      "technologies": {
+        "Kubernetes": 1,
+        "Python": 1,
+        "Linux": 1,
+        "Bash/Shell": 1,
+        "Cisco": 1
+      }
+    },
+    {
+      "company": "1984 ehf",
+      "title": "Senior Linux Systems Engineer",
+      "technologies": {
+        "PostgreSQL": 1,
+        "Kubernetes": 1,
+        "Python": 1,
+        "MySQL": 1,
+        "Linux": 1,
+        "Bash/Shell": 1,
+        "PHP": 1,
+        "Git": 1
+      }
+    },
+    {
+      "company": "1984 ehf",
+      "title": "Senior Storage Engineer – Ceph / Distributed Storage",
+      "technologies": {
+        "Kubernetes": 1,
+        "QA / Testing": 1,
+        "Python": 1,
+        "Linux": 1,
+        "Bash/Shell": 1,
+        "Node.js": 1
+      }
+    },
+    {
+      "company": "Hafnarfjarðarbær",
+      "title": "Kerfisstjóri",
+      "technologies": {
+        "Active Directory": 1,
+        "Microsoft 365": 1,
+        "Azure": 1
+      }
+    },
+    {
+      "company": "Fagkaup ehf",
+      "title": "Verkefnastjóri- Gögn & Gervigreind ",
+      "technologies": {
+        "Power BI": 1,
+        "Python": 1,
+        "Azure": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "50skills",
+      "title": "AI Engineer",
+      "technologies": {
+        "TypeScript": 1,
+        "Python": 1,
+        "Django": 1,
+        "React": 1
+      }
+    },
+    {
+      "company": "Fenris Creations",
+      "title": "Graphics Programmer",
+      "technologies": {
+        "Python": 1,
+        "C++": 1
+      }
+    },
+    {
+      "company": "Göng og brú",
+      "title": "Göng og brú leitar að Lausnahönnuði",
+      "technologies": {
+        "Azure": 1
+      }
+    },
+    {
+      "company": "Samherji fiskeldi ehf.",
+      "title": "Sérfræðingur í upplýsingatækni – Samherji Fiskeldi",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Windows": 1
+      }
+    },
+    {
+      "company": "Alfreð",
+      "title": "Hugbúnaðarsérfræðingur í gögnum og gervigreind",
+      "technologies": {
+        "SQL": 1,
+        "AWS": 1
+      }
+    },
+    {
+      "company": "Aveo ehf.",
+      "title": "Senior Software Engineer, Simulation Platform",
+      "technologies": {
+        "TypeScript": 1,
+        "Node.js": 1,
+        "Python": 1,
+        "React": 1,
+        "C++": 1
+      }
+    },
+    {
+      "company": "Dómstólasýslan",
+      "title": "Sérfræðingur í gagna- og upplýsingastjórnun",
+      "technologies": {
+        "Power BI": 1,
+        "Azure": 1
+      }
+    },
+    {
+      "company": "Almenningssamgöngur höfuðborgarsvæðisins ohf.",
+      "title": "Gagnaforritari",
+      "technologies": {
+        "Power BI": 1,
+        "Python": 1,
+        "GitHub": 1,
+        "Azure": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Aveo ehf.",
+      "title": "Technical Artist (Mid-level/Senior), Unreal Engine 5",
+      "technologies": {
+        "Python": 1,
+        "C++": 1,
+        "Git": 1
+      }
+    },
+    {
+      "company": "Skývafnir",
+      "title": "Infrastructure Engineer",
+      "technologies": {
+        "Kubernetes": 1,
+        "DevOps": 1,
+        "GitHub": 1,
+        "Azure": 1,
+        "AWS": 1
+      }
+    },
+    {
+      "company": "Alvotech hf",
+      "title": "Quality eSystem Specialist",
+      "technologies": {
+        "QA / Testing": 1
+      }
+    },
+    {
+      "company": "Fenris Creations",
+      "title": "Senior Infrastructure Engineer",
+      "technologies": {
+        "Kubernetes": 1,
+        "Python": 1,
+        "Azure": 1,
+        "Node.js": 1,
+        "Java": 1,
+        "C++": 1,
+        "AWS": 1
+      }
+    },
+    {
+      "company": "SnerpaPower",
+      "title": "Sérfræðingur í hugbúnaðarprófunum (Quality Engineer)",
+      "technologies": {
+        "Git": 1
+      }
+    },
+    {
+      "company": "Fenris Creations",
+      "title": "Senior QA Analyst",
+      "technologies": {
+        "QA / Testing": 1,
+        "Python": 1
+      }
+    },
+    {
+      "company": "TACTICA",
+      "title": "Leitum að kerfisstjóra",
+      "technologies": {
+        "Active Directory": 1,
+        "Microsoft 365": 1,
+        "Windows": 1
+      }
+    },
+    {
+      "company": "Asana",
+      "title": "Backend Software Engineer",
+      "technologies": {
+        "TypeScript": 1,
+        "React": 1
+      }
+    },
+    {
+      "company": "Asana",
+      "title": "Senior Backend Software Engineer",
+      "technologies": {
+        "TypeScript": 1,
+        "React": 1
+      }
+    },
+    {
+      "company": "Atmos Cloud",
+      "title": "Kerfisstjóri = Geimfari",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Azure": 1
+      }
+    }
   ]
 }
