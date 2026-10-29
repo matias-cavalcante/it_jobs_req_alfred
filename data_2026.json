@@ -51908,5 +51908,264 @@
         "Azure": 1
       }
     }
+  ],
+  "2026-10-29": [
+    {
+      "company": "Wise lausnir ehf.",
+      "title": "Kerfisstjóri í notenda- og útstöðvaþjónustu ",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Windows": 1
+      }
+    },
+    {
+      "company": "Fjársýslan",
+      "title": "Sérfræðingur í þróun gagnalíkana og greiningu gagna",
+      "technologies": {
+        "Power BI": 1,
+        "Azure": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Fjársýslan",
+      "title": "Viltu byggja AI-agenta sem fara í raunverulega notkun?",
+      "technologies": {
+        "Microsoft 365": 1,
+        "TypeScript": 1,
+        "Azure": 1,
+        ".NET": 1,
+        "SQL": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "Fenris Creations",
+      "title": "Engineering Manager",
+      "technologies": {
+        "Windows": 1,
+        "QA / Testing": 1,
+        "Python": 1,
+        "Go": 1,
+        "Cisco": 1,
+        "AWS": 1
+      }
+    },
+    {
+      "company": "Skrifstofa Alþingis",
+      "title": "Laust starf net- og kerfisstjóra á skrifstofu Alþingis",
+      "technologies": {
+        "Linux": 1
+      }
+    },
+    {
+      "company": "Myllan",
+      "title": "Við leitum að kerfisstjóra!",
+      "technologies": {
+        "Active Directory": 1,
+        "Microsoft 365": 1,
+        "Windows": 1,
+        "Linux": 1,
+        "Cisco": 1
+      }
+    },
+    {
+      "company": "Sensa ehf.",
+      "title": "Ert þú næsta tækniborðshetja Sensa?",
+      "technologies": {
+        "Microsoft 365": 1
+      }
+    },
+    {
+      "company": "Sensa ehf.",
+      "title": "Sérfræðingur í Microsoft 365 skýjalausnum",
+      "technologies": {
+        "Microsoft 365": 1
+      }
+    },
+    {
+      "company": "Rótgróið upplýsingatæknifyrirtæki",
+      "title": "Tæknimanneskja óskast",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Windows": 1
+      }
+    },
+    {
+      "company": "Alvotech hf",
+      "title": "Power Platform & AI Developer",
+      "technologies": {
+        "Power BI": 1,
+        "DevOps": 1,
+        "Azure": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Alvotech hf",
+      "title": "SAP Functional Analyst – Manufacturing, Quality & PP/DS",
+      "technologies": {
+        "QA / Testing": 1
+      }
+    },
+    {
+      "company": "Heilsugæsla Höfuðborgarsvæðisins",
+      "title": "Sérfræðingur notendaaðstoð - deild rafrænnar þjónustu HH",
+      "technologies": {
+        "Linux": 1
+      }
+    },
+    {
+      "company": "VHE",
+      "title": "Tæknimaður á upplýsingatæknisvið",
+      "technologies": {
+        "Active Directory": 1,
+        "Microsoft 365": 1,
+        "Laravel": 1,
+        "Windows": 1,
+        "Azure": 1,
+        "Linux": 1,
+        "PHP": 1
+      }
+    },
+    {
+      "company": "Icelandair",
+      "title": "Notendaþjónusta - Internal support",
+      "technologies": {
+        "Active Directory": 1,
+        "Microsoft 365": 1
+      }
+    },
+    {
+      "company": "Alda Öryggi ehf.",
+      "title": "Taktu forystu í kerfinu sem bjargar mannslífum!   ",
+      "technologies": {
+        "TypeScript": 1,
+        "Node.js": 1,
+        "React": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Advania",
+      "title": "Sérfræðingur í netkerfum",
+      "technologies": {
+        "Fortinet": 1,
+        "Azure": 1,
+        "Cisco": 1,
+        "AWS": 1
+      }
+    },
+    {
+      "company": "Bókun / Tripadvisor",
+      "title": "Junior Software Engineer",
+      "technologies": {
+        "TypeScript": 1,
+        "Tailwind CSS": 1,
+        "Next.js": 1,
+        "React": 1,
+        "MySQL": 1,
+        "Redis": 1,
+        "Java": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Bókun / Tripadvisor",
+      "title": "Back-end Software Engineer",
+      "technologies": {
+        "TypeScript": 1,
+        "Tailwind CSS": 1,
+        "Next.js": 1,
+        "React": 1,
+        "MySQL": 1,
+        "Redis": 1,
+        "Java": 1
+      }
+    },
+    {
+      "company": "Bókun / Tripadvisor",
+      "title": "Front-end Software Engineer",
+      "technologies": {
+        "TypeScript": 1,
+        "Tailwind CSS": 1,
+        "Next.js": 1,
+        "React": 1,
+        "MySQL": 1,
+        "Redis": 1,
+        "Java": 1
+      }
+    },
+    {
+      "company": "Alvotech hf",
+      "title": "CapEx PMO Systems Specialist",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Power BI": 1
+      }
+    },
+    {
+      "company": "Wise lausnir ehf.",
+      "title": "Business Central forritari",
+      "technologies": {
+        "Git": 1
+      }
+    },
+    {
+      "company": "1984 ehf",
+      "title": "Senior Network Engineer – Datacenter & Cloud Networking",
+      "technologies": {
+        "Kubernetes": 1,
+        "Python": 1,
+        "Linux": 1,
+        "Bash/Shell": 1,
+        "Cisco": 1
+      }
+    },
+    {
+      "company": "1984 ehf",
+      "title": "Senior Linux Systems Engineer",
+      "technologies": {
+        "PostgreSQL": 1,
+        "Kubernetes": 1,
+        "Python": 1,
+        "MySQL": 1,
+        "Linux": 1,
+        "Bash/Shell": 1,
+        "PHP": 1,
+        "Git": 1
+      }
+    },
+    {
+      "company": "1984 ehf",
+      "title": "Senior Storage Engineer – Ceph / Distributed Storage",
+      "technologies": {
+        "Kubernetes": 1,
+        "QA / Testing": 1,
+        "Python": 1,
+        "Linux": 1,
+        "Bash/Shell": 1,
+        "Node.js": 1
+      }
+    },
+    {
+      "company": "Aveo ehf.",
+      "title": "Senior Software Engineer, Simulation Platform",
+      "technologies": {
+        "TypeScript": 1,
+        "Node.js": 1,
+        "Python": 1,
+        "React": 1,
+        "C++": 1
+      }
+    },
+    {
+      "company": "Dómstólasýslan",
+      "title": "Sérfræðingur í gagna- og upplýsingastjórnun",
+      "technologies": {
+        "Power BI": 1,
+        "Azure": 1
+      }
+    }
   ]
 }
