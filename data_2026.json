@@ -56746,5 +56746,250 @@
         "Java": 1
       }
     }
+  ],
+  "2026-11-21": [
+    {
+      "company": "Origo ehf.",
+      "title": "Kerfisstjóri í rekstrarþjónustu á Norðurlandi",
+      "technologies": {
+        "Active Directory": 1,
+        "Microsoft 365": 1,
+        "Fortinet": 1,
+        "Windows": 1,
+        "Azure": 1,
+        "Linux": 1
+      }
+    },
+    {
+      "company": "Origo ehf.",
+      "title": "Netsérfræðingur",
+      "technologies": {
+        "Fortinet": 1,
+        "Azure": 1,
+        "Cisco": 1
+      }
+    },
+    {
+      "company": "dk hugbúnaður ehf. ",
+      "title": "DevOps sérfræðingur í hýsingarteymi",
+      "technologies": {
+        "Kubernetes": 1,
+        "Docker": 1,
+        "DevOps": 1
+      }
+    },
+    {
+      "company": "Orkan",
+      "title": "Öflugur liðsfélagi í UT teymi Orkunnar",
+      "technologies": {
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Origo ehf.",
+      "title": "Kerfisstjóri í rekstrarþjónustu",
+      "technologies": {
+        "Active Directory": 1,
+        "Microsoft 365": 1,
+        "Windows": 1,
+        "Azure": 1,
+        "Linux": 1
+      }
+    },
+    {
+      "company": "Advania",
+      "title": "Sérfræðingur í notenda- og útstöðvaþjónustu á Sauðárkróki",
+      "technologies": {
+        "Active Directory": 1,
+        "Microsoft 365": 1,
+        "Windows": 1
+      }
+    },
+    {
+      "company": "Advania",
+      "title": "Sérfræðingur í notenda- og útstöðvarþjónustu á Vestfjörðum",
+      "technologies": {
+        "Active Directory": 1,
+        "Microsoft 365": 1,
+        "Windows": 1
+      }
+    },
+    {
+      "company": "Pollard Digital Solutions",
+      "title": "Data Platform Product Manager",
+      "technologies": {
+        "JavaScript": 1,
+        "Python": 1
+      }
+    },
+    {
+      "company": "Fenris Creations",
+      "title": "Senior Software Engineer",
+      "technologies": {
+        "TypeScript": 1,
+        "Kubernetes": 1,
+        "Python": 1,
+        "Azure": 1,
+        "Node.js": 1,
+        "Java": 1,
+        "C++": 1,
+        "AWS": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "Asana",
+      "title": "Staff Software Engineer, Query and Access Control",
+      "technologies": {
+        "Kubernetes": 1
+      }
+    },
+    {
+      "company": "Keflavíkurflugvöllur | Isavia",
+      "title": "Hugbúnaðarsérfræðingur ",
+      "technologies": {
+        "GitHub": 1,
+        "Azure": 1
+      }
+    },
+    {
+      "company": "Motus",
+      "title": "DevOps sérfræðingur / Senior DevOps Engineer",
+      "technologies": {
+        "Kubernetes": 1,
+        "Python": 1,
+        "Docker": 1,
+        "DevOps": 1,
+        "GitHub": 1,
+        "React": 1,
+        "Azure": 1,
+        ".NET": 1,
+        "SQL": 1,
+        "C#": 1
+      }
+    },
+    {
+      "company": "Origo ehf.",
+      "title": "QA Lead",
+      "technologies": {
+        "QA / Testing": 1
+      }
+    },
+    {
+      "company": "atNorth",
+      "title": "Technical Scrum Master/Project Manager",
+      "technologies": {
+        "DevOps": 1
+      }
+    },
+    {
+      "company": "Ljósleiðarinn",
+      "title": "Gagnasérfræðingur - Gögn og gervigreind",
+      "technologies": {
+        "Power BI": 1,
+        "Python": 1,
+        "Azure": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Asana",
+      "title": "Backend Software Engineer",
+      "technologies": {
+        "TypeScript": 1,
+        "React": 1
+      }
+    },
+    {
+      "company": "Júní",
+      "title": "Stafrænn hönnuður hjá Júní",
+      "technologies": {
+        "Figma": 1
+      }
+    },
+    {
+      "company": "Alvotech hf",
+      "title": "Infrastructure and Network Engineer",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Windows": 1,
+        "Azure": 1
+      }
+    },
+    {
+      "company": "Tölvuaðstoð ehf.",
+      "title": "Notendaþjónusta og kerfisrekstur",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Windows": 1
+      }
+    },
+    {
+      "company": "Asana",
+      "title": "Senior Backend Software Engineer",
+      "technologies": {
+        "TypeScript": 1,
+        "React": 1
+      }
+    },
+    {
+      "company": "Skræða ehf",
+      "title": "Hugbúnaðarsérfræðingur",
+      "technologies": {
+        "Active Directory": 1,
+        "Microsoft 365": 1,
+        "Windows": 1,
+        "Linux": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Wise lausnir ehf.",
+      "title": "Kerfisstjóri í notenda- og útstöðvaþjónustu ",
+      "technologies": {
+        "Microsoft 365": 1,
+        "Windows": 1
+      }
+    },
+    {
+      "company": "Bókun / Tripadvisor",
+      "title": "Junior Software Engineer",
+      "technologies": {
+        "TypeScript": 1,
+        "Tailwind CSS": 1,
+        "Next.js": 1,
+        "React": 1,
+        "MySQL": 1,
+        "Redis": 1,
+        "Java": 1,
+        "SQL": 1
+      }
+    },
+    {
+      "company": "Bókun / Tripadvisor",
+      "title": "Back-end Software Engineer",
+      "technologies": {
+        "TypeScript": 1,
+        "Tailwind CSS": 1,
+        "Next.js": 1,
+        "React": 1,
+        "MySQL": 1,
+        "Redis": 1,
+        "Java": 1
+      }
+    },
+    {
+      "company": "Bókun / Tripadvisor",
+      "title": "Front-end Software Engineer",
+      "technologies": {
+        "TypeScript": 1,
+        "Tailwind CSS": 1,
+        "Next.js": 1,
+        "React": 1,
+        "MySQL": 1,
+        "Redis": 1,
+        "Java": 1
+      }
+    }
   ]
 }
